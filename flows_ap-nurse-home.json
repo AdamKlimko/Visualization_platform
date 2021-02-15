@@ -14,17 +14,10 @@
         "info": ""
     },
     {
-        "id": "c61f879b.76b5c8",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": true,
-        "info": ""
-    },
-    {
         "id": "dc58eb55.785f98",
         "type": "tab",
         "label": "Flow 2",
-        "disabled": true,
+        "disabled": false,
         "info": ""
     },
     {
@@ -955,88 +948,6 @@
         "wires": []
     },
     {
-        "id": "4f95e4e4.9f117c",
-        "type": "users_isloggedin",
-        "z": "c61f879b.76b5c8",
-        "name": "",
-        "enableCustomHandler": true,
-        "outputs": 2,
-        "x": 410,
-        "y": 420,
-        "wires": [
-            [
-                "4c9941cd.bf4e8"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7d523ca7.a34d34",
-        "type": "http in",
-        "z": "c61f879b.76b5c8",
-        "name": "",
-        "url": "/ui",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 210,
-        "y": 420,
-        "wires": [
-            [
-                "4f95e4e4.9f117c"
-            ]
-        ]
-    },
-    {
-        "id": "4c9941cd.bf4e8",
-        "type": "template",
-        "z": "c61f879b.76b5c8",
-        "name": "for allowed users only",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "<html>\n    <head>\n        <title>Node users demo</title>\n        <style>\n            * {\n                color: #fff;\n            }\n            h1 {\n                font-size: 120px;\n                color: #fff;\n                padding: 20px;\n            }\n        </style>\n    </head>\n    <body style=\"text-align: center; background: #010203;\">\n        <h1>LOGIN SUCCESS !!!</h1>\n        <h2>User: {{payload.user.username}}</h2>\n        <h2>Scope: {{payload.user.scope}}</h2>\n    </body>\n</html>",
-        "x": 660,
-        "y": 340,
-        "wires": [
-            [
-                "e7ee32de.e59ba"
-            ]
-        ]
-    },
-    {
-        "id": "e7ee32de.e59ba",
-        "type": "http response",
-        "z": "c61f879b.76b5c8",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 850,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "52016b84.a44eb4",
-        "type": "comment",
-        "z": "c61f879b.76b5c8",
-        "name": "User unauthorized, show login page",
-        "info": "",
-        "x": 700,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "55163d9d.7f8e94",
-        "type": "comment",
-        "z": "c61f879b.76b5c8",
-        "name": "User authorized, allow through",
-        "info": "",
-        "x": 660,
-        "y": 300,
-        "wires": []
-    },
-    {
         "id": "73ec7b9.576d484",
         "type": "ui_toast",
         "z": "4fd2e6c4.650f68",
@@ -1118,28 +1029,6 @@
         "x": 1270,
         "y": 380,
         "wires": []
-    },
-    {
-        "id": "ba6e5f62.f40f4",
-        "type": "uibuilder",
-        "z": "c61f879b.76b5c8",
-        "name": "",
-        "topic": "",
-        "url": "uibuilder",
-        "fwdInMessages": false,
-        "allowScripts": false,
-        "allowStyles": false,
-        "copyIndex": true,
-        "showfolder": false,
-        "useSecurity": false,
-        "sessionLength": 432000,
-        "tokenAutoExtend": false,
-        "x": 620,
-        "y": 600,
-        "wires": [
-            [],
-            []
-        ]
     },
     {
         "id": "3a85e836.06b698",
