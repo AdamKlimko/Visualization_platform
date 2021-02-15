@@ -1,1 +1,1334 @@
-[{"id":"4fd2e6c4.650f68","type":"tab","label":"Main(GaSens)","disabled":false,"info":""},{"id":"e2b7cf86.73752","type":"tab","label":"Map","disabled":false,"info":""},{"id":"16e8482f.719b98","type":"ui_tab","name":"GaSens","icon":"fa-user-circle","order":2,"disabled":false,"hidden":false},{"id":"4ede8f17.e6b2e","type":"ui_base","theme":{"name":"theme-light","lightTheme":{"default":"#0094CE","baseColor":"#0094CE","baseFont":"Verdana,Verdana,Geneva,sans-serif","edited":true,"reset":false},"darkTheme":{"default":"#097479","baseColor":"#097479","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif","edited":false},"customTheme":{"name":"Untitled Theme 1","default":"#4B7930","baseColor":"#4B7930","baseFont":"-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"},"themeState":{"base-color":{"default":"#0094CE","value":"#0094CE","edited":false},"page-titlebar-backgroundColor":{"value":"#0094CE","edited":false},"page-backgroundColor":{"value":"#fafafa","edited":false},"page-sidebar-backgroundColor":{"value":"#ffffff","edited":false},"group-textColor":{"value":"#1bbfff","edited":false},"group-borderColor":{"value":"#ffffff","edited":false},"group-backgroundColor":{"value":"#ffffff","edited":false},"widget-textColor":{"value":"#111111","edited":false},"widget-backgroundColor":{"value":"#0094ce","edited":false},"widget-borderColor":{"value":"#ffffff","edited":false},"base-font":{"value":"Verdana,Verdana,Geneva,sans-serif"}},"angularTheme":{"primary":"amber","accents":"red","warn":"red","background":"grey"}},"site":{"name":"AP-Home","hideToolbar":"false","allowSwipe":"false","lockMenu":"false","allowTempTheme":"none","dateFormat":"DD/MM/YYYY","sizes":{"sx":150,"sy":150,"gx":6,"gy":6,"cx":6,"cy":6,"px":0,"py":0}}},{"id":"ca8a4b78.39eaa8","type":"ui_group","name":"AP-HOME","tab":"16e8482f.719b98","order":1,"disp":true,"width":"6","collapse":false},{"id":"94c9239b.5c666","type":"mqtt-broker","name":"","broker":"hairdresser.cloudmqtt.com","port":"25522","tls":"","clientid":"","usetls":true,"compatmode":false,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQos":"0","willPayload":""},{"id":"a670c5f7.4b8568","type":"ui_tab","name":"Lucia Snyder","icon":"fa-user-circle","order":3,"disabled":false,"hidden":false},{"id":"3bffbdfb.93cdb2","type":"ui_tab","name":"Arslan Osborne","icon":"fa-user-circle","order":4,"disabled":false,"hidden":false},{"id":"5b7cad8e.8bb9e4","type":"ui_tab","name":"Mapa","icon":"map","order":1,"disabled":false,"hidden":false},{"id":"6a41a25b.85399c","type":"ui_group","name":"Group 1","tab":"a670c5f7.4b8568","order":1,"disp":true,"width":6},{"id":"7c1b0b41.1674b4","type":"ui_group","name":"Group 1","tab":"3bffbdfb.93cdb2","order":1,"disp":true,"width":6},{"id":"91e4330f.eb3e1","type":"ui_group","name":"Všeobecný prehľad","tab":"5b7cad8e.8bb9e4","order":1,"disp":true,"width":"6","collapse":false},{"id":"e322de59.93f1b","type":"ui_spacer","name":"spacer","group":"7c1b0b41.1674b4","order":1,"width":1,"height":1},{"id":"97a8a5e6.2f2128","type":"ui_spacer","name":"spacer","group":"6a41a25b.85399c","order":1,"width":1,"height":1},{"id":"5ed4d8a8.d5b888","type":"ui_tab","name":"Paige Mcbride","icon":"fa-user-circle","order":5,"disabled":false,"hidden":false},{"id":"57fc6dc9.905b54","type":"ui_group","name":"Group 1","tab":"5ed4d8a8.d5b888","order":1,"disp":true,"width":6},{"id":"5d61aba3.695014","type":"ui_spacer","name":"spacer","group":"57fc6dc9.905b54","order":1,"width":1,"height":1},{"id":"fd18e2a8.95be5","type":"mqtt in","z":"4fd2e6c4.650f68","name":"","topic":"temperature_exterior","qos":"2","datatype":"auto","broker":"94c9239b.5c666","x":350,"y":180,"wires":[["6d74a2d5.f94e5c","5b6cc959.995328","4fecd245.672b4c"]]},{"id":"6d74a2d5.f94e5c","type":"ui_gauge","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":1,"width":"2","height":"2","gtype":"gage","title":"Temperature","label":"Celsius","format":"{{value}}°C","min":"-20","max":"50","colors":["#6b84ff","#fff99e","#ffa200"],"seg1":"5","seg2":"20","x":670,"y":200,"wires":[]},{"id":"5b6cc959.995328","type":"ui_chart","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":2,"width":"4","height":"2","label":"Temperature","chartType":"line","legend":"false","xformat":"dd HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"-20","ymax":"40","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#ff2e43","#aec7e8","#ff7700","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"x":670,"y":160,"wires":[[]]},{"id":"d25102e4.a646f","type":"ui_chart","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":4,"width":"4","height":"2","label":"Resistance","chartType":"line","legend":"false","xformat":"dd HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"0","ymax":"200","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#ff2e43","#aec7e8","#ff7700","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"x":670,"y":260,"wires":[[]]},{"id":"e7a88837.9461d8","type":"mqtt in","z":"4fd2e6c4.650f68","name":"","topic":"resistance_exterior","qos":"2","datatype":"auto","broker":"94c9239b.5c666","x":350,"y":280,"wires":[["d25102e4.a646f","cc366add.3f6fd8","4fecd245.672b4c"]]},{"id":"b6de5f44.2c4f7","type":"ui_chart","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":6,"width":"4","height":"2","label":"Humidity","chartType":"line","legend":"false","xformat":"dd HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"0","ymax":"100","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#ff2e43","#aec7e8","#ff7700","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"x":660,"y":360,"wires":[[]]},{"id":"7ec750d6.beb5","type":"mqtt in","z":"4fd2e6c4.650f68","name":"","topic":"humidity_exterior","qos":"2","datatype":"auto","broker":"94c9239b.5c666","x":340,"y":380,"wires":[["b6de5f44.2c4f7","e86741d1.3758","4fecd245.672b4c"]]},{"id":"bfa108ef.b125c8","type":"ui_chart","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":8,"width":"4","height":"2","label":"Pressure","chartType":"line","legend":"false","xformat":"dd HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"","ymax":"","removeOlder":"12","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"useUTC":false,"colors":["#ff2e43","#aec7e8","#ff7700","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"outputs":1,"x":660,"y":460,"wires":[[]]},{"id":"8cfad94.4a5ab28","type":"mqtt in","z":"4fd2e6c4.650f68","name":"","topic":"pressure_exterior","qos":"2","datatype":"auto","broker":"94c9239b.5c666","x":340,"y":480,"wires":[["bfa108ef.b125c8","972263c.d2562a","4fecd245.672b4c"]]},{"id":"cc366add.3f6fd8","type":"ui_gauge","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":3,"width":"2","height":"2","gtype":"gage","title":"Resistance","label":"Ohm","format":"{{value}}kOhm","min":0,"max":"200","colors":["#ffffff","#e6e600","#ca3838"],"seg1":"","seg2":"","x":670,"y":300,"wires":[]},{"id":"e86741d1.3758","type":"ui_gauge","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":5,"width":"2","height":"2","gtype":"gage","title":"Humidity","label":"Percent","format":"{{value}}%","min":0,"max":"100","colors":["#ffffff","#e6e600","#ca3838"],"seg1":"","seg2":"","x":660,"y":400,"wires":[]},{"id":"972263c.d2562a","type":"ui_gauge","z":"4fd2e6c4.650f68","name":"","group":"ca8a4b78.39eaa8","order":7,"width":"2","height":"2","gtype":"gage","title":"Pressure","label":"Pascal","format":"{{value}}hPa","min":"950","max":"1100","colors":["#ffffff","#e6e600","#ca3838"],"seg1":"","seg2":"","x":660,"y":500,"wires":[]},{"id":"76cc2fe5.6d81c","type":"function","z":"4fd2e6c4.650f68","name":"","func":"const conf = {\n    \"name\": \"GaSens\",\n    \"lat\": 48.15,\n    \"lon\": 17.11,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: ${msg.payload.temperature_exterior}°C</h4>\n        <h4>VOC Odpor: ${msg.payload.resistance_exterior}kOhm</h4>\n        <h4>Vlhosť vzduchu: ${msg.payload.humidity_exterior}%</h4>\n        <h4>Tlak: ${msg.payload.pressure_exterior}hPa</h4>\n    `\n};\n\nObject.assign(msg.payload,conf);\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":740,"y":600,"wires":[["e8f55a0c.f3d058"]]},{"id":"4fecd245.672b4c","type":"join","z":"4fd2e6c4.650f68","name":"","mode":"custom","build":"object","property":"payload","propertyType":"msg","key":"topic","joiner":"\\n","joinerType":"str","accumulate":false,"timeout":"","count":"4","reduceRight":false,"reduceExp":"","reduceInit":"","reduceInitType":"","reduceFixup":"","x":570,"y":600,"wires":[["76cc2fe5.6d81c","b4c93e5a.cf36c"]]},{"id":"e8f55a0c.f3d058","type":"change","z":"4fd2e6c4.650f68","name":"","rules":[{"t":"set","p":"mapData","pt":"global","to":"payload","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":950,"y":600,"wires":[[]]},{"id":"1a647dc3.b610e2","type":"function","z":"e2b7cf86.73752","name":"demo","func":"msg.payload =\n[\n    {\n    \"name\": \"Lucia Snyder\",\n    \"lat\": 48.19284151166349,\n    \"lon\": 17.031850003214494,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `\n    },\n    {\n    \"name\": \"Arslan Osborne\",\n    \"lat\": 48.213141392539974,\n    \"lon\": 17.15728965991068,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `\n    },\n    {\n    \"name\": \"Paige Mcbride\",\n    \"lat\": 48.28287296232232,\n    \"lon\": 17.252389110709803,\n    \"iconColor\": \"#f2e82e\",\n    \"popup\": \n    `\n        <h4>Stav: Neobvyklé</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `  \n    }\n]\n\nreturn msg;\n","outputs":1,"noerr":0,"initialize":"","finalize":"","x":630,"y":260,"wires":[["1a7e91b4.9a347e"]]},{"id":"c17ddc66.cdcf6","type":"ui_worldmap","z":"e2b7cf86.73752","group":"91e4330f.eb3e1","order":8,"width":"6","height":"4","name":"","lat":"48.25555149000271","lon":"17.111373526087785","zoom":"11","layer":"OSM","cluster":"","maxage":"","usermenu":"hide","layers":"hide","panit":"false","panlock":"false","zoomlock":"false","hiderightclick":"true","coords":"none","showgrid":"false","allowFileDrop":"false","path":"/worldmap","x":880,"y":460,"wires":[]},{"id":"79c930a2.5b435","type":"worldmap in","z":"e2b7cf86.73752","name":"","path":"/worldmap","events":"connect","x":380,"y":460,"wires":[["efcd96af.027eb8","1a647dc3.b610e2"]]},{"id":"efcd96af.027eb8","type":"function","z":"e2b7cf86.73752","name":"GaSens","func":"const context = global.get(\"mapData\");\n\nObject.assign(msg.payload,context);\n\nreturn msg;","outputs":1,"noerr":0,"initialize":"","finalize":"","x":640,"y":460,"wires":[["c17ddc66.cdcf6"]]},{"id":"1a7e91b4.9a347e","type":"split","z":"e2b7cf86.73752","name":"","splt":"\\n","spltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":630,"y":360,"wires":[["c17ddc66.cdcf6"]]},{"id":"f2e131d3.44c71","type":"comment","z":"e2b7cf86.73752","name":"Načítanie mapy","info":"","x":380,"y":400,"wires":[]},{"id":"b843e17f.96cfa","type":"comment","z":"e2b7cf86.73752","name":"Demo dáta","info":"","x":630,"y":200,"wires":[]},{"id":"51656936.1d5ac8","type":"comment","z":"e2b7cf86.73752","name":"Zobrazenie mapy","info":"","x":880,"y":400,"wires":[]},{"id":"383990b5.72ba4","type":"comment","z":"e2b7cf86.73752","name":"GaSens dáta","info":"","x":650,"y":520,"wires":[]},{"id":"8aaad99b.c96828","type":"comment","z":"4fd2e6c4.650f68","name":"MQTT výstupy senzorov","info":"","x":350,"y":120,"wires":[]},{"id":"216b66fd.98492a","type":"comment","z":"4fd2e6c4.650f68","name":"Ukazovatele a grafy","info":"","x":670,"y":100,"wires":[]},{"id":"b4ee27ed.f16998","type":"comment","z":"4fd2e6c4.650f68","name":"Nastavenie pre mapu","info":"","x":740,"y":660,"wires":[]},{"id":"f21975a0.44c0c8","type":"comment","z":"4fd2e6c4.650f68","name":"Uloženie do pamäte","info":"","x":950,"y":540,"wires":[]},{"id":"b4c93e5a.cf36c","type":"debug","z":"4fd2e6c4.650f68","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","statusVal":"","statusType":"auto","x":570,"y":740,"wires":[]}]
+[
+    {
+        "id": "4fd2e6c4.650f68",
+        "type": "tab",
+        "label": "Main(GaSens)",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e2b7cf86.73752",
+        "type": "tab",
+        "label": "Map",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c61f879b.76b5c8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "dc58eb55.785f98",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "16e8482f.719b98",
+        "type": "ui_tab",
+        "name": "GaSens",
+        "icon": "fa-user-circle",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4ede8f17.e6b2e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "Verdana,Verdana,Geneva,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Verdana,Verdana,Geneva,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "AP-Home",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "none",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 150,
+                "sy": 150,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ca8a4b78.39eaa8",
+        "type": "ui_group",
+        "name": "AP-HOME",
+        "tab": "16e8482f.719b98",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "94c9239b.5c666",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "hairdresser.cloudmqtt.com",
+        "port": "25522",
+        "tls": "",
+        "clientid": "",
+        "usetls": true,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "a670c5f7.4b8568",
+        "type": "ui_tab",
+        "name": "Lucia Snyder",
+        "icon": "fa-user-circle",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3bffbdfb.93cdb2",
+        "type": "ui_tab",
+        "name": "Arslan Osborne",
+        "icon": "fa-user-circle",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5b7cad8e.8bb9e4",
+        "type": "ui_tab",
+        "name": "Mapa",
+        "icon": "map",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6a41a25b.85399c",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "a670c5f7.4b8568",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "7c1b0b41.1674b4",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "3bffbdfb.93cdb2",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "91e4330f.eb3e1",
+        "type": "ui_group",
+        "name": "Všeobecný prehľad",
+        "tab": "5b7cad8e.8bb9e4",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e322de59.93f1b",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "7c1b0b41.1674b4",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "97a8a5e6.2f2128",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "6a41a25b.85399c",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5ed4d8a8.d5b888",
+        "type": "ui_tab",
+        "name": "Paige Mcbride",
+        "icon": "fa-user-circle",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "57fc6dc9.905b54",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "5ed4d8a8.d5b888",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5d61aba3.695014",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "57fc6dc9.905b54",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5d19a3c6.23a97c",
+        "type": "users_config",
+        "appPath": "/users",
+        "jwtCookieName": "nr.nodeUsers.jwt",
+        "jwtHttpsOnly": false
+    },
+    {
+        "id": "84b12b1.134e6d8",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "GaSens",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.8-flux",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "373fa459.54e07c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "WEATHER",
+        "name": "Weather",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x"
+    },
+    {
+        "id": "5c3a4e27.a99f9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.0.203",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "3b2726f7.c4d8da",
+        "type": "mqtt-broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "Pi2_NR-Live",
+        "usetls": false,
+        "verifyservercert": true,
+        "compatmode": false,
+        "keepalive": "15",
+        "cleansession": true,
+        "birthTopic": "DEVICES/PI2NR-LIVE",
+        "birthQos": "1",
+        "birthRetain": "false",
+        "birthPayload": "Online",
+        "willTopic": "DEVICES/PI2NR-LIVE",
+        "willQos": "1",
+        "willRetain": "false",
+        "willPayload": "Offline"
+    },
+    {
+        "id": "fd18e2a8.95be5",
+        "type": "mqtt in",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "topic": "temperature_exterior",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "94c9239b.5c666",
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "6d74a2d5.f94e5c",
+                "5b6cc959.995328",
+                "4fecd245.672b4c"
+            ]
+        ]
+    },
+    {
+        "id": "6d74a2d5.f94e5c",
+        "type": "ui_gauge",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 1,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "Celsius",
+        "format": "{{value}}°C",
+        "min": "-20",
+        "max": "50",
+        "colors": [
+            "#6b84ff",
+            "#fff99e",
+            "#ffa200"
+        ],
+        "seg1": "5",
+        "seg2": "20",
+        "x": 670,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5b6cc959.995328",
+        "type": "ui_chart",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 2,
+        "width": "4",
+        "height": "2",
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-20",
+        "ymax": "40",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff2e43",
+            "#aec7e8",
+            "#ff7700",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "x": 670,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d25102e4.a646f",
+        "type": "ui_chart",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 4,
+        "width": "4",
+        "height": "2",
+        "label": "Resistance",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "200",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff2e43",
+            "#aec7e8",
+            "#ff7700",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "x": 670,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7a88837.9461d8",
+        "type": "mqtt in",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "topic": "resistance_exterior",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "94c9239b.5c666",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "d25102e4.a646f",
+                "cc366add.3f6fd8",
+                "4fecd245.672b4c"
+            ]
+        ]
+    },
+    {
+        "id": "b6de5f44.2c4f7",
+        "type": "ui_chart",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 6,
+        "width": "4",
+        "height": "2",
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff2e43",
+            "#aec7e8",
+            "#ff7700",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "x": 660,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7ec750d6.beb5",
+        "type": "mqtt in",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "topic": "humidity_exterior",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "94c9239b.5c666",
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "b6de5f44.2c4f7",
+                "e86741d1.3758",
+                "4fecd245.672b4c"
+            ]
+        ]
+    },
+    {
+        "id": "bfa108ef.b125c8",
+        "type": "ui_chart",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 8,
+        "width": "4",
+        "height": "2",
+        "label": "Pressure",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff2e43",
+            "#aec7e8",
+            "#ff7700",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "x": 660,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8cfad94.4a5ab28",
+        "type": "mqtt in",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "topic": "pressure_exterior",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "94c9239b.5c666",
+        "x": 340,
+        "y": 480,
+        "wires": [
+            [
+                "bfa108ef.b125c8",
+                "972263c.d2562a",
+                "4fecd245.672b4c"
+            ]
+        ]
+    },
+    {
+        "id": "cc366add.3f6fd8",
+        "type": "ui_gauge",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 3,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Resistance",
+        "label": "Ohm",
+        "format": "{{value}}kOhm",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#ffffff",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e86741d1.3758",
+        "type": "ui_gauge",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 5,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "Percent",
+        "format": "{{value}}%",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ffffff",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "972263c.d2562a",
+        "type": "ui_gauge",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "group": "ca8a4b78.39eaa8",
+        "order": 7,
+        "width": "2",
+        "height": "2",
+        "gtype": "gage",
+        "title": "Pressure",
+        "label": "Pascal",
+        "format": "{{value}}hPa",
+        "min": "950",
+        "max": "1100",
+        "colors": [
+            "#ffffff",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 660,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "76cc2fe5.6d81c",
+        "type": "function",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "func": "const conf = {\n    \"name\": \"GaSens\",\n    \"lat\": 48.15,\n    \"lon\": 17.11,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: ${msg.payload.temperature_exterior}°C</h4>\n        <h4>VOC Odpor: ${msg.payload.resistance_exterior}kOhm</h4>\n        <h4>Vlhosť vzduchu: ${msg.payload.humidity_exterior}%</h4>\n        <h4>Tlak: ${msg.payload.pressure_exterior}hPa</h4>\n    `\n};\n\nObject.assign(msg.payload,conf);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 740,
+        "y": 600,
+        "wires": [
+            [
+                "e8f55a0c.f3d058"
+            ]
+        ]
+    },
+    {
+        "id": "4fecd245.672b4c",
+        "type": "join",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "76cc2fe5.6d81c",
+                "b4c93e5a.cf36c"
+            ]
+        ]
+    },
+    {
+        "id": "e8f55a0c.f3d058",
+        "type": "change",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mapData",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a647dc3.b610e2",
+        "type": "function",
+        "z": "e2b7cf86.73752",
+        "name": "demo",
+        "func": "msg.payload =\n[\n    {\n    \"name\": \"Lucia Snyder\",\n    \"lat\": 48.19284151166349,\n    \"lon\": 17.031850003214494,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `\n    },\n    {\n    \"name\": \"Arslan Osborne\",\n    \"lat\": 48.213141392539974,\n    \"lon\": 17.15728965991068,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `\n    },\n    {\n    \"name\": \"Paige Mcbride\",\n    \"lat\": 48.28287296232232,\n    \"lon\": 17.252389110709803,\n    \"iconColor\": \"#f2e82e\",\n    \"popup\": \n    `\n        <h4>Stav: Neobvyklé</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `  \n    }\n]\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [
+                "1a7e91b4.9a347e"
+            ]
+        ]
+    },
+    {
+        "id": "c17ddc66.cdcf6",
+        "type": "ui_worldmap",
+        "z": "e2b7cf86.73752",
+        "group": "91e4330f.eb3e1",
+        "order": 8,
+        "width": "6",
+        "height": "4",
+        "name": "",
+        "lat": "48.25555149000271",
+        "lon": "17.111373526087785",
+        "zoom": "11",
+        "layer": "OSM",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "x": 880,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "79c930a2.5b435",
+        "type": "worldmap in",
+        "z": "e2b7cf86.73752",
+        "name": "",
+        "path": "/worldmap",
+        "events": "connect",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "efcd96af.027eb8",
+                "1a647dc3.b610e2"
+            ]
+        ]
+    },
+    {
+        "id": "efcd96af.027eb8",
+        "type": "function",
+        "z": "e2b7cf86.73752",
+        "name": "GaSens",
+        "func": "const context = global.get(\"mapData\");\n\nObject.assign(msg.payload,context);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 640,
+        "y": 460,
+        "wires": [
+            [
+                "c17ddc66.cdcf6"
+            ]
+        ]
+    },
+    {
+        "id": "1a7e91b4.9a347e",
+        "type": "split",
+        "z": "e2b7cf86.73752",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 630,
+        "y": 360,
+        "wires": [
+            [
+                "c17ddc66.cdcf6"
+            ]
+        ]
+    },
+    {
+        "id": "f2e131d3.44c71",
+        "type": "comment",
+        "z": "e2b7cf86.73752",
+        "name": "Načítanie mapy",
+        "info": "",
+        "x": 380,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b843e17f.96cfa",
+        "type": "comment",
+        "z": "e2b7cf86.73752",
+        "name": "Demo dáta",
+        "info": "",
+        "x": 630,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "51656936.1d5ac8",
+        "type": "comment",
+        "z": "e2b7cf86.73752",
+        "name": "Zobrazenie mapy",
+        "info": "",
+        "x": 880,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "383990b5.72ba4",
+        "type": "comment",
+        "z": "e2b7cf86.73752",
+        "name": "GaSens dáta",
+        "info": "",
+        "x": 650,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "8aaad99b.c96828",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "MQTT výstupy senzorov",
+        "info": "",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "216b66fd.98492a",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "Ukazovatele a grafy",
+        "info": "",
+        "x": 670,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b4ee27ed.f16998",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "Nastavenie pre mapu",
+        "info": "",
+        "x": 740,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f21975a0.44c0c8",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "Uloženie do pamäte",
+        "info": "",
+        "x": 950,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b4c93e5a.cf36c",
+        "type": "debug",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "4f95e4e4.9f117c",
+        "type": "users_isloggedin",
+        "z": "c61f879b.76b5c8",
+        "name": "",
+        "enableCustomHandler": true,
+        "outputs": 2,
+        "x": 410,
+        "y": 420,
+        "wires": [
+            [
+                "4c9941cd.bf4e8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7d523ca7.a34d34",
+        "type": "http in",
+        "z": "c61f879b.76b5c8",
+        "name": "",
+        "url": "/ui",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "4f95e4e4.9f117c"
+            ]
+        ]
+    },
+    {
+        "id": "4c9941cd.bf4e8",
+        "type": "template",
+        "z": "c61f879b.76b5c8",
+        "name": "for allowed users only",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head>\n        <title>Node users demo</title>\n        <style>\n            * {\n                color: #fff;\n            }\n            h1 {\n                font-size: 120px;\n                color: #fff;\n                padding: 20px;\n            }\n        </style>\n    </head>\n    <body style=\"text-align: center; background: #010203;\">\n        <h1>LOGIN SUCCESS !!!</h1>\n        <h2>User: {{payload.user.username}}</h2>\n        <h2>Scope: {{payload.user.scope}}</h2>\n    </body>\n</html>",
+        "x": 660,
+        "y": 340,
+        "wires": [
+            [
+                "e7ee32de.e59ba"
+            ]
+        ]
+    },
+    {
+        "id": "e7ee32de.e59ba",
+        "type": "http response",
+        "z": "c61f879b.76b5c8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 850,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "52016b84.a44eb4",
+        "type": "comment",
+        "z": "c61f879b.76b5c8",
+        "name": "User unauthorized, show login page",
+        "info": "",
+        "x": 700,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "55163d9d.7f8e94",
+        "type": "comment",
+        "z": "c61f879b.76b5c8",
+        "name": "User authorized, allow through",
+        "info": "",
+        "x": 660,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "73ec7b9.576d484",
+        "type": "ui_toast",
+        "z": "4fd2e6c4.650f68",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1110,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f888f82.36fdb",
+        "type": "ui_text",
+        "z": "4fd2e6c4.650f68",
+        "group": "ca8a4b78.39eaa8",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1090,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "99b0c897.8a35a8",
+        "type": "inject",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Teplota u Paige Mcbride je priliz nizka",
+        "payloadType": "str",
+        "x": 890,
+        "y": 380,
+        "wires": [
+            [
+                "3f888f82.36fdb",
+                "73ec7b9.576d484",
+                "9c11cfcd.60cce"
+            ]
+        ]
+    },
+    {
+        "id": "9c11cfcd.60cce",
+        "type": "ui_text",
+        "z": "4fd2e6c4.650f68",
+        "group": "91e4330f.eb3e1",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Upozornenia",
+        "format": "{{msg.payload}}!",
+        "layout": "col-center",
+        "x": 1270,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ba6e5f62.f40f4",
+        "type": "uibuilder",
+        "z": "c61f879b.76b5c8",
+        "name": "",
+        "topic": "",
+        "url": "uibuilder",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": 432000,
+        "tokenAutoExtend": false,
+        "x": 620,
+        "y": 600,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3a85e836.06b698",
+        "type": "comment",
+        "z": "dc58eb55.785f98",
+        "name": "uibuilder/Simple Example",
+        "info": "[Front-End](/uib_simple)\n\nThis flow gets a \"quote of the day\" from the Internet and passes it\nto uibuilder. It caches the result so that if you reload the page,\nyou get the last result back. The quote is updated every 30 minutes\nduring the day and evening.\n\n\"Simple\" refers to the front-end code. While the flow looks a little\ncomplex, it really isn't. A trigger (repeating), an Internet request,\na cache and uibuilder. The link nodes loop the control output from\nuibuilder back to the cache.\n\n## Configuration\n\nUpdate the files:\n\n* `index.html`\n* `index.js`\n* `index.css`\n\nAccording to the example(s) in the 3 other comment nodes in this example.\n\nPress the button on the trigger to start the flow.",
+        "x": 450,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7cf5c3b2.96006c",
+        "type": "comment",
+        "z": "dc58eb55.785f98",
+        "name": "index.html",
+        "info": "<!doctype html><html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <title>uibuilder simple example</title>\n    <meta name=\"description\" content=\"Node-RED uibuilder - Simple example using VueJS\">\n\n    <link rel=\"icon\" href=\"./images/node-blue.ico\">\n\n    <!-- Put your own custom styles in here -->\n    <link rel=\"stylesheet\" href=\"./index.css\" media=\"all\">\n\n</head><body>\n    <!-- The \"app\" element is where the code for dynamic updates is attached -->\n\t<div id=\"app\">\n\t    <h1>A simple uibuilder page</h1>\n\t    <p>\n\t        The elements below are dynamically updated when you send\n\t        a msg to your uibuilder node.\n\t    </p>\n\t    \n\t    <div v-if=\"msg.payload\">\n\t        <h2>Quote of the Day</h2>\n\t        <blockquote>\n\t            <i>{{ msg.payload.quote.body }}</i>\n    \t        <div>{{ msg.payload.quote.author }}</div>\n\t        </blockquote>\n\t    </div>\n\t    \n\t    <h2>The full msg object</h2>\n\t\t<code>{{ msg }}</code>\n\t\t\n\t</div>\n\n    <!-- Vendor Libraries - Load in the right order -->\n    <script src=\"../uibuilder/vendor/socket.io/socket.io.js\"></script>\n    <script src=\"../uibuilder/vendor/vue/dist/vue.min.js\"></script>\n\n    <!-- REQUIRED: Sets up Socket listeners, the uibuilder and msg objects -->\n    <script src=\"./uibuilderfe.min.js\"></script>\n\n    <!-- Put your own custom code in here -->\n    <script src=\"./index.js\"></script>\n\n</body></html>",
+        "x": 640,
+        "y": 360,
+        "wires": [],
+        "icon": "node-red/parser-html.svg"
+    },
+    {
+        "id": "8f8bfd94.685e6",
+        "type": "comment",
+        "z": "dc58eb55.785f98",
+        "name": "index.js",
+        "info": "/* jshint browser: true, esversion: 5, asi: true */\n/*globals uibuilder, Vue */\n// @ts-nocheck\n/*\n  Copyright (c) 2020 Julian Knight (Totally Information)\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n*/\n'use strict'\n\n/** @see https://github.com/TotallyInformation/node-red-contrib-uibuilder/wiki/Front-End-Library---available-properties-and-methods */\n\nvar app1 = new Vue({\n    // The HTML element to attach to\n\tel: '#app',\n\t/** Pre-defined data\n\t *  Anything defined here can be used in the HTML\n\t *  if you update it, the HTML will automatically update\n\t */\n\tdata: {\n\t\tmsg: '[Nothing Recieved Yet]',\n\t},\n\n    // Called after the Vue app has been created. A good place to put startup code\n    created: function() {\n        // **REQUIRED** Start uibuilder comms with Node-RED\n        uibuilder.start()\n    },\n\n    // Called when Vue is fully loaded\n\tmounted: function() {\n\t\t// Keep a convenient reference to the Vue app\n\t\tvar vueApp = this\n\n        /** Triggered when the node on the Node-RED server\n         *  recieves a (non-control) msg\n         */\n\t\tuibuilder.onChange('msg', function(msg) {\n\t\t\tvueApp.msg = msg\n\t\t})\n\n\t\t// Send message back to node-red\n\t\t// uibuilder.send({payload:'some message'})\n\t},\n\t\n}) // --- End of the Vue app definition --- //\n\n// EOF",
+        "x": 770,
+        "y": 360,
+        "wires": [],
+        "icon": "font-awesome/fa-code"
+    },
+    {
+        "id": "8a35b840.a3b2d8",
+        "type": "comment",
+        "z": "dc58eb55.785f98",
+        "name": "index.css",
+        "info": "body {font-family: sans-serif; font-size: 120%;}\ndiv, p, code { margin:0.3em; padding: 0.3em;}\n\nblockquote i {\n    font-size: 1.5em; color:grey; font-style: italic;\n}",
+        "x": 900,
+        "y": 360,
+        "wires": [],
+        "icon": "node-red/hash.svg"
+    },
+    {
+        "id": "2cf3f051.3dd33",
+        "type": "debug",
+        "z": "dc58eb55.785f98",
+        "name": "simple-debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "eb95241.bca25d8",
+        "type": "uibuilder",
+        "z": "dc58eb55.785f98",
+        "name": "Simple Example",
+        "topic": "",
+        "url": "uib_simple",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": "",
+        "tokenAutoExtend": false,
+        "x": 750,
+        "y": 420,
+        "wires": [
+            [
+                "2cf3f051.3dd33"
+            ],
+            [
+                "4e7c2860.c5c318"
+            ]
+        ]
+    },
+    {
+        "id": "70cf5aa5.9b03c4",
+        "type": "inject",
+        "z": "dc58eb55.785f98",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "dcbb878b.7de8c8"
+            ]
+        ]
+    },
+    {
+        "id": "4e7c2860.c5c318",
+        "type": "debug",
+        "z": "dc58eb55.785f98",
+        "name": "uib controls",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 950,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "16169222.b4d91e",
+        "type": "debug",
+        "z": "dc58eb55.785f98",
+        "name": "qod-debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 750,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "dcbb878b.7de8c8",
+        "type": "http request",
+        "z": "dc58eb55.785f98",
+        "name": "Quote of the day",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://favqs.com/api/qotd",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [
+                "eb95241.bca25d8",
+                "16169222.b4d91e"
+            ]
+        ]
+    },
+    {
+        "id": "62db3ac3.f0dc44",
+        "type": "influxdb out",
+        "z": "4fd2e6c4.650f68",
+        "influxdb": "84b12b1.134e6d8",
+        "name": "",
+        "measurement": "gasens",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "GaSens",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1140,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "4158ba77.a7f524",
+        "type": "debug",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 820,
+        "wires": []
+    }
+]
