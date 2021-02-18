@@ -16,7 +16,14 @@
     {
         "id": "dc58eb55.785f98",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "Chart",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c5d3e58a.2902a8",
+        "type": "tab",
+        "label": "Flow 1",
         "disabled": false,
         "info": ""
     },
@@ -332,6 +339,33 @@
         "willPayload": "Offline"
     },
     {
+        "id": "5d7e54ca.019d44",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "d50d0c9f.31e858",
+        "influxdbVersion": "2.0",
+        "url": "https://localhost:9999",
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "d50d0c9f.31e858",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    },
+    {
         "id": "fd18e2a8.95be5",
         "type": "mqtt in",
         "z": "4fd2e6c4.650f68",
@@ -340,7 +374,7 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 350,
+        "x": 150,
         "y": 180,
         "wires": [
             [
@@ -469,7 +503,7 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 350,
+        "x": 150,
         "y": 280,
         "wires": [
             [
@@ -530,7 +564,7 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 340,
+        "x": 140,
         "y": 380,
         "wires": [
             [
@@ -591,7 +625,7 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 340,
+        "x": 140,
         "y": 480,
         "wires": [
             [
@@ -709,7 +743,7 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": false,
+        "accumulate": true,
         "timeout": "",
         "count": "4",
         "reduceRight": false,
@@ -717,12 +751,12 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 570,
+        "x": 530,
         "y": 600,
         "wires": [
             [
                 "76cc2fe5.6d81c",
-                "b4c93e5a.cf36c"
+                "3ff65082.c8435"
             ]
         ]
     },
@@ -912,16 +946,6 @@
         "wires": []
     },
     {
-        "id": "b4ee27ed.f16998",
-        "type": "comment",
-        "z": "4fd2e6c4.650f68",
-        "name": "Nastavenie pre mapu",
-        "info": "",
-        "x": 740,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "f21975a0.44c0c8",
         "type": "comment",
         "z": "4fd2e6c4.650f68",
@@ -932,7 +956,44 @@
         "wires": []
     },
     {
-        "id": "b4c93e5a.cf36c",
+        "id": "62db3ac3.f0dc44",
+        "type": "influxdb out",
+        "z": "4fd2e6c4.650f68",
+        "influxdb": "84b12b1.134e6d8",
+        "name": "",
+        "measurement": "sensor_data",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "GaSens",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1010,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "3ff65082.c8435",
+        "type": "function",
+        "z": "4fd2e6c4.650f68",
+        "name": "Fields and Tags",
+        "func": "let temp = \n[{\n    humidity:   msg.payload.humidity_exterior,\n    resistance: msg.payload.resistance_exterior,\n    pressure:   msg.payload.pressure_exterior,\n    temperature: msg.payload.temperature_exterior\n},\n{\n    sensor:\"GaSens01\",\n}];\n\nmsg.payload = temp;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 740,
+        "y": 700,
+        "wires": [
+            [
+                "1accd46a.7a448c",
+                "62db3ac3.f0dc44"
+            ]
+        ]
+    },
+    {
+        "id": "1accd46a.7a448c",
         "type": "debug",
         "z": "4fd2e6c4.650f68",
         "name": "",
@@ -943,158 +1004,46 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 570,
-        "y": 740,
+        "x": 950,
+        "y": 800,
         "wires": []
     },
     {
-        "id": "73ec7b9.576d484",
-        "type": "ui_toast",
-        "z": "4fd2e6c4.650f68",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "topic": "",
-        "name": "",
-        "x": 1110,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3f888f82.36fdb",
-        "type": "ui_text",
-        "z": "4fd2e6c4.650f68",
-        "group": "ca8a4b78.39eaa8",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "text",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1090,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "99b0c897.8a35a8",
-        "type": "inject",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Teplota u Paige Mcbride je priliz nizka",
-        "payloadType": "str",
-        "x": 890,
-        "y": 380,
-        "wires": [
-            [
-                "3f888f82.36fdb",
-                "73ec7b9.576d484",
-                "9c11cfcd.60cce"
-            ]
-        ]
-    },
-    {
-        "id": "9c11cfcd.60cce",
-        "type": "ui_text",
-        "z": "4fd2e6c4.650f68",
-        "group": "91e4330f.eb3e1",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Upozornenia",
-        "format": "{{msg.payload}}!",
-        "layout": "col-center",
-        "x": 1270,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "3a85e836.06b698",
-        "type": "comment",
-        "z": "dc58eb55.785f98",
-        "name": "uibuilder/Simple Example",
-        "info": "[Front-End](/uib_simple)\n\nThis flow gets a \"quote of the day\" from the Internet and passes it\nto uibuilder. It caches the result so that if you reload the page,\nyou get the last result back. The quote is updated every 30 minutes\nduring the day and evening.\n\n\"Simple\" refers to the front-end code. While the flow looks a little\ncomplex, it really isn't. A trigger (repeating), an Internet request,\na cache and uibuilder. The link nodes loop the control output from\nuibuilder back to the cache.\n\n## Configuration\n\nUpdate the files:\n\n* `index.html`\n* `index.js`\n* `index.css`\n\nAccording to the example(s) in the 3 other comment nodes in this example.\n\nPress the button on the trigger to start the flow.",
-        "x": 450,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "7cf5c3b2.96006c",
-        "type": "comment",
-        "z": "dc58eb55.785f98",
-        "name": "index.html",
-        "info": "<!doctype html><html lang=\"en\"><head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n    <title>uibuilder simple example</title>\n    <meta name=\"description\" content=\"Node-RED uibuilder - Simple example using VueJS\">\n\n    <link rel=\"icon\" href=\"./images/node-blue.ico\">\n\n    <!-- Put your own custom styles in here -->\n    <link rel=\"stylesheet\" href=\"./index.css\" media=\"all\">\n\n</head><body>\n    <!-- The \"app\" element is where the code for dynamic updates is attached -->\n\t<div id=\"app\">\n\t    <h1>A simple uibuilder page</h1>\n\t    <p>\n\t        The elements below are dynamically updated when you send\n\t        a msg to your uibuilder node.\n\t    </p>\n\t    \n\t    <div v-if=\"msg.payload\">\n\t        <h2>Quote of the Day</h2>\n\t        <blockquote>\n\t            <i>{{ msg.payload.quote.body }}</i>\n    \t        <div>{{ msg.payload.quote.author }}</div>\n\t        </blockquote>\n\t    </div>\n\t    \n\t    <h2>The full msg object</h2>\n\t\t<code>{{ msg }}</code>\n\t\t\n\t</div>\n\n    <!-- Vendor Libraries - Load in the right order -->\n    <script src=\"../uibuilder/vendor/socket.io/socket.io.js\"></script>\n    <script src=\"../uibuilder/vendor/vue/dist/vue.min.js\"></script>\n\n    <!-- REQUIRED: Sets up Socket listeners, the uibuilder and msg objects -->\n    <script src=\"./uibuilderfe.min.js\"></script>\n\n    <!-- Put your own custom code in here -->\n    <script src=\"./index.js\"></script>\n\n</body></html>",
-        "x": 640,
-        "y": 360,
-        "wires": [],
-        "icon": "node-red/parser-html.svg"
-    },
-    {
-        "id": "8f8bfd94.685e6",
-        "type": "comment",
-        "z": "dc58eb55.785f98",
-        "name": "index.js",
-        "info": "/* jshint browser: true, esversion: 5, asi: true */\n/*globals uibuilder, Vue */\n// @ts-nocheck\n/*\n  Copyright (c) 2020 Julian Knight (Totally Information)\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n*/\n'use strict'\n\n/** @see https://github.com/TotallyInformation/node-red-contrib-uibuilder/wiki/Front-End-Library---available-properties-and-methods */\n\nvar app1 = new Vue({\n    // The HTML element to attach to\n\tel: '#app',\n\t/** Pre-defined data\n\t *  Anything defined here can be used in the HTML\n\t *  if you update it, the HTML will automatically update\n\t */\n\tdata: {\n\t\tmsg: '[Nothing Recieved Yet]',\n\t},\n\n    // Called after the Vue app has been created. A good place to put startup code\n    created: function() {\n        // **REQUIRED** Start uibuilder comms with Node-RED\n        uibuilder.start()\n    },\n\n    // Called when Vue is fully loaded\n\tmounted: function() {\n\t\t// Keep a convenient reference to the Vue app\n\t\tvar vueApp = this\n\n        /** Triggered when the node on the Node-RED server\n         *  recieves a (non-control) msg\n         */\n\t\tuibuilder.onChange('msg', function(msg) {\n\t\t\tvueApp.msg = msg\n\t\t})\n\n\t\t// Send message back to node-red\n\t\t// uibuilder.send({payload:'some message'})\n\t},\n\t\n}) // --- End of the Vue app definition --- //\n\n// EOF",
-        "x": 770,
-        "y": 360,
-        "wires": [],
-        "icon": "font-awesome/fa-code"
-    },
-    {
-        "id": "8a35b840.a3b2d8",
-        "type": "comment",
-        "z": "dc58eb55.785f98",
-        "name": "index.css",
-        "info": "body {font-family: sans-serif; font-size: 120%;}\ndiv, p, code { margin:0.3em; padding: 0.3em;}\n\nblockquote i {\n    font-size: 1.5em; color:grey; font-style: italic;\n}",
-        "x": 900,
-        "y": 360,
-        "wires": [],
-        "icon": "node-red/hash.svg"
-    },
-    {
-        "id": "2cf3f051.3dd33",
+        "id": "76678044.5aaeb",
         "type": "debug",
         "z": "dc58eb55.785f98",
-        "name": "simple-debug",
-        "active": false,
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 970,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "bd9b5761.fb4918",
+        "type": "debug",
+        "z": "dc58eb55.785f98",
+        "name": "",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 960,
-        "y": 400,
+        "x": 950,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "eb95241.bca25d8",
+        "id": "b18a50dd.f7e5c",
         "type": "uibuilder",
         "z": "dc58eb55.785f98",
-        "name": "Simple Example",
+        "name": "",
         "topic": "",
-        "url": "uib_simple",
+        "url": "chart",
         "fwdInMessages": false,
         "allowScripts": false,
         "allowStyles": false,
@@ -1107,117 +1056,11 @@
         "y": 420,
         "wires": [
             [
-                "2cf3f051.3dd33"
+                "76678044.5aaeb"
             ],
             [
-                "4e7c2860.c5c318"
+                "bd9b5761.fb4918"
             ]
         ]
-    },
-    {
-        "id": "70cf5aa5.9b03c4",
-        "type": "inject",
-        "z": "dc58eb55.785f98",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 370,
-        "y": 420,
-        "wires": [
-            [
-                "dcbb878b.7de8c8"
-            ]
-        ]
-    },
-    {
-        "id": "4e7c2860.c5c318",
-        "type": "debug",
-        "z": "dc58eb55.785f98",
-        "name": "uib controls",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 950,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "16169222.b4d91e",
-        "type": "debug",
-        "z": "dc58eb55.785f98",
-        "name": "qod-debug",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 750,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "dcbb878b.7de8c8",
-        "type": "http request",
-        "z": "dc58eb55.785f98",
-        "name": "Quote of the day",
-        "method": "GET",
-        "ret": "obj",
-        "paytoqs": "ignore",
-        "url": "https://favqs.com/api/qotd",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "x": 530,
-        "y": 420,
-        "wires": [
-            [
-                "eb95241.bca25d8",
-                "16169222.b4d91e"
-            ]
-        ]
-    },
-    {
-        "id": "62db3ac3.f0dc44",
-        "type": "influxdb out",
-        "z": "4fd2e6c4.650f68",
-        "influxdb": "84b12b1.134e6d8",
-        "name": "",
-        "measurement": "gasens",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "GaSens",
-        "precisionV18FluxV20": "s",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 1140,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "4158ba77.a7f524",
-        "type": "debug",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 820,
-        "wires": []
     }
 ]

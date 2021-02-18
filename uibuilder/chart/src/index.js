@@ -1,5 +1,6 @@
+
 /* jshint browser: true, esversion: 5 */
-/* globals document,Vue,window,uibuilder,VueECharts */
+/* globals document,Vue,window,uibuilder */
 // @ts-nocheck
 /*
   Copyright (c) 2019 Julian Knight (Totally Information)
@@ -16,36 +17,28 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 */
-'use strict'
 
 /** @see https://github.com/TotallyInformation/node-red-contrib-uibuilder/wiki/Front-End-Library---available-properties-and-methods */
-
-/** Reference the component (removes need for a build step with import) */
-Vue.component('v-chart', VueECharts)
 
 // eslint-disable-next-line no-unused-vars
 var app1 = new Vue({
     el: '#app',
     data: {
-        // Data for bar chart
-        ecOptionsBar: {
-            title: {
-                text: 'ECharts entry example',
-            },
-            tooltip: {},
-            legend: {
-                data:['Sales'],
-            },
-            xAxis: {
-                data: ['shirt','cardign','chiffon shirt','pants','heels','socks'],
-            },
-            yAxis: {},
-            series: [{
-                name: 'Sales',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20],
-            }],
-        },
+        // Single series line chart
+        lineChartData: [
+            ['Jan', 4], ['Feb', 2], ['Mar', 10], ['Apr', 5], ['May', 3],
+        ],
+        // Multi-series line chart
+        lineChartData2: [
+            {name: 'Workout', data: {'2017-01-01 00:00:00 -0800': 3, '2017-01-02 00:00:00 -0800': 4}},
+            {name: 'Call parents', data: {'2017-01-01 00:00:00 -0800': 5, '2017-01-02 00:00:00 -0800': 3}},
+        ],
+
+        // Area chart
+        areaChartData: [], //{
+            //'2017-01-01 00:00:00 -0800': 2,
+            //'2017-01-01 00:01:00 -0800': 5,
+        //},
 
     }, // --- End of data --- //
     computed: {
@@ -66,13 +59,15 @@ var app1 = new Vue({
 
         // Process new messages from Node-RED
         uibuilder.onChange('msg', function (newVal) {
-            if ( typeof newVal.payload === 'number' ){
-                // Add new element
-                vueApp.ecOptionsBar.series[0].data.push(newVal.payload)
-                // Lose the first element
-                vueApp.ecOptionsBar.series[0].data.shift()
-                //console.log(vueApp.ecOptionsBar.series[0].data)
-            }
+            // We are assuming that msg.payload is an array like [datenum, value]
+
+            // Add new element
+            vueApp.areaChartData.push( new Array( (new Date(newVal.payload[0])), newVal.payload[1] ) )
+
+            // If data array > 1000 points, keep it at that length by losing the first point
+            if ( vueApp.areaChartData.length > 1000 ) vueApp.areaChartData.shift()
+
+            //console.log(vueApp.areaChartData)
         })
 
     } // --- End of mounted hook --- //
@@ -80,3 +75,4 @@ var app1 = new Vue({
 }) // --- End of app1 --- //
 
 // EOF
+
