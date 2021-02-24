@@ -1,4 +1,3 @@
-
 /* jshint browser: true, esversion: 5 */
 /* globals document,Vue,window,uibuilder */
 // @ts-nocheck
@@ -21,6 +20,9 @@
 /** @see https://github.com/TotallyInformation/node-red-contrib-uibuilder/wiki/Front-End-Library---available-properties-and-methods */
 
 // eslint-disable-next-line no-unused-vars
+
+import chartjs from '.node_modules/chart.js'
+
 var app1 = new Vue({
     el: '#app',
     data: {
