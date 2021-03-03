@@ -1,23 +1,11 @@
 <!doctype html>
-<!-- Note that adding an appcache really speeds things up after the first load
-    You need to amend the appcache file to meet your needs.
-    Don't forget to change the appcache file if you update ANY
-    of the files in it otherwise the old versions will ALWAYS be used.
-<html lang="en" manifest="./uibuilder.appcache">
--->
-<html lang="en">
-<!--
-    This is the default, template html for uibuilder.
-    It is meant to demonstrate the use of VueJS & bootstrap-vue to dynamically
-    update the ui based on incoming/outgoing messages from/to the
-    Node-RED server.
--->
-<head>
+<html lang="en"><head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Node-RED UI Builder - VueJS + bootstrap-vue default template</title>
+    <title>AP-Nurse Platforma</title>
     <meta name="description" content="Node-RED UI Builder - VueJS + bootstrap-vue default template">
 
     <link rel="icon" href="./images/node-blue.ico">
@@ -26,51 +14,73 @@
     <link type="text/css" rel="stylesheet" href="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.css" />
     <!-- Your own CSS -->
     <link type="text/css" rel="stylesheet" href="./index.css" media="all">
-
+    <script src="./uibuilderfe.min.js"></script>   
 </head><body>
 
     <div id="app" v-cloak>
         <b-container id="app_container">
+            
+            <b-card class="my-3">
+                <h2 slot="header">Chart test</h2>
+                <b-card class=" m-1 my-3" header="Humidity" border-variant="warning" header-bg-variant="warning" header-text-variant="black" align="center" >
+                    <line-chart :data="msgRecvd.payload[0]"></line-chart>
+                </b-card>
+                <b-card class=" m-1 my-3" header="Pressure" border-variant="warning" header-bg-variant="warning" header-text-variant="black" align="center" >
+                    <line-chart :data="msgRecvd.payload[1]"></line-chart>
+                </b-card>
+                <b-card class=" m-1 my-3" header="Resistance" border-variant="warning" header-bg-variant="warning" header-text-variant="black" align="center" >
+                    <line-chart :data="msgRecvd.payload[2]"></line-chart>
+                </b-card>
+                <b-card class=" m-1 my-3" header="Temperature" border-variant="warning" header-bg-variant="warning" header-text-variant="black" align="center" >
+                    <line-chart :data="msgRecvd.payload[3]"></line-chart>
+                </b-card>
+                
+            </b-card>
+
+            <div class="my-5"></div>
+            <hr>
+            <div class="my-5"></div>
 
             <b-img src="./images/node-blue-192x192.png" rounded left v-bind="imgProps" alt="Blue Node-RED" class="mt-1 mr-2"></b-img>
             <h1>UIbuilder + Vue.js + bootstrap-vue for Node-RED</h1>
             <p>
                 This is a uibuilder example using <a href="https://vuejs.org/">Vue.js</a> as a front-end library.
-                See the
+                See the 
                 <a
                     href="https://github.com/TotallyInformation/node-red-contrib-uibuilder">node-red-contrib-uibuilder</a>
                 README for details on how to use UIbuilder.
             </p>
 
-            <h2>Simple input using Vue</h2>
-            <b-form class="border p-3 m-2">
-                <p>
-                    You can very simply create a form using Vue & bootstrap-vue.
-                    The form sends data back to Node-RED.
-                    Look at the <code>increment</code> method in <code>index.js</code> to see how easy this is.
+            
+            <b-card>
+                <h3 slot="header">Simple input using Vue</h3>
+                
+                Simplest possible way of getting event information back to Node-RED using a uibuilder helper function.
+                The method works with any DOM event. Demonstrated here with a simple button click.
+                
+                <p class="mt-1 pb-3">
+                    <b-button id="myButton1" @click="doEvent" data-something="hello">Send Something To Node-RED</b-button>
                 </p>
-                <p>
-                    <b-form-input v-model="inputText" type="text" placeholder="Enter some text to send to Node-RED"></b-form-input><br>
-                    <b-form-checkbox v-model="inputChkBox">
-                        To tick or not to tick? That is the question
-                    </b-form-checkbox><br>
-                    <b-button id="btn_increment" pill variant="primary" v-on:click="increment">Increment</b-button>
-                        &nbsp;&nbsp;Click Counter: <b>{{counterBtn}}</b>.
-                    <p>Click on the button to increment the counter. It sends the data dynamically back to Node-RED as well.</p>
-                </p>
-            </b-form>
 
-            <h2>Simple Logon/Logoff form</h2>
-            <b-form class="border p-3 m-2">
-                <p v-if="! isLoggedOn">
-                    <b-form-input v-model="inputId" type="text" placeholder="Enter user id to logon"></b-form-input><br>
-                    <b-button id="btn_logon" pill variant="primary" v-on:click="doLogon">Log On</b-button>
-                </p>
-                <p v-if="isLoggedOn">
-                    <b-button id="btn_logoff" pill variant="primary" v-on:click="doLogoff">Log Off</b-button>
-                </p>
-            </b-form>
+                <b-form class="border p-3">
+                    <p>
+                        You can also very simply create a form like this using Vue & bootstrap-vue.
+                        The form sends data back to Node-RED.
+                        Look at the <code>increment</code> method in <code>index.js</code> to see how easy this is.
+                    </p>
 
+                    <p>
+                        <b-form-input v-model="inputText" type="text" placeholder="Enter some text to send to Node-RED"></b-form-input><br>
+                        <b-form-checkbox v-model="inputChkBox">
+                            To tick or not to tick? That is the question
+                        </b-form-checkbox><br>
+                        <b-button id="btn_increment" pill variant="primary" v-on:click="increment">Increment</b-button>
+                            &nbsp;&nbsp;Click Counter: <b>{{counterBtn}}</b>.
+                        <p>Click on the button to increment the counter. It sends the data dynamically back to Node-RED as well.</p>
+                    </p>
+                </b-form>
+            </b-card>
+            
             <h2>Dynamic Data</h2>
             <div>
                 <p>Uses Vue to dynamically update in response to messages from Node-RED.</p>
@@ -113,21 +123,25 @@
         </b-container>
     </div>
 
-    <!-- Dont forget to use minified versions of libraries for production, non-min versions for development only -->
     <!-- These MUST be in the right order. Note no leading / -->
 
     <!-- REQUIRED: Socket.IO is loaded only once for all instances. Without this, you don't get a websocket connection -->
     <script src="../uibuilder/vendor/socket.io/socket.io.js"></script>
 
-    <!-- --- Vendor Libraries - Load in the right order --- -->
-    <script src="../uibuilder/vendor/vue/dist/vue.js"></script> <!-- dev version with component compiler -->
-    <!-- <script src="../uibuilder/vendor/vue/dist/vue.min.js"></script>   prod version with component compiler -->
-    <!-- <script src="../uibuilder/vendor/vue/dist/vue.runtime.min.js"></script>   prod version without component compiler -->
-    <script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js"></script>
+    <!-- Vendor Libraries - Load in the right order, use minified, production versions for speed -->
+    <script src="../uibuilder/vendor/vue/dist/vue.min.js"></script>   <!-- prod version with component compiler -->
+    <script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.min.js"></script>   <!-- Prod version -->
+    <script src="../uibuilder/vendor/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="./libs/vue-chartkick.min.js"></script>
 
+    
+    <!--<script src="../uibuilder/vendor/vue/dist/vue.js"></script>  dev version with component compiler -->
+    <!-- <script src="../uibuilder/vendor/vue/dist/vue.runtime.min.js"></script>   prod version without component compiler -->
+    <!--<script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js"></script>  Dev version -->
+    
     <!-- REQUIRED: Sets up Socket listeners and the msg object -->
-    <script src="./uibuilderfe.js"></script> <!-- dev version -->
-    <!-- <script src="./uibuilderfe.min.js"></script>     //prod version -->
+    <!--<script src="./uibuilderfe.js"></script> dev version -->
+      
 
     <!-- OPTIONAL: You probably want this. Put your custom code here -->
     <script src="./index.js"></script>

@@ -28,6 +28,13 @@
         "info": ""
     },
     {
+        "id": "8bc3036a.fdfb7",
+        "type": "tab",
+        "label": "UI",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "16e8482f.719b98",
         "type": "ui_tab",
         "name": "GaSens02",
@@ -691,7 +698,7 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": true,
+        "accumulate": false,
         "timeout": "",
         "count": "4",
         "reduceRight": false,
@@ -1422,28 +1429,99 @@
         ]
     },
     {
-        "id": "e2690d96.ecd66",
-        "type": "influxdb in",
-        "z": "e2d803ae.bfc0f",
+        "id": "884ee13d.68dc9",
+        "type": "influxdb out",
+        "z": "c5d3e58a.2902a8",
         "influxdb": "4780d20c.9e8d0c",
         "name": "",
-        "query": "SELECT * FROM sensor_data",
-        "rawOutput": false,
+        "measurement": "sensor_data",
         "precision": "",
         "retentionPolicy": "",
+        "database": "GaSens",
+        "precisionV18FluxV20": "s",
+        "retentionPolicyV18Flux": "",
         "org": "organisation",
-        "x": 540,
-        "y": 340,
+        "bucket": "bucket",
+        "x": 620,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5e57ad2.2743054",
+        "type": "uibuilder",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "topic": "",
+        "url": "uibuilder",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": 432000,
+        "tokenAutoExtend": false,
+        "x": 1020,
+        "y": 280,
         "wires": [
+            [],
             [
-                "be5e070c.208728"
+                "1123ce96.d734d1"
             ]
         ]
     },
     {
-        "id": "5e722522.600a0c",
+        "id": "9010829b.6b6b3",
         "type": "inject",
-        "z": "e2d803ae.bfc0f",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "lolo",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1030,
+        "y": 240,
+        "wires": [
+            [
+                "5e57ad2.2743054"
+            ]
+        ]
+    },
+    {
+        "id": "41bab081.43422",
+        "type": "influxdb in",
+        "z": "8bc3036a.fdfb7",
+        "influxdb": "4780d20c.9e8d0c",
+        "name": "",
+        "query": "SELECT * FROM sensor_data ORDER BY time DESC LIMIT 200",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 620,
+        "y": 280,
+        "wires": [
+            [
+                "5a5a0ba2.85c074"
+            ]
+        ]
+    },
+    {
+        "id": "db4fbae3.0354d8",
+        "type": "inject",
+        "z": "8bc3036a.fdfb7",
         "name": "",
         "props": [
             {
@@ -1461,18 +1539,18 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 340,
+        "x": 600,
+        "y": 240,
         "wires": [
             [
-                "e2690d96.ecd66"
+                "41bab081.43422"
             ]
         ]
     },
     {
-        "id": "be5e070c.208728",
+        "id": "744497dd.ef5d48",
         "type": "debug",
-        "z": "e2d803ae.bfc0f",
+        "z": "8bc3036a.fdfb7",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1481,25 +1559,132 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 340,
+        "x": 1030,
+        "y": 360,
         "wires": []
     },
     {
-        "id": "884ee13d.68dc9",
-        "type": "influxdb out",
-        "z": "c5d3e58a.2902a8",
-        "influxdb": "4780d20c.9e8d0c",
+        "id": "5a5a0ba2.85c074",
+        "type": "function",
+        "z": "8bc3036a.fdfb7",
+        "name": "UTC + 1",
+        "func": "let temp = [[],[],[],[]];\n\nmsg.payload.forEach((object) => {\n    //set time +1h\n    let localDate = object.time;\n    localDate.setTime(localDate.getTime() + 60*60*1000);\n    object.time = localDate;\n    \n    //create 4 arrays\n    \n    temp[0].push([object.time, object.humidity]);\n    temp[1].push([object.time, object.pressure]);\n    temp[2].push([object.time, object.resistance]);\n    temp[3].push([object.time, object.temperature]);\n    \n});\n\nmsg.payload = temp;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 820,
+        "y": 280,
+        "wires": [
+            [
+                "744497dd.ef5d48",
+                "5e57ad2.2743054"
+            ]
+        ]
+    },
+    {
+        "id": "107b598d.35acd6",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
         "name": "",
-        "measurement": "sensor_data",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "GaSens",
-        "precisionV18FluxV20": "s",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 620,
+        "rules": [
+            {
+                "t": "delete",
+                "p": "uibuilderCtrl",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "41bab081.43422"
+            ]
+        ]
+    },
+    {
+        "id": "1123ce96.d734d1",
+        "type": "link out",
+        "z": "8bc3036a.fdfb7",
+        "name": "Dash Ctrl Out",
+        "links": [
+            "de4a00e.4722b"
+        ],
+        "x": 1215,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "de4a00e.4722b",
+        "type": "link in",
+        "z": "8bc3036a.fdfb7",
+        "name": "Dash Ctrl In",
+        "links": [
+            "1123ce96.d734d1"
+        ],
+        "x": 75,
+        "y": 280,
+        "wires": [
+            [
+                "92ac651d.435f58"
+            ]
+        ]
+    },
+    {
+        "id": "92ac651d.435f58",
+        "type": "switch",
+        "z": "8bc3036a.fdfb7",
+        "name": "ui ctrl",
+        "property": "uibuilderCtrl",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "client connect",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "ready for content",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "107b598d.35acd6"
+            ],
+            [
+                "107b598d.35acd6"
+            ],
+            [
+                "8f976422.3045f8"
+            ]
+        ]
+    },
+    {
+        "id": "8f976422.3045f8",
+        "type": "debug",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 310,
         "y": 320,
         "wires": []
     }

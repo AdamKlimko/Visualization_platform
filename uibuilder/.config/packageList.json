@@ -1,7 +1,8 @@
 [
-  "jquery",
-  "socket.io",
   "vue",
   "bootstrap",
-  "bootstrap-vue"
+  "bootstrap-vue",
+  "jquery",
+  "socket.io",
+  "chart.js"
 ]
