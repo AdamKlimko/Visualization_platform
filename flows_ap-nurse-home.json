@@ -35,6 +35,13 @@
         "info": ""
     },
     {
+        "id": "40d2acc7.bdaf24",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "16e8482f.719b98",
         "type": "ui_tab",
         "name": "GaSens02",
@@ -1452,7 +1459,7 @@
         "z": "8bc3036a.fdfb7",
         "name": "",
         "topic": "",
-        "url": "uibuilder",
+        "url": "dashboard",
         "fwdInMessages": false,
         "allowScripts": false,
         "allowStyles": false,
@@ -1461,7 +1468,7 @@
         "useSecurity": false,
         "sessionLength": 432000,
         "tokenAutoExtend": false,
-        "x": 1020,
+        "x": 1030,
         "y": 280,
         "wires": [
             [],
@@ -1687,5 +1694,27 @@
         "x": 310,
         "y": 320,
         "wires": []
+    },
+    {
+        "id": "dbb0bd8f.7242a",
+        "type": "uibuilder",
+        "z": "40d2acc7.bdaf24",
+        "name": "",
+        "topic": "",
+        "url": "demo",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": "",
+        "tokenAutoExtend": false,
+        "x": 730,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
     }
 ]

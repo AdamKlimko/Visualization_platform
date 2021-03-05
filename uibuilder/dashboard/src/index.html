@@ -18,7 +18,26 @@
 </head><body>
 
     <div id="app" v-cloak>
-        <b-container id="app_container">
+
+        <b-navbar toggleable="lg" type="light" variant="warning">
+            <b-navbar-nav>
+                <b-nav-item>
+                    <router-link to="/">Home</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                    <router-link to="/about">About</router-link>
+                </b-nav-item>
+                <b-nav-item>
+                    <router-link to="{ name: 'Client'}">Client</router-link>
+                </b-nav-item>
+            </b-navbar-nav>            
+        </b-navbar>
+                        
+        <div>
+            <router-view></router-view>
+        </div>
+            
+        <!-- <b-container id="app_container">
             
             <b-card class="my-3">
                 <h2 slot="header">Chart test</h2>
@@ -120,7 +139,8 @@
                 </b-card>
             </div>
 
-        </b-container>
+        </b-container> -->
+
     </div>
 
     <!-- These MUST be in the right order. Note no leading / -->
@@ -129,21 +149,29 @@
     <script src="../uibuilder/vendor/socket.io/socket.io.js"></script>
 
     <!-- Vendor Libraries - Load in the right order, use minified, production versions for speed -->
+    <!-- Vue.js -->
     <script src="../uibuilder/vendor/vue/dist/vue.min.js"></script>   <!-- prod version with component compiler -->
+    <!-- Bootstrap-Vue -->
     <script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.min.js"></script>   <!-- Prod version -->
+    <!-- Chart.js + Vue-Chartkick -->
     <script src="../uibuilder/vendor/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="./libs/vue-chartkick.min.js"></script>
 
+    <!-- HTTP Vue Loader -->
+    <script src="../uibuilder/vendor/http-vue-loader/src/httpVueLoader.js"></script>
+
+    <!-- Vue Router -->
+    <script src="../uibuilder/vendor/vue-router/dist/vue-router.js"></script>
     
+    <!-- Custom Index.js file -->
+    <script src="./index.js" type="module"></script>
+
+    <!-- FROM DEFAULT EXAMPLE -->
     <!--<script src="../uibuilder/vendor/vue/dist/vue.js"></script>  dev version with component compiler -->
     <!-- <script src="../uibuilder/vendor/vue/dist/vue.runtime.min.js"></script>   prod version without component compiler -->
     <!--<script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js"></script>  Dev version -->
     
     <!-- REQUIRED: Sets up Socket listeners and the msg object -->
     <!--<script src="./uibuilderfe.js"></script> dev version -->
-      
-
-    <!-- OPTIONAL: You probably want this. Put your custom code here -->
-    <script src="./index.js"></script>
 
 </body></html>

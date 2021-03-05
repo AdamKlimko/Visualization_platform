@@ -4,5 +4,7 @@
   "bootstrap-vue",
   "jquery",
   "socket.io",
-  "chart.js"
+  "chart.js",
+  "http-vue-loader",
+  "vue-router"
 ]

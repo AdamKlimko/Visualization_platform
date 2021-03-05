@@ -1,0 +1,25 @@
+{
+    "name": "visualization_platform",
+    "version": "1.0.0",
+    "description": "Visualization_platform ======================",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AdamKlimko/Visualization_platform.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AdamKlimko/Visualization_platform/issues"
+    },
+    "homepage": "https://github.com/AdamKlimko/Visualization_platform#readme",
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_ap-nurse-home.json",
+            "credentialsFile": "flows_ap-nurse-home_cred.json"
+        }
+    }
+}

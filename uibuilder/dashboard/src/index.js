@@ -18,6 +18,8 @@
 */
 'use strict'
 
+import router from './router.js';
+
 /** @see https://totallyinformation.github.io/node-red-contrib-uibuilder/#/front-end-library */
 
 // eslint-disable-next-line no-unused-vars
@@ -34,6 +36,7 @@ const app = new Vue({
         socketConnectedState : false,
         serverTimeOffset     : '[unknown]',
         imgProps             : { width: 75, height: 75 },
+        curClient   : 5,
 
         msgRecvd    : null,
         msgsReceived: 0,
@@ -213,6 +216,7 @@ const app = new Vue({
         //#endregion ---- Debug info, can be removed for live use ---- //
 
     }, // --- End of mounted hook --- //
+    router: new VueRouter(router),
 
 }) // --- End of app1 --- //
 
