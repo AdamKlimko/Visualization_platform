@@ -36,7 +36,7 @@ const app = new Vue({
         socketConnectedState : false,
         serverTimeOffset     : '[unknown]',
         imgProps             : { width: 75, height: 75 },
-        curClient   : 5,
+        clientId    : 1,
 
         msgRecvd    : null,
         msgsReceived: 0,

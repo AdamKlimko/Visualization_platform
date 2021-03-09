@@ -20,7 +20,7 @@ export default {
             },
         },
         {
-            path: '/client',
+            path: '/client/:clientId',
             name: 'client',
             components: {
                 default: Client

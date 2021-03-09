@@ -3,18 +3,7 @@
         "user": "dnwvdmyg",
         "password": "aIswpmgLoR9d"
     },
-    "5d19a3c6.23a97c": {
-        "jwtSecret": "ySdiLSZ16K6V7stJcSJQTrz7Jd8c19uL",
-        "nodeUsers": [
-            {
-                "username": "ap-home",
-                "password": "34fbdb001007a3eca8e809adbcfbfdd47537fe3f1d514198a8a6e80ec71337e4812fb2ba542faf56df044df375f666b19c65f0fd1264b2e5f7f0788a0c1fa401",
-                "scope": ""
-            }
-        ]
-    },
     "84b12b1.134e6d8": {},
     "4780d20c.9e8d0c": {},
-    "5e57ad2.2743054": {},
-    "dbb0bd8f.7242a": {}
+    "5e57ad2.2743054": {}
 }

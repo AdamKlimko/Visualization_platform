@@ -8,6 +8,7 @@
 
 <script>
 module.exports = {
+  
   data() {
     return {
       greeting: "Hello"

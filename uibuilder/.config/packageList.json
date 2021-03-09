@@ -1,10 +1,10 @@
 [
-  "vue",
-  "bootstrap",
-  "bootstrap-vue",
   "jquery",
   "socket.io",
-  "chart.js",
+  "vue",
+  "bootstrap-vue",
+  "bootstrap",
+  "vue-router",
   "http-vue-loader",
-  "vue-router"
+  "chart.js"
 ]
