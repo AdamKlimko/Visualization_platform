@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p>Home Page</p>
+    <p>Mapa</p>
 </div>  
 </template>
 
@@ -8,7 +8,7 @@
 module.exports = {
   data() {
     return {
-      greeting: "Hello"
+      
     };
   }
 };

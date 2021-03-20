@@ -1,30 +1,46 @@
 // const HeaderMenu = httpVueLoader('./components/HeaderMenu.vue');
 const Home = httpVueLoader('./views/Home.vue');
-const About = httpVueLoader('./views/About.vue');
+const Map = httpVueLoader('./views/Map.vue');
 const Client = httpVueLoader('./views/Client.vue');
+const Navbar = httpVueLoader('./components/Navbar.vue');
 
 export default {
     routes: [
         {
             path: '/',
-            name: 'home',
+            name: 'Home',
             components: {
-                default: Home
+                default: Home,
+                navbar: Navbar
             },
+            props: {
+                defalut: true,
+                navbar: true
+            }
         },
         {
-            path: '/about',
-            name: 'about',
+            path: '/map',
+            name: 'Map',
             components: {
-                default: About
+                default: Map,
+                navbar: Navbar
             },
+            props: {
+                defalut: true,
+                navbar: true
+            }
         },
         {
             path: '/client/:clientId',
-            name: 'client',
+            name: 'Client',
             components: {
-                default: Client
+                default: Client,
+                navbar: Navbar
             },
+            props: {
+                defalut: true,
+                navbar: true
+            }
         },
     ],
 };

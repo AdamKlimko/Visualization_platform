@@ -1,0 +1,33 @@
+/* Cloak elements on initial load to hide the possible display of {{ ... }} 
+ * Add to the app tag or to specific tags
+ * To display "loading...", change to the following:
+ *    [v-cloak] > * { display:none }
+ *    [v-cloak]::before { content: "loading…" }
+ */
+[v-cloak] { display: none; }
+
+a{
+    text-decoration: none;
+    color: rgb(27, 27, 27);
+    font-weight: 600;
+}
+
+a:hover{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.gradient-bg{
+    background: #eb3349 ;
+    background: -moz-linear-gradient(-45deg, #eb3349  0%, #f45c43 100%);
+    background: -webkit-linear-gradient(-45deg, #eb3349  0%, #f45c43 100%);
+    background: linear-gradient(135deg, #eb3349  0%, #f45c43 100%);
+}
+
+.dropdown-item{
+    padding: 0 !important;
+}
+
+.my-padding{
+    padding: .25rem 1.5rem;
+}
