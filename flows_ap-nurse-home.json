@@ -328,6 +328,16 @@
         "charset": "UTF8"
     },
     {
+        "id": "b405b45b.879578",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "130.61.154.45",
+        "port": "3306",
+        "db": "visualisation_p",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
         "id": "fd18e2a8.95be5",
         "type": "mqtt in",
         "z": "4fd2e6c4.650f68",
@@ -719,35 +729,16 @@
         "type": "debug",
         "z": "8bc3036a.fdfb7",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 340,
+        "x": 730,
+        "y": 200,
         "wires": []
-    },
-    {
-        "id": "5a5a0ba2.85c074",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UTC + 1",
-        "func": "let temp = [[],[],[],[]];\n\nmsg.payload.forEach((object) => {\n    //set time +1h\n    let localDate = object.time;\n    localDate.setTime(localDate.getTime() + 60*60*1000);\n    object.time = localDate;\n    \n    //create 4 arrays\n    \n    temp[0].push([object.time, object.temperature]);\n    temp[1].push([object.time, object.humidity]);\n    temp[2].push([object.time, object.pressure]);\n    temp[3].push([object.time, object.resistance]);\n    \n});\n\nmsg.payload = temp;\n\nmsg.topic = \"client_object\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 660,
-        "y": 260,
-        "wires": [
-            [
-                "744497dd.ef5d48",
-                "5e57ad2.2743054"
-            ]
-        ]
     },
     {
         "id": "1123ce96.d734d1",
@@ -773,7 +764,7 @@
         "y": 260,
         "wires": [
             [
-                "41bab081.43422"
+                "7a34998a.c4be58"
             ]
         ]
     },
@@ -1072,25 +1063,6 @@
         "wires": []
     },
     {
-        "id": "41bab081.43422",
-        "type": "influxdb in",
-        "z": "8bc3036a.fdfb7",
-        "influxdb": "4780d20c.9e8d0c",
-        "name": "",
-        "query": "",
-        "rawOutput": false,
-        "precision": "",
-        "retentionPolicy": "",
-        "org": "organisation",
-        "x": 300,
-        "y": 260,
-        "wires": [
-            [
-                "5a5a0ba2.85c074"
-            ]
-        ]
-    },
-    {
         "id": "79c930a2.5b435",
         "type": "worldmap in",
         "z": "e2b7cf86.73752",
@@ -1282,7 +1254,7 @@
         "type": "debug",
         "z": "4fd2e6c4.650f68",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1373,7 +1345,7 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": true,
+        "accumulate": false,
         "timeout": "",
         "count": "4",
         "reduceRight": false,
@@ -1385,25 +1357,10 @@
         "y": 600,
         "wires": [
             [
-                "5399938d.b1e6ac"
+                "d01c80fa.7f387",
+                "f92a41ed.09fca"
             ]
         ]
-    },
-    {
-        "id": "5399938d.b1e6ac",
-        "type": "debug",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "5c029a58.69f224",
@@ -1419,7 +1376,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1230,
-        "y": 320,
+        "y": 340,
         "wires": []
     },
     {
@@ -1743,7 +1700,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "SELECT * FROM all_clients;",
+                "to": "SELECT * FROM selected_clients;",
                 "tot": "str"
             }
         ],
@@ -1807,15 +1764,15 @@
         "type": "debug",
         "z": "8bc3036a.fdfb7",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
-        "y": 500,
+        "x": 650,
+        "y": 540,
         "wires": []
     },
     {
@@ -2288,7 +2245,7 @@
         "type": "debug",
         "z": "c5d3e58a.2902a8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2299,5 +2256,113 @@
         "x": 560,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "83dc4452.4fc608",
+        "type": "mysql",
+        "z": "4fd2e6c4.650f68",
+        "mydb": "c65fcf3a.e457e",
+        "name": "",
+        "x": 780,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f92a41ed.09fca",
+        "type": "debug",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d01c80fa.7f387",
+        "type": "function",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance\n)\nVALUES\n(\n3,\n${msg.payload.gasens_id03_temp},\n${msg.payload.gasens_id03_hum},\n${msg.payload.gasens_id03_pres},\n${msg.payload.gasens_id03_voc}\n);\n`\nmsg.topic = query;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 600,
+        "y": 600,
+        "wires": [
+            [
+                "f92a41ed.09fca",
+                "83dc4452.4fc608"
+            ]
+        ]
+    },
+    {
+        "id": "8196f88f.47e868",
+        "type": "mysql",
+        "z": "8bc3036a.fdfb7",
+        "mydb": "b405b45b.879578",
+        "name": "SELECT",
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "7b84f0a0.c8ab4"
+            ]
+        ]
+    },
+    {
+        "id": "7a34998a.c4be58",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "8196f88f.47e868"
+            ]
+        ]
+    },
+    {
+        "id": "7b84f0a0.c8ab4",
+        "type": "function",
+        "z": "8bc3036a.fdfb7",
+        "name": "Client object",
+        "func": "let currentState = msg.payload[0];\n\nlet temperature = [];\nlet humidity = [];\nlet pressure = [];\nlet resistance = [];\n\nmsg.payload.forEach((object) => {\n    \n    //create 4 arrays\n    temperature.push([object.time, object.temperature]);\n    humidity.push([object.time, object.humidity]);\n    pressure.push([object.time, object.pressure]);\n    resistance.push([object.time, object.resistance]);\n    \n});\n\nlet client = \n{\n    id: currentState.id,\n    name: currentState.name,\n    temperature: currentState.temperature,\n    humidity: currentState.humidity,\n    pressure: currentState.pressure,    \n    resistance: currentState.resistance,\n    temperature_arr: temperature,\n    humidity_arr: humidity,\n    pressure_arr: pressure,    \n    resistance_arr: resistance,\n    alerts: []\n};\n\nmsg.payload = client;\n\nmsg.topic = \"client_object\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 730,
+        "y": 260,
+        "wires": [
+            [
+                "744497dd.ef5d48",
+                "5e57ad2.2743054"
+            ]
+        ]
     }
 ]

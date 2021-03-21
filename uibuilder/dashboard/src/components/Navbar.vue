@@ -3,25 +3,26 @@
     <b-navbar class="gradient-bg" toggleable="lg" type="light" variant="warning">
             <b-navbar-nav>
 
+                <b-button v-b-toggle.sidebar class="btn btn-primary">Klienti</b-button>
+                    <b-sidebar id="sidebar" title="Klienti" shadow>
+                    <div class="px-3 py-2">
+                        <b-dropdown-item v-for="(client,index) in clients" :key="index" type="dark" variant="warning" >
+
+                        <router-link :to="'/client/' + client.id" class="w-100 d-block my-padding">
+                            {{ client.name }}
+                        </router-link>
+                        
+                        </b-dropdown-item>
+                    </div>
+                </b-sidebar>
+
                 <b-nav-item>
                     <router-link to="/">Domov</router-link>
                 </b-nav-item>
                 <b-nav-item>
                     <router-link to="/map">Mapa</router-link>
                 </b-nav-item>
-
-                <b-nav-item-dropdown text="Klienti" right>
-                    
-                    <b-dropdown-item v-for="(client,index) in clients" :key="index" type="dark" variant="warning" >
-
-                        <router-link @click.native="loadData(index+1)" :to="'/client/' + client.id" class="w-100 d-block my-padding">
-                            {{ client.name }}
-                        </router-link>
-                        
-                    </b-dropdown-item>
-                    
-                </b-nav-item-dropdown>
-
+                
             </b-navbar-nav>            
         </b-navbar>
 </div>  
@@ -44,12 +45,12 @@ module.exports = {
     },
     methods: { 
         loadData: function(id) {
-            console.log("LODA DATA for client:" + id);
-            uibuilder.send( {
-                "topic": "loadClient",
-                "query": "SELECT * FROM client_" + id + " ORDER BY time DESC LIMIT 200"
-            } )
-    }, 
+    //         console.log("LOAD DATA for client:" + id);
+    //         uibuilder.send( {
+    //             "topic": "loadClient",
+                
+    //         } )
+     }, 
 
     doEvent: uibuilder.eventSend,
     },

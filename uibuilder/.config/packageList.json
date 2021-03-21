@@ -6,5 +6,6 @@
   "bootstrap",
   "vue-router",
   "http-vue-loader",
-  "chart.js"
+  "chart.js",
+  "vue-svg-gauge"
 ]

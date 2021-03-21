@@ -28,7 +28,7 @@
             <router-view name="navbar" :clients="clients"></router-view>
         </div>
         <div id="main">
-            <router-view></router-view>
+            <router-view :key="$route.fullPath"></router-view>
         </div>
             
     </div>
@@ -47,9 +47,10 @@
     <script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.min.js"></script>   <!-- Prod version -->
     <!--<script src="../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js"></script>  Dev version -->
 
-    <!-- Chart.js + Vue-Chartkick -->
+    <!-- Chart.js + Vue-Chartkick + Vue-svg-gauge -->
     <script src="../uibuilder/vendor/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="./libs/vue-chartkick.min.js"></script>
+    <script src="../uibuilder/vendor/vue-svg-gauge/dist/vue-svg-gauge.js"></script>
 
     <!-- HTTP Vue Loader -->
     <script src="../uibuilder/vendor/http-vue-loader/src/httpVueLoader.js"></script>
