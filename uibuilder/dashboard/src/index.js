@@ -79,7 +79,7 @@ const app = new Vue({
             app.msgRecvd = msg;
 
             switch(msg.topic){
-                case "clients":
+                case "selected clients":
                     app.clients = msg.payload;
                     break;
             }

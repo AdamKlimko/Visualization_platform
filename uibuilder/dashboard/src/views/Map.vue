@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p>Mapa</p>
+    <p>Lat: {{coordinates.lat}}, Lon: {{coordinates.lng}}</p>
 </div>  
 </template>
 
@@ -8,7 +8,10 @@
 module.exports = {
   data() {
     return {
-      
+      coordinates: {
+        lat: 0,
+        lng: 0
+      }
     };
   }
 };

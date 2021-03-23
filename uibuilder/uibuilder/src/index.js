@@ -82,7 +82,7 @@ const app = new Vue({
 
         // Called from the increment button - sends a msg to Node-RED
         increment: function(event) {
-            console.log('Button Pressed. Event Data: ', event)
+            // console.log('Button Pressed. Event Data: ', event)
 
             // Increment the count by one
             this.counterBtn = this.counterBtn + 1
@@ -151,13 +151,13 @@ const app = new Vue({
     /** Called once all Vue component instances have been loaded and the virtual DOM built */
     mounted: function(){
 
-        //console.debug('[indexjs:Vue.mounted] app mounted - setting up uibuilder watchers')
+        // console.debug('[indexjs:Vue.mounted] app mounted - setting up uibuilder watchers')
 
         var app = this  // Reference to `this` in case we need it for more complex functions
 
         // If msg changes - msg is updated when a standard msg is received from Node-RED over Socket.IO
         uibuilder.onChange('msg', function(msg){
-            //console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg)
+            console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg)
             app.msgRecvd = msg
             app.msgsReceived = uibuilder.get('msgsReceived')
         })

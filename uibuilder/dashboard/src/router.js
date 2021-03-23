@@ -1,16 +1,16 @@
 // const HeaderMenu = httpVueLoader('./components/HeaderMenu.vue');
-const Home = httpVueLoader('./views/Home.vue');
+const Settings = httpVueLoader('./views/Settings.vue');
 const Map = httpVueLoader('./views/Map.vue');
 const Client = httpVueLoader('./views/Client.vue');
 const Navbar = httpVueLoader('./components/Navbar.vue');
 
 export default {
-    routes: [
+    routes: [        
         {
             path: '/',
-            name: 'Home',
+            name: 'Map',
             components: {
-                default: Home,
+                default: Map,
                 navbar: Navbar
             },
             props: {
@@ -19,10 +19,10 @@ export default {
             }
         },
         {
-            path: '/map',
-            name: 'Map',
+            path: '/settings',
+            name: 'Settings',
             components: {
-                default: Map,
+                default: Settings,
                 navbar: Navbar
             },
             props: {

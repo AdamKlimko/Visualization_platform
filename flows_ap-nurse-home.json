@@ -35,6 +35,13 @@
         "info": ""
     },
     {
+        "id": "62fe68e2.133b38",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "94c9239b.5c666",
         "type": "mqtt-broker",
         "name": "",
@@ -729,15 +736,16 @@
         "type": "debug",
         "z": "8bc3036a.fdfb7",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 200,
+        "x": 790,
+        "y": 80,
         "wires": []
     },
     {
@@ -764,7 +772,7 @@
         "y": 260,
         "wires": [
             [
-                "7a34998a.c4be58"
+                "4358c50f.f21c1c"
             ]
         ]
     },
@@ -1122,38 +1130,15 @@
         "useSecurity": false,
         "sessionLength": 432000,
         "tokenAutoExtend": false,
-        "x": 1010,
+        "x": 1030,
         "y": 260,
         "wires": [
             [
                 "1123ce96.d734d1"
             ],
             [
-                "5c029a58.69f224",
                 "c46ad2b1.8a1f8"
             ]
-        ]
-    },
-    {
-        "id": "a402554b.73c3f8",
-        "type": "uibuilder",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "topic": "",
-        "url": "uibuilder",
-        "fwdInMessages": false,
-        "allowScripts": false,
-        "allowStyles": false,
-        "copyIndex": true,
-        "showfolder": false,
-        "useSecurity": false,
-        "sessionLength": 432000,
-        "tokenAutoExtend": false,
-        "x": 120,
-        "y": 60,
-        "wires": [
-            [],
-            []
         ]
     },
     {
@@ -1363,23 +1348,6 @@
         ]
     },
     {
-        "id": "5c029a58.69f224",
-        "type": "debug",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1230,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "c46ad2b1.8a1f8",
         "type": "link out",
         "z": "8bc3036a.fdfb7",
@@ -1400,7 +1368,7 @@
             "c46ad2b1.8a1f8"
         ],
         "x": 135,
-        "y": 420,
+        "y": 560,
         "wires": [
             [
                 "3a08c9b1.779ad6"
@@ -1678,7 +1646,7 @@
         "repair": false,
         "outputs": 1,
         "x": 250,
-        "y": 420,
+        "y": 560,
         "wires": [
             [
                 "823e1ab1.52e018"
@@ -1710,7 +1678,7 @@
         "to": "",
         "reg": false,
         "x": 440,
-        "y": 420,
+        "y": 560,
         "wires": [
             [
                 "5b4193e2.2ea31c"
@@ -1723,8 +1691,8 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "c65fcf3a.e457e",
         "name": "SELECT",
-        "x": 640,
-        "y": 420,
+        "x": 620,
+        "y": 560,
         "wires": [
             [
                 "e36fcff6.cf24e",
@@ -1742,7 +1710,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "clients",
+                "to": "selected clients",
                 "tot": "str"
             }
         ],
@@ -1751,8 +1719,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 870,
-        "y": 420,
+        "x": 790,
+        "y": 560,
         "wires": [
             [
                 "5e57ad2.2743054"
@@ -1771,8 +1739,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 650,
-        "y": 540,
+        "x": 610,
+        "y": 660,
         "wires": []
     },
     {
@@ -2311,8 +2279,8 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "SELECT",
-        "x": 520,
-        "y": 260,
+        "x": 620,
+        "y": 160,
         "wires": [
             [
                 "7b84f0a0.c8ab4"
@@ -2338,8 +2306,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 290,
-        "y": 260,
+        "x": 450,
+        "y": 160,
         "wires": [
             [
                 "8196f88f.47e868"
@@ -2351,17 +2319,348 @@
         "type": "function",
         "z": "8bc3036a.fdfb7",
         "name": "Client object",
-        "func": "let currentState = msg.payload[0];\n\nlet temperature = [];\nlet humidity = [];\nlet pressure = [];\nlet resistance = [];\n\nmsg.payload.forEach((object) => {\n    \n    //create 4 arrays\n    temperature.push([object.time, object.temperature]);\n    humidity.push([object.time, object.humidity]);\n    pressure.push([object.time, object.pressure]);\n    resistance.push([object.time, object.resistance]);\n    \n});\n\nlet client = \n{\n    id: currentState.id,\n    name: currentState.name,\n    temperature: currentState.temperature,\n    humidity: currentState.humidity,\n    pressure: currentState.pressure,    \n    resistance: currentState.resistance,\n    temperature_arr: temperature,\n    humidity_arr: humidity,\n    pressure_arr: pressure,    \n    resistance_arr: resistance,\n    alerts: []\n};\n\nmsg.payload = client;\n\nmsg.topic = \"client_object\";\n\nreturn msg;",
+        "func": "let currentState = msg.payload[0];\n\nlet temperature = [];\nlet humidity = [];\nlet pressure = [];\nlet resistance = [];\n\nmsg.payload.forEach((object) => {\n    \n    //create 4 arrays\n    temperature.push([object.time, object.temperature]);\n    humidity.push([object.time, object.humidity]);\n    pressure.push([object.time, object.pressure]);\n    resistance.push([object.time, object.resistance]);\n    \n});\n\nlet client = \n{\n    id: currentState.id,\n    name: currentState.name,\n    temperature: currentState.temperature,\n    humidity: currentState.humidity,\n    pressure: currentState.pressure,    \n    resistance: currentState.resistance,\n    temperature_arr: temperature,\n    humidity_arr: humidity,\n    pressure_arr: pressure,    \n    resistance_arr: resistance,\n    alerts: []\n};\n\nmsg.payload = client;\n\nmsg.topic = \"client object\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 730,
-        "y": 260,
+        "x": 790,
+        "y": 160,
         "wires": [
             [
                 "744497dd.ef5d48",
                 "5e57ad2.2743054"
+            ]
+        ]
+    },
+    {
+        "id": "4358c50f.f21c1c",
+        "type": "switch",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "load client",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "all clients",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "selected clients",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "add client",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "remove client",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "7a34998a.c4be58"
+            ],
+            [
+                "8c6e9c87.3981f"
+            ],
+            [
+                "520f5c7e.ea9594"
+            ],
+            [
+                "f7d6bd3.c1ad94"
+            ],
+            [
+                "4a77fa1a.b597a4"
+            ]
+        ]
+    },
+    {
+        "id": "8c6e9c87.3981f",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT * FROM all_clients;",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "72f9f9d7.b096e8"
+            ]
+        ]
+    },
+    {
+        "id": "72f9f9d7.b096e8",
+        "type": "mysql",
+        "z": "8bc3036a.fdfb7",
+        "mydb": "b405b45b.879578",
+        "name": "SELECT",
+        "x": 620,
+        "y": 220,
+        "wires": [
+            [
+                "99c3eafa.23d788"
+            ]
+        ]
+    },
+    {
+        "id": "99c3eafa.23d788",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "all clients",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 220,
+        "wires": [
+            [
+                "5e57ad2.2743054"
+            ]
+        ]
+    },
+    {
+        "id": "520f5c7e.ea9594",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT * FROM selected_clients;",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "3dcdb855.295708"
+            ]
+        ]
+    },
+    {
+        "id": "3dcdb855.295708",
+        "type": "mysql",
+        "z": "8bc3036a.fdfb7",
+        "mydb": "b405b45b.879578",
+        "name": "SELECT",
+        "x": 620,
+        "y": 280,
+        "wires": [
+            [
+                "2122b833.d3ac28"
+            ]
+        ]
+    },
+    {
+        "id": "2122b833.d3ac28",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "selected clients",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 280,
+        "wires": [
+            [
+                "5e57ad2.2743054"
+            ]
+        ]
+    },
+    {
+        "id": "8e7b80a3.0ddc3",
+        "type": "uibuilder",
+        "z": "62fe68e2.133b38",
+        "name": "",
+        "topic": "",
+        "url": "uibuilder",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": 432000,
+        "tokenAutoExtend": false,
+        "x": 590,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "717c6560.a02f5c",
+        "type": "debug",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f7d6bd3.c1ad94",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "11703f7d.b80331"
+            ]
+        ]
+    },
+    {
+        "id": "11703f7d.b80331",
+        "type": "mysql",
+        "z": "8bc3036a.fdfb7",
+        "mydb": "b405b45b.879578",
+        "name": "SELECT",
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "717c6560.a02f5c"
+            ]
+        ]
+    },
+    {
+        "id": "a47be09e.9fd0e",
+        "type": "debug",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4a77fa1a.b597a4",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "42b5975a.313ff8"
+            ]
+        ]
+    },
+    {
+        "id": "42b5975a.313ff8",
+        "type": "mysql",
+        "z": "8bc3036a.fdfb7",
+        "mydb": "b405b45b.879578",
+        "name": "SELECT",
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "a47be09e.9fd0e"
             ]
         ]
     }

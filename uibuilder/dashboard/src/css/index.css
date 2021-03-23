@@ -19,9 +19,9 @@ a:hover{
 
 .gradient-bg{
     background: #eb3349 ;
-    background: -moz-linear-gradient(-45deg, #eb3349  0%, #f45c43 100%);
-    background: -webkit-linear-gradient(-45deg, #eb3349  0%, #f45c43 100%);
-    background: linear-gradient(135deg, #eb3349  0%, #f45c43 100%);
+    background: -moz-linear-gradient(-45deg, #eb3349  50%, #9e0f20 100%);
+    background: -webkit-linear-gradient(-45deg, #eb3349  50%, #9e0f20 100%);
+    background: linear-gradient(135deg, #eb3349  50%, #9e0f20 100%);
 }
 
 .dropdown-item{
