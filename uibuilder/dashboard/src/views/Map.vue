@@ -1,25 +1,27 @@
 <template>
-<div>
-    <p>Lat: {{coordinates.lat}}, Lon: {{coordinates.lng}}</p>
-</div>  
+  <div class="h-100">
+    <Googlemap></Googlemap>
+  </div>  
 </template>
 
+
 <script>
+const Googlemap = httpVueLoader('components/GoogleMap.vue');
+
 module.exports = {
-  data() {
+  components: {
+    Googlemap
+  },
+
+  data: function() {
     return {
-      coordinates: {
-        lat: 0,
-        lng: 0
-      }
+      
     };
-  }
+  },
 };
 </script>
 
+
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+
 </style>

@@ -13,11 +13,7 @@
 
 <script>
 module.exports = {
-  data() {
-    return {
-      greeting: "Hello"
-    };
-  }
+
 };
 </script>
 
@@ -30,7 +26,7 @@ module.exports = {
   position: absolute;
   width: 42px;
   height: 42px;
-  border: 6px solid #e15b64;
+  border: 6px solid #ff5555;
   border-top-color: transparent;
   border-radius: 50%;
 }
@@ -44,7 +40,7 @@ module.exports = {
   height: 200px;
   display: inline-block;
   overflow: hidden;
-  background: #ffffff;
+  background: #fff;
 }
 .ldio-jrd0cvl0mhm {
   width: 100%;

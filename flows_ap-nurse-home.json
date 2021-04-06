@@ -7,20 +7,6 @@
         "info": ""
     },
     {
-        "id": "c5d3e58a.2902a8",
-        "type": "tab",
-        "label": "Influxdb",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "e2b7cf86.73752",
-        "type": "tab",
-        "label": "Map",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "8bc3036a.fdfb7",
         "type": "tab",
         "label": "UI",
@@ -31,13 +17,6 @@
         "id": "40d2acc7.bdaf24",
         "type": "tab",
         "label": "Default uib example",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "62fe68e2.133b38",
-        "type": "tab",
-        "label": "Flow 1",
         "disabled": false,
         "info": ""
     },
@@ -357,8 +336,6 @@
         "y": 60,
         "wires": [
             [
-                "6d74a2d5.f94e5c",
-                "5b6cc959.995328",
                 "4fecd245.672b4c"
             ]
         ]
@@ -376,8 +353,6 @@
         "y": 120,
         "wires": [
             [
-                "d25102e4.a646f",
-                "cc366add.3f6fd8",
                 "4fecd245.672b4c"
             ]
         ]
@@ -395,8 +370,6 @@
         "y": 180,
         "wires": [
             [
-                "b6de5f44.2c4f7",
-                "e86741d1.3758",
                 "4fecd245.672b4c"
             ]
         ]
@@ -414,8 +387,6 @@
         "y": 240,
         "wires": [
             [
-                "bfa108ef.b125c8",
-                "972263c.d2562a",
                 "4fecd245.672b4c"
             ]
         ]
@@ -440,295 +411,12 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 350,
-        "y": 440,
+        "x": 370,
+        "y": 160,
         "wires": [
             [
-                "f3cfef04.c2b8a",
-                "a67314e4.5875a8"
+                "dc6f6af4.a034f8"
             ]
-        ]
-    },
-    {
-        "id": "1a647dc3.b610e2",
-        "type": "function",
-        "z": "e2b7cf86.73752",
-        "name": "demo",
-        "func": "msg.payload =\n[\n    {\n    \"name\": \"Lucia Snyder\",\n    \"lat\": 48.19284151166349,\n    \"lon\": 17.031850003214494,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `\n    },\n    {\n    \"name\": \"Arslan Osborne\",\n    \"lat\": 48.213141392539974,\n    \"lon\": 17.15728965991068,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `\n    },\n    {\n    \"name\": \"Paige Mcbride\",\n    \"lat\": 48.28287296232232,\n    \"lon\": 17.252389110709803,\n    \"iconColor\": \"#f2e82e\",\n    \"popup\": \n    `\n        <h4>Stav: Neobvyklé</h4>\n        <h4>Teplota: 0°C</h4>\n        <h4>VOC Odpor: 0kOhm</h4>\n        <h4>Vlhosť vzduchu: 0%</h4>\n        <h4>Tlak: 0hPa</h4>\n    `  \n    }\n]\n\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 630,
-        "y": 260,
-        "wires": [
-            [
-                "1a7e91b4.9a347e"
-            ]
-        ]
-    },
-    {
-        "id": "efcd96af.027eb8",
-        "type": "function",
-        "z": "e2b7cf86.73752",
-        "name": "GaSens",
-        "func": "const g1 = global.get(\"gasens01\");\nconst g2 = global.get(\"gasens02\");\n\nconst temp = [g1, g2];\n\nmsg.payload = temp;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 640,
-        "y": 460,
-        "wires": [
-            [
-                "c17ddc66.cdcf6"
-            ]
-        ]
-    },
-    {
-        "id": "1a7e91b4.9a347e",
-        "type": "split",
-        "z": "e2b7cf86.73752",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 630,
-        "y": 360,
-        "wires": [
-            [
-                "c17ddc66.cdcf6"
-            ]
-        ]
-    },
-    {
-        "id": "f2e131d3.44c71",
-        "type": "comment",
-        "z": "e2b7cf86.73752",
-        "name": "Načítanie mapy",
-        "info": "",
-        "x": 380,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "b843e17f.96cfa",
-        "type": "comment",
-        "z": "e2b7cf86.73752",
-        "name": "Demo dáta",
-        "info": "",
-        "x": 630,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "51656936.1d5ac8",
-        "type": "comment",
-        "z": "e2b7cf86.73752",
-        "name": "Zobrazenie mapy",
-        "info": "",
-        "x": 880,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "383990b5.72ba4",
-        "type": "comment",
-        "z": "e2b7cf86.73752",
-        "name": "GaSens dáta",
-        "info": "",
-        "x": 650,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "b600f3a.58f911",
-        "type": "function",
-        "z": "c5d3e58a.2902a8",
-        "name": "Map popup",
-        "func": "const temp = {\n    \"name\": \"GaSens01\",\n    \"lat\": 48.15,\n    \"lon\": 17.11,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: ${msg.payload.temperature_exterior}°C</h4>\n        <h4>VOC Odpor: ${msg.payload.resistance_exterior}kOhm</h4>\n        <h4>Vlhosť vzduchu: ${msg.payload.humidity_exterior}%</h4>\n        <h4>Tlak: ${msg.payload.pressure_exterior}hPa</h4>\n        <h4><a href=\"http://130.61.154.45:1880/ui/#!/1?socketid=siX4TXIG-LUSC0YqAAAE\" target=\"_PARENT\">Prejsť na</a><h4>\n    `\n};\n\nmsg.payload = temp;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 350,
-        "y": 220,
-        "wires": [
-            [
-                "747ed0f9.fddfb"
-            ]
-        ]
-    },
-    {
-        "id": "747ed0f9.fddfb",
-        "type": "change",
-        "z": "c5d3e58a.2902a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gasens01",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "142af93d.0d58c7",
-        "type": "function",
-        "z": "c5d3e58a.2902a8",
-        "name": "Fields and Tags",
-        "func": "let temp = \n{\n    humidity:   msg.payload.humidity_exterior,\n    resistance: msg.payload.resistance_exterior,\n    pressure:   msg.payload.pressure_exterior,\n    temperature: msg.payload.temperature_exterior\n}\n\nmsg.payload = temp;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 360,
-        "y": 280,
-        "wires": [
-            [
-                "34dc31be.2f452e",
-                "884ee13d.68dc9"
-            ]
-        ]
-    },
-    {
-        "id": "34dc31be.2f452e",
-        "type": "debug",
-        "z": "c5d3e58a.2902a8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1050,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "f3cfef04.c2b8a",
-        "type": "link out",
-        "z": "4fd2e6c4.650f68",
-        "name": "gasens01_a",
-        "links": [
-            "f6bf05e7.d48bd8"
-        ],
-        "x": 475,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "f6bf05e7.d48bd8",
-        "type": "link in",
-        "z": "c5d3e58a.2902a8",
-        "name": "gasens01_b",
-        "links": [
-            "f3cfef04.c2b8a"
-        ],
-        "x": 175,
-        "y": 280,
-        "wires": [
-            [
-                "142af93d.0d58c7",
-                "b600f3a.58f911",
-                "315ac81f.cb9008"
-            ]
-        ]
-    },
-    {
-        "id": "d4a478a4.d52778",
-        "type": "link in",
-        "z": "c5d3e58a.2902a8",
-        "name": "gasens02_b",
-        "links": [
-            "233c4983.4f0df6",
-            "3aca8fe7.ac09"
-        ],
-        "x": 175,
-        "y": 360,
-        "wires": [
-            [
-                "e757376f.f76808",
-                "cd286c84.aa764"
-            ]
-        ]
-    },
-    {
-        "id": "e757376f.f76808",
-        "type": "function",
-        "z": "c5d3e58a.2902a8",
-        "name": "Fields and Tags",
-        "func": "let temp = \n[{\n    humidity:   msg.payload.humidity_exterior,\n    resistance: msg.payload.resistance_exterior,\n    pressure:   msg.payload.pressure_exterior,\n    temperature: msg.payload.temperature_exterior\n},\n{\n    sensor:\"GaSens02\",\n}];\n\nmsg.payload = temp;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 360,
-        "y": 360,
-        "wires": [
-            [
-                "34dc31be.2f452e"
-            ]
-        ]
-    },
-    {
-        "id": "cd286c84.aa764",
-        "type": "function",
-        "z": "c5d3e58a.2902a8",
-        "name": "Map popup",
-        "func": "const temp = {\n    \"name\": \"GaSens02\",\n    \"lat\": 48.15,\n    \"lon\": 20,\n    \"iconColor\": \"#2aeb7e\",\n    \"popup\": \n    `\n        <h4>Stav: Všetko v poriadku</h4>\n        <h4>Teplota: ${msg.payload.temperature_exterior}°C</h4>\n        <h4>VOC Odpor: ${msg.payload.resistance_exterior}kOhm</h4>\n        <h4>Vlhosť vzduchu: ${msg.payload.humidity_exterior}%</h4>\n        <h4>Tlak: ${msg.payload.pressure_exterior}hPa</h4>\n        <h4><a href=\"http://20.52.136.125:1880/ui/#!/2\" target=\"_PARENT\">Prejsť na</a><h4>\n    `\n};\n\nmsg.payload = temp;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 350,
-        "y": 420,
-        "wires": [
-            [
-                "d0a2f1c9.81f6e"
-            ]
-        ]
-    },
-    {
-        "id": "d0a2f1c9.81f6e",
-        "type": "change",
-        "z": "c5d3e58a.2902a8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gasens02",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 420,
-        "wires": [
-            []
         ]
     },
     {
@@ -777,345 +465,6 @@
         ]
     },
     {
-        "id": "5b6cc959.995328",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 2,
-        "width": "4",
-        "height": "2",
-        "label": "Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "-20",
-        "ymax": "40",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 530,
-        "y": 60,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d25102e4.a646f",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 4,
-        "width": "4",
-        "height": "2",
-        "label": "Resistance",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "200",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 530,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b6de5f44.2c4f7",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 6,
-        "width": "4",
-        "height": "2",
-        "label": "Humidity",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 520,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bfa108ef.b125c8",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 8,
-        "width": "4",
-        "height": "2",
-        "label": "Pressure",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 520,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6d74a2d5.f94e5c",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 1,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Temperature",
-        "label": "Celsius",
-        "format": "{{value}}°C",
-        "min": "-20",
-        "max": "50",
-        "colors": [
-            "#6b84ff",
-            "#fff99e",
-            "#ffa200"
-        ],
-        "seg1": "5",
-        "seg2": "20",
-        "x": 530,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "cc366add.3f6fd8",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 3,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Resistance",
-        "label": "Ohm",
-        "format": "{{value}}kOhm",
-        "min": 0,
-        "max": "200",
-        "colors": [
-            "#ffffff",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 530,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "e86741d1.3758",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 5,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Humidity",
-        "label": "Percent",
-        "format": "{{value}}%",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ffffff",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 520,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "972263c.d2562a",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "89b1a038.919d1",
-        "order": 7,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Pressure",
-        "label": "Pascal",
-        "format": "{{value}}hPa",
-        "min": "950",
-        "max": "1100",
-        "colors": [
-            "#ffffff",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 520,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "884ee13d.68dc9",
-        "type": "influxdb out",
-        "z": "c5d3e58a.2902a8",
-        "influxdb": "4780d20c.9e8d0c",
-        "name": "",
-        "measurement": "client_1",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "GaSens",
-        "precisionV18FluxV20": "s",
-        "retentionPolicyV18Flux": "",
-        "org": "organisation",
-        "bucket": "bucket",
-        "x": 600,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "79c930a2.5b435",
-        "type": "worldmap in",
-        "z": "e2b7cf86.73752",
-        "name": "",
-        "path": "/worldmap",
-        "events": "connect",
-        "x": 380,
-        "y": 460,
-        "wires": [
-            [
-                "efcd96af.027eb8",
-                "1a647dc3.b610e2"
-            ]
-        ]
-    },
-    {
-        "id": "c17ddc66.cdcf6",
-        "type": "ui_worldmap",
-        "z": "e2b7cf86.73752",
-        "group": "91e4330f.eb3e1",
-        "order": 8,
-        "width": "8",
-        "height": "5",
-        "name": "",
-        "lat": "48.25555149000271",
-        "lon": "17.111373526087785",
-        "zoom": "11",
-        "layer": "OSM",
-        "cluster": "",
-        "maxage": "",
-        "usermenu": "hide",
-        "layers": "hide",
-        "panit": "false",
-        "panlock": "false",
-        "zoomlock": "false",
-        "hiderightclick": "true",
-        "coords": "none",
-        "showgrid": "false",
-        "allowFileDrop": "false",
-        "path": "/worldmap",
-        "x": 880,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "5e57ad2.2743054",
         "type": "uibuilder",
         "z": "8bc3036a.fdfb7",
@@ -1142,115 +491,6 @@
         ]
     },
     {
-        "id": "9dfd1d4b.74d72",
-        "type": "debug",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "68baeb25.818594",
-        "type": "inject",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "sensor",
-        "payload": "1",
-        "payloadType": "str",
-        "x": 360,
-        "y": 100,
-        "wires": [
-            [
-                "36e65673.a53d5a",
-                "d792fff6.92dbf"
-            ]
-        ]
-    },
-    {
-        "id": "36e65673.a53d5a",
-        "type": "change",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "rules": [
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "",
-                "fromt": "num",
-                "to": "sensor_",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 650,
-        "y": 100,
-        "wires": [
-            [
-                "9dfd1d4b.74d72"
-            ]
-        ]
-    },
-    {
-        "id": "d792fff6.92dbf",
-        "type": "function",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "func": "msg.payload = \"sensor_\" + msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 610,
-        "y": 200,
-        "wires": [
-            [
-                "9dfd1d4b.74d72"
-            ]
-        ]
-    },
-    {
-        "id": "a67314e4.5875a8",
-        "type": "debug",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 480,
-        "wires": []
-    },
-    {
         "id": "4ce590be.41206",
         "type": "mqtt in",
         "z": "4fd2e6c4.650f68",
@@ -1260,7 +500,7 @@
         "datatype": "auto",
         "broker": "94c9239b.5c666",
         "x": 150,
-        "y": 520,
+        "y": 340,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -1277,7 +517,7 @@
         "datatype": "auto",
         "broker": "94c9239b.5c666",
         "x": 150,
-        "y": 640,
+        "y": 460,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -1294,7 +534,7 @@
         "datatype": "auto",
         "broker": "94c9239b.5c666",
         "x": 150,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -1311,7 +551,7 @@
         "datatype": "auto",
         "broker": "94c9239b.5c666",
         "x": 140,
-        "y": 580,
+        "y": 400,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -1338,12 +578,11 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 450,
-        "y": 600,
+        "x": 370,
+        "y": 420,
         "wires": [
             [
-                "d01c80fa.7f387",
-                "f92a41ed.09fca"
+                "d01c80fa.7f387"
             ]
         ]
     },
@@ -1374,259 +613,6 @@
                 "3a08c9b1.779ad6"
             ]
         ]
-    },
-    {
-        "id": "ae4ad803.98aa88",
-        "type": "uibuilder",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "topic": "",
-        "url": "cachetest1",
-        "fwdInMessages": false,
-        "allowScripts": true,
-        "allowStyles": true,
-        "copyIndex": true,
-        "showfolder": false,
-        "x": 630,
-        "y": 460,
-        "wires": [
-            [
-                "47aeb5cb.97f31c"
-            ],
-            [
-                "a330534f.2e678",
-                "4c2899fb.1cd318"
-            ]
-        ]
-    },
-    {
-        "id": "47aeb5cb.97f31c",
-        "type": "debug",
-        "z": "40d2acc7.bdaf24",
-        "name": "data from ui",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 810,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "43f62f54.e076c",
-        "type": "function",
-        "z": "40d2acc7.bdaf24",
-        "name": "cache by topic",
-        "func": "/* jshint asi: true */\n\n// Expects input msgs with topic set\n\n// cache variable name - needs to be unique for each cache\nconst cacheVarName = 'msgCache'\n\n// get saved context\nlet msgCache = context.get(cacheVarName) || {}\n\n// Handle cache control messages\nif (msg.hasOwnProperty('cacheControl')) {\n    // Replay cache if requested\n    if (msg.cacheControl === 'REPLAY') {\n        for (let topic in msgCache) {\n            // Only send to a single client if we can\n            if ( msg.hasOwnProperty('_socketId') ) {\n                node.send({\n                    \"topic\": topic, \n                    \"payload\": msgCache[topic],\n                    \"_socketId\": msg._socketId\n                })\n            } else {\n                node.send({\n                    \"topic\": topic, \n                    \"payload\": msgCache[topic]\n                })\n            }\n        }\n        return null\n    } else if (msg.cacheControl === 'CLEAR') {\n        // Or clear the cach (no msg sent)\n        context.set(cacheVarName, {})\n        return null\n    } else {\n        // or do nothing\n        return null\n    }\n}\n\n\n// ignore other uibuilder control messages\nif ( msg.hasOwnProperty('uibuilderCtrl') ) return null\n\n// Keep the last msg.payload by topic\nmsgCache[msg.topic] = msg.payload\n\n// save context for next time\ncontext.set(cacheVarName, msgCache)\n\n// Show number of cached msgs in status\nnode.status({fill:'green',shape:'ring',text:'Cached: ' + Object.keys(msgCache).length})\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 430,
-        "y": 460,
-        "wires": [
-            [
-                "ae4ad803.98aa88"
-            ]
-        ]
-    },
-    {
-        "id": "a330534f.2e678",
-        "type": "debug",
-        "z": "40d2acc7.bdaf24",
-        "name": "control msgs from ui",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 840,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "122cefe6.c39a7",
-        "type": "link in",
-        "z": "40d2acc7.bdaf24",
-        "name": "home-replay",
-        "links": [
-            "4c2899fb.1cd318",
-            "8c23b9bc.b992b8"
-        ],
-        "x": 315,
-        "y": 460,
-        "wires": [
-            [
-                "43f62f54.e076c"
-            ]
-        ]
-    },
-    {
-        "id": "4c2899fb.1cd318",
-        "type": "link out",
-        "z": "40d2acc7.bdaf24",
-        "name": "home-controls",
-        "links": [
-            "122cefe6.c39a7"
-        ],
-        "x": 755,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "a22357f8.abfa88",
-        "type": "comment",
-        "z": "40d2acc7.bdaf24",
-        "name": "Caching using simple function by msg.topic",
-        "info": "See https://github.com/TotallyInformation/node-red-contrib-uibuilder/wiki/Cache-and-Replay-Messages-without-using-node-red-contrib-infocache\nfor details.\n\nThe uibuilder control messages are used to \nreplay or empty the cache.\n\nFeed in your own data to the cache to see how it\nworks.\n\nThe way it is currently written, the last message\nof each topic passing through the function node\nis retained and then replayed as separate messages\nwhen a new client GETs the uibuilder URL (or when\nand existing client reloads the page).\n\n## Configuration\n\nReplace default `index.html` and `index.js` files\nwith those in the 2 comment nodes.\n\nChange the name of the cache variable if copying this function.",
-        "x": 800,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "7ec2ab22.136164",
-        "type": "inject",
-        "z": "40d2acc7.bdaf24",
-        "name": "Input Trigger",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "RANDOM-TEST",
-        "payload": "",
-        "payloadType": "date",
-        "x": 255,
-        "y": 420,
-        "wires": [
-            [
-                "9d09f684.33be68"
-            ]
-        ],
-        "outputLabels": [
-            "Trigger"
-        ],
-        "l": false
-    },
-    {
-        "id": "9d09f684.33be68",
-        "type": "change",
-        "z": "40d2acc7.bdaf24",
-        "name": "Random #",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$random()*10",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 315,
-        "y": 420,
-        "wires": [
-            [
-                "43f62f54.e076c"
-            ]
-        ],
-        "inputLabels": [
-            "Trigger"
-        ],
-        "outputLabels": [
-            "Random Number"
-        ],
-        "l": false
-    },
-    {
-        "id": "6dc4ac8d.557764",
-        "type": "comment",
-        "z": "40d2acc7.bdaf24",
-        "name": "index.html",
-        "info": "<!doctype html>\n<html lang=\"en\">\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes\">\n\n    <title>Cache Test : uibuilder</title>\n    <meta name=\"description\" content=\"Node-RED UI Builder Cache Test\">\n\n    <link rel=\"icon\" href=\"./images/node-blue.ico\">\n\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"../uibuilder/vendor/bootstrap/dist/css/bootstrap.min.css\" />\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.css\" />\n\n    <link rel=\"stylesheet\" href=\"./index.css\" media=\"all\">\n</head><body>\n    <div id=\"app\">\n        <b-container id=\"app_container\">\n            <h1>\n                UIbuilder Cache Test Example\n            </h1>\n            <p>\n                This is a uibuilder test using a simple function as a cache.\n                Trigger the input a couple of times then load a new window or tab.\n                The value below should almost instantly go from '[Nothing]' to\n                that last sent value. However, the number of received messages should\n                drop back down to 2.\n            </p>\n            <h2>Data from Node-RED</h2>\n            <b-card>\n                Random Number: {{nrRandom}}\n            </b-card>\n\n            <p>\n                Messages: Received={{msgsReceived}}\n            </p>\n\n        </b-container>\n    </div>\n\n    <!-- These MUST be in the right order. Note no leading / -->\n    <!-- REQUIRED: Socket.IO is loaded only once for all instances\n                     Without this, you don't get a websocket connection -->\n    <script src=\"../uibuilder/vendor/socket.io/socket.io.js\"></script>\n\n    <!-- --- Vendor Libraries - Load in the right order --- -->\n    <script src=\"../uibuilder/vendor/vue/dist/vue.js\"></script> <!-- dev version with component compiler -->\n    <!-- <script src=\"../uibuilder/vendor/vue/dist/vue.min.js\"></script>   prod version with component compiler -->\n    <!-- <script src=\"../uibuilder/vendor/vue/dist/vue.runtime.min.js\"></script>   prod version without component compiler -->\n    <!-- <script src=\"https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js\"></script> for older browsers -->\n    <script src=\"../uibuilder/vendor/bootstrap-vue/dist/bootstrap-vue.js\"></script>\n\n    <!-- REQUIRED: Sets up Socket listeners and the msg object -->\n    <!-- <script src=\"./uibuilderfe.js\"></script>   //dev version -->\n    <script src=\"./uibuilderfe.min.js\"></script> <!--    //prod version -->\n    <!-- OPTIONAL: You probably want this. Put your custom code here -->\n    <script src=\"./index.js\"></script>\n\n</body></html>\n",
-        "x": 420,
-        "y": 420,
-        "wires": [],
-        "icon": "node-red/parser-html.svg"
-    },
-    {
-        "id": "243438af.12e268",
-        "type": "comment",
-        "z": "40d2acc7.bdaf24",
-        "name": "index.js",
-        "info": "/* jshint browser: true, esversion: 5, asi: true */\n/* globals document,Vue,window,uibuilder */\n// @ts-nocheck\n/*\n  Copyright (c) 2019 Julian Knight (Totally Information)\n\n  Licensed under the Apache License, Version 2.0 (the \"License\");\n  you may not use this file except in compliance with the License.\n  You may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\n  Unless required by applicable law or agreed to in writing, software\n  distributed under the License is distributed on an \"AS IS\" BASIS,\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  See the License for the specific language governing permissions and\n  limitations under the License.\n*/\n\n/** @see https://github.com/TotallyInformation/node-red-contrib-uibuilder/wiki/Front-End-Library---available-properties-and-methods */\n\nconst app1 = new Vue({\n    el: '#app',\n    data: {\n        nrRandom    : '[Nothing]',\n        msgsReceived: 0,\n        msgsControl : 0,\n        msgsSent    : 0,\n        msgRecvd    : '[Nothing]',\n        msgSent     : '[Nothing]',\n        msgCtrl     : '[Nothing]',\n    }, // --- End of data --- //\n    computed: {\n    }, // --- End of computed --- //\n    methods: {\n    }, // --- End of methods --- //\n\n    // Available hooks: init,mounted,updated,destroyed\n    mounted: function(){\n\n        /** **REQUIRED** Start uibuilder comms with Node-RED @since v2.0.0-dev3\n         * Pass the namespace and ioPath variables if hosting page is not in the instance root folder\n         * e.g. If you get continual `uibuilderfe:ioSetup: SOCKET CONNECT ERROR` error messages.\n         * e.g. uibuilder.start('/nr/uib', '/nr/uibuilder/vendor/socket.io') // change to use your paths/names\n         */\n        uibuilder.start()\n\n        var vueApp = this\n\n        // If msg changes - msg is updated when a standard msg is received from Node-RED over Socket.IO\n        // Note that you can also listen for 'msgsReceived' as they are updated at the same time\n        // but newVal relates to the attribute being listened to.\n        uibuilder.onChange('msg', function(msg){\n            console.info('[uibuilder.onChange] property msg changed!', msg)\n            vueApp.msgRecvd = msg\n            vueApp.msgsReceived++\n\n            vueApp.nrRandom = msg.payload\n\n        })\n\n    } // --- End of mounted hook --- //\n\n}) // --- End of app1 --- //\n\n// EOF\n",
-        "x": 550,
-        "y": 420,
-        "wires": [],
-        "icon": "font-awesome/fa-code"
-    },
-    {
-        "id": "75c87fd8.f149a",
-        "type": "inject",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "str",
-        "x": 315,
-        "y": 540,
-        "wires": [
-            [
-                "27c93453.13df8c"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "27c93453.13df8c",
-        "type": "change",
-        "z": "40d2acc7.bdaf24",
-        "name": "Clear Cache",
-        "rules": [
-            {
-                "t": "set",
-                "p": "cacheControl",
-                "pt": "msg",
-                "to": "CLEAR",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 540,
-        "wires": [
-            [
-                "8c23b9bc.b992b8"
-            ]
-        ]
-    },
-    {
-        "id": "8c23b9bc.b992b8",
-        "type": "link out",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "links": [
-            "122cefe6.c39a7"
-        ],
-        "x": 515,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "3a08c9b1.779ad6",
@@ -1752,12 +738,10 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 120,
-        "y": 1260,
+        "x": 140,
+        "y": 1100,
         "wires": [
             [
-                "e1fa91fd.16a9c",
-                "afb0a4ba.f24c68",
                 "c82aacab.976a3"
             ]
         ]
@@ -1771,12 +755,10 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 120,
-        "y": 1320,
+        "x": 140,
+        "y": 1160,
         "wires": [
             [
-                "c92810b8.dbbad",
-                "d20df106.8916",
                 "c82aacab.976a3"
             ]
         ]
@@ -1790,12 +772,10 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 110,
-        "y": 1380,
+        "x": 130,
+        "y": 1220,
         "wires": [
             [
-                "af5c1593.d9c9b8",
-                "e3b509a0.a12c18",
                 "c82aacab.976a3"
             ]
         ]
@@ -1809,12 +789,10 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 110,
-        "y": 1440,
+        "x": 130,
+        "y": 1280,
         "wires": [
             [
-                "b0dad9ad.ad0448",
-                "7791f08c.da8fa",
                 "c82aacab.976a3"
             ]
         ]
@@ -1839,302 +817,13 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 330,
-        "y": 1640,
+        "x": 370,
+        "y": 1200,
         "wires": [
             [
-                "3aca8fe7.ac09",
                 "4db5a5b3.d4777c"
             ]
         ]
-    },
-    {
-        "id": "3aca8fe7.ac09",
-        "type": "link out",
-        "z": "4fd2e6c4.650f68",
-        "name": "gasens02_a",
-        "links": [
-            "d4a478a4.d52778"
-        ],
-        "x": 455,
-        "y": 1640,
-        "wires": []
-    },
-    {
-        "id": "afb0a4ba.f24c68",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 2,
-        "width": "4",
-        "height": "2",
-        "label": "Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "-20",
-        "ymax": "40",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 510,
-        "y": 1260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c92810b8.dbbad",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 4,
-        "width": "4",
-        "height": "2",
-        "label": "Resistance",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "200",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 510,
-        "y": 1360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "af5c1593.d9c9b8",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 6,
-        "width": "4",
-        "height": "2",
-        "label": "Humidity",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 500,
-        "y": 1460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b0dad9ad.ad0448",
-        "type": "ui_chart",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 8,
-        "width": "4",
-        "height": "2",
-        "label": "Pressure",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "dd HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2e43",
-            "#aec7e8",
-            "#ff7700",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "x": 500,
-        "y": 1560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e1fa91fd.16a9c",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 1,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Temperature",
-        "label": "Celsius",
-        "format": "{{value}}°C",
-        "min": "-20",
-        "max": "50",
-        "colors": [
-            "#6b84ff",
-            "#fff99e",
-            "#ffa200"
-        ],
-        "seg1": "5",
-        "seg2": "20",
-        "x": 510,
-        "y": 1300,
-        "wires": []
-    },
-    {
-        "id": "d20df106.8916",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 3,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Resistance",
-        "label": "Ohm",
-        "format": "{{value}}kOhm",
-        "min": 0,
-        "max": "200",
-        "colors": [
-            "#ffffff",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 510,
-        "y": 1400,
-        "wires": []
-    },
-    {
-        "id": "e3b509a0.a12c18",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 5,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Humidity",
-        "label": "Percent",
-        "format": "{{value}}%",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ffffff",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 500,
-        "y": 1500,
-        "wires": []
-    },
-    {
-        "id": "7791f08c.da8fa",
-        "type": "ui_gauge",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "group": "ca8a4b78.39eaa8",
-        "order": 7,
-        "width": "2",
-        "height": "2",
-        "gtype": "gage",
-        "title": "Pressure",
-        "label": "Pascal",
-        "format": "{{value}}hPa",
-        "min": "950",
-        "max": "1100",
-        "colors": [
-            "#ffffff",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "x": 500,
-        "y": 1600,
-        "wires": []
     },
     {
         "id": "4db5a5b3.d4777c",
@@ -2148,81 +837,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
-        "y": 1700,
-        "wires": []
-    },
-    {
-        "id": "df4f1472.0d0d78",
-        "type": "mysql",
-        "z": "c5d3e58a.2902a8",
-        "mydb": "c65fcf3a.e457e",
-        "name": "INSERT",
-        "x": 560,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "315ac81f.cb9008",
-        "type": "function",
-        "z": "c5d3e58a.2902a8",
-        "name": "",
-        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance\n)\nVALUES\n(\n1,\n${msg.payload.temperature_exterior},\n${msg.payload.humidity_exterior},\n${msg.payload.pressure_exterior},\n${msg.payload.resistance_exterior}\n);\n`\nmsg.topic = query;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 340,
-        "y": 140,
-        "wires": [
-            [
-                "df4f1472.0d0d78",
-                "bf87a523.6d2c18"
-            ]
-        ]
-    },
-    {
-        "id": "194b7bc3.7f0a24",
-        "type": "inject",
-        "z": "c5d3e58a.2902a8",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"temperature_exterior\":45.1,\"humidity_exterior\":44.2,\"pressure_exterior\":43.3,\"resistance_exterior\":42.4}",
-        "payloadType": "json",
-        "x": 110,
-        "y": 80,
-        "wires": [
-            [
-                "315ac81f.cb9008"
-            ]
-        ]
-    },
-    {
-        "id": "bf87a523.6d2c18",
-        "type": "debug",
-        "z": "c5d3e58a.2902a8",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 560,
-        "y": 80,
+        "x": 530,
+        "y": 1200,
         "wires": []
     },
     {
@@ -2231,8 +847,8 @@
         "z": "4fd2e6c4.650f68",
         "mydb": "c65fcf3a.e457e",
         "name": "",
-        "x": 780,
-        "y": 600,
+        "x": 760,
+        "y": 380,
         "wires": [
             []
         ]
@@ -2242,7 +858,7 @@
         "type": "debug",
         "z": "4fd2e6c4.650f68",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2250,8 +866,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 720,
+        "x": 730,
+        "y": 460,
         "wires": []
     },
     {
@@ -2264,8 +880,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 600,
-        "y": 600,
+        "x": 540,
+        "y": 420,
         "wires": [
             [
                 "f92a41ed.09fca",
@@ -2365,11 +981,16 @@
                 "t": "eq",
                 "v": "remove client",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "markers",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 5,
+        "outputs": 6,
         "x": 250,
         "y": 260,
         "wires": [
@@ -2387,6 +1008,9 @@
             ],
             [
                 "4a77fa1a.b597a4"
+            ],
+            [
+                "48a312d6.37c8fc"
             ]
         ]
     },
@@ -2527,28 +1151,6 @@
         ]
     },
     {
-        "id": "8e7b80a3.0ddc3",
-        "type": "uibuilder",
-        "z": "62fe68e2.133b38",
-        "name": "",
-        "topic": "",
-        "url": "uibuilder",
-        "fwdInMessages": false,
-        "allowScripts": false,
-        "allowStyles": false,
-        "copyIndex": true,
-        "showfolder": false,
-        "useSecurity": false,
-        "sessionLength": 432000,
-        "tokenAutoExtend": false,
-        "x": 590,
-        "y": 360,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
         "id": "717c6560.a02f5c",
         "type": "debug",
         "z": "8bc3036a.fdfb7",
@@ -2597,7 +1199,7 @@
         "type": "mysql",
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
-        "name": "SELECT",
+        "name": "INSERT",
         "x": 620,
         "y": 340,
         "wires": [
@@ -2655,7 +1257,7 @@
         "type": "mysql",
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
-        "name": "SELECT",
+        "name": "DELETE",
         "x": 620,
         "y": 400,
         "wires": [
@@ -2663,5 +1265,143 @@
                 "a47be09e.9fd0e"
             ]
         ]
+    },
+    {
+        "id": "48a312d6.37c8fc",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 460,
+        "wires": [
+            [
+                "76e5ee2c.419f2"
+            ]
+        ]
+    },
+    {
+        "id": "76e5ee2c.419f2",
+        "type": "mysql",
+        "z": "8bc3036a.fdfb7",
+        "mydb": "b405b45b.879578",
+        "name": "SELECT",
+        "x": 620,
+        "y": 460,
+        "wires": [
+            [
+                "d9573d89.18c76"
+            ]
+        ]
+    },
+    {
+        "id": "d9573d89.18c76",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "markers",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "5e57ad2.2743054"
+            ]
+        ]
+    },
+    {
+        "id": "7ac45976.188f08",
+        "type": "uibuilder",
+        "z": "40d2acc7.bdaf24",
+        "name": "",
+        "topic": "",
+        "url": "uibuilder",
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "showfolder": false,
+        "useSecurity": false,
+        "sessionLength": 432000,
+        "tokenAutoExtend": false,
+        "x": 640,
+        "y": 220,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "219c6a49.0e74b6",
+        "type": "mysql",
+        "z": "4fd2e6c4.650f68",
+        "mydb": "c65fcf3a.e457e",
+        "name": "INSERT",
+        "x": 740,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc6f6af4.a034f8",
+        "type": "function",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance\n)\nVALUES\n(\n1,\n${msg.payload.temperature_exterior},\n${msg.payload.humidity_exterior},\n${msg.payload.pressure_exterior},\n${msg.payload.resistance_exterior}\n);\n`\nmsg.topic = query;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 540,
+        "y": 160,
+        "wires": [
+            [
+                "219c6a49.0e74b6",
+                "676c1535.d76a6c"
+            ]
+        ]
+    },
+    {
+        "id": "676c1535.d76a6c",
+        "type": "debug",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 200,
+        "wires": []
     }
 ]

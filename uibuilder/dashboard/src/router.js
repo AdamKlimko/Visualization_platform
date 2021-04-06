@@ -1,4 +1,3 @@
-// const HeaderMenu = httpVueLoader('./components/HeaderMenu.vue');
 const Settings = httpVueLoader('./views/Settings.vue');
 const Map = httpVueLoader('./views/Map.vue');
 const Client = httpVueLoader('./views/Client.vue');

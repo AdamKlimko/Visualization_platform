@@ -23,7 +23,6 @@
 <body>
 
     <div id="app" v-cloak>
-         
         <div id="navbar">
             <router-view name="navbar" :clients="clients"></router-view>
         </div>
@@ -32,7 +31,6 @@
         </div>
             
     </div>
-
 
     <!-- REQUIRED: Socket.IO is loaded only once for all instances. Without this, you don't get a websocket connection -->
     <script src="../uibuilder/vendor/socket.io/socket.io.js"></script>
@@ -60,8 +58,11 @@
     
     <!-- Map -->
     <script src="../uibuilder/vendor/vue-browser-geolocation/dist/vue-geolocation.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.js"></script>
+    <script src="./libs/vue-google-maps.js"></script>
+    
     <!-- Custom Index.js file -->
+    <!-- <script src="./index.js" type="module"></script> -->
     <script src="./index.js" type="module"></script>
 
     <!-- REQUIRED: Sets up Socket listeners and the msg object -->

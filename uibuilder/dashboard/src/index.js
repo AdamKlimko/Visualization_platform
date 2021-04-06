@@ -19,13 +19,28 @@
 'use strict'
 
 import router from './router.js';
+import sql from './sql.js';
+import type from './type.js';
+
+Vue.prototype.$sql = sql;
+Vue.prototype.$type = type;
+
+Vue.use(VueGoogleMaps, {
+    load: {
+      key: 'AIzaSyCEyhwu0PNrzwAqoSpxIpiq5L6eK-UZY9Y',
+    },
+    installComponents: false,
+  });
+Vue.component('google-map', VueGoogleMaps.Map);
+Vue.component('google-marker', VueGoogleMaps.Marker);
+Vue.component('google-cluster', VueGoogleMaps.Cluster);
+
 
 const app = new Vue({
     el: '#app',
 
     data() { return {
 
-        startMsg    : 'Vue has started, waiting for messages',
         feVersion   : '',
         socketConnectedState : false,
         serverTimeOffset     : '[unknown]',
@@ -38,21 +53,16 @@ const app = new Vue({
         userPw      : null,
         inputId     : '',
 
-        clients     : []
-
+        clients     : [],
     }}, 
 
     computed: {
-        
     }, 
 
-    methods: {
-        
-
+    methods: {    
     }, 
 
     created: function() {
-
         // Example of retrieving data from uibuilder
         this.feVersion = uibuilder.get('version')
 
@@ -67,11 +77,9 @@ const app = new Vue({
         uibuilder.start(this) // Single param passing vue app to allow Vue extensions to be used.
 
         //console.log(this)
-
     }, 
 
     mounted: function() {
-
         let app = this;
 
         uibuilder.onChange('msg', function(msg){
@@ -83,7 +91,6 @@ const app = new Vue({
                     app.clients = msg.payload;
                     break;
             }
-
         })
 
         uibuilder.onChange('ctrlMsg', function(msg){
@@ -91,7 +98,6 @@ const app = new Vue({
             app.msgCtrl = msg;
 
         })
-
     }, 
 
     router: new VueRouter(router),

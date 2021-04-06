@@ -1,37 +1,24 @@
 <template>
 <div>
-    
 <b-container>
 
   <Loading v-if="!loaded"></Loading>
 
-  <b-card v-if="loaded" class="my-3" >
+  <b-card v-if="loaded" class="my-3 shadow">
       <h2 slot="header">{{ client.name }}</h2>
 
       <b-row> 
           <b-col class="m-5">
-            <h5 class="text-center">Teplota</h5>
-            <vue-svg-gauge :min="0" :max="45" :value="client.temperature" :separator-step="0"
-            :gauge-color="[{ offset: 0, color: '#ffe659'}, { offset: 100, color: '#eb3349'}]"></vue-svg-gauge>
-            <h4 class="text-center align-bottom">{{client.temperature}} °C</h4>
+            <Gauge :value="client.temperature" :type="Type.TEMP"></Gauge>
           </b-col>
           <b-col class="m-5">
-            <h5 class="text-center">Vlhosť vzduchu</h5>
-            <vue-svg-gauge :min="0" :max="100" :value="client.humidity" :separator-step="0"  
-            :gauge-color="[{ offset: 0, color: '#ffe659'}, { offset: 100, color: '#eb3349'}]"></vue-svg-gauge>
-            <h4 class="text-center align-bottom"> {{client.humidity}} %</h4>
+            <Gauge :value="client.humidity" :type="Type.HUM"></Gauge>
           </b-col>
           <b-col class="m-5">
-            <h5 class="text-center">Tlak</h5>
-            <vue-svg-gauge :min="980" :max="1030" :value="client.pressure" :separator-step="0"  
-            :gauge-color="[{ offset: 0, color: '#ffe659'}, { offset: 100, color: '#eb3349'}]"></vue-svg-gauge>
-            <h4 class="text-center align-bottom"> {{client.pressure}} hPa</h4>
+            <Gauge :value="client.pressure" :type="Type.PRES"></Gauge>
           </b-col>
           <b-col class="m-5">
-            <h5 class="text-center">VOC Odpor</h5>
-            <vue-svg-gauge :min="250" :max="350" :value="client.resistance" :separator-step="0"  
-            :gauge-color="[{ offset: 0, color: '#ffe659'}, { offset: 100, color: '#eb3349'}]"></vue-svg-gauge>
-            <h4 class="text-center align-bottom">{{client.resistance}} kOhm</h4>
+            <Gauge :value="client.resistance" :type="Type.QUA"></Gauge>
           </b-col>
       </b-row>
 
@@ -39,42 +26,52 @@
 
       <b-row class="d-flex">
         
-          <b-button @click="changeGraphData('Temperature')" class="mx-1 ml-3" size="sm">Teplota</b-button>                    
-          <b-button @click="changeGraphData('Humidity')" class="mx-1" size="sm">Vlhosť vzduchu</b-button>   
-          <b-button @click="changeGraphData('Pressure')" class="mx-1" size="sm">Tlak</b-button>   
-          <b-button @click="changeGraphData('Resistance')" class="mx-1" size="sm">VOC Odpor</b-button>   
+          <b-button @click="changeSelectedData(Type.TEMP, interval)" class="mx-1 ml-3" variant="dark" size="sm">Teplota</b-button>                    
+          <b-button @click="changeSelectedData(Type.HUM, interval)" class="mx-1" variant="dark" size="sm">Vlhosť vzduchu</b-button>   
+          <b-button @click="changeSelectedData(Type.PRES, interval)" class="mx-1" variant="dark" size="sm">Tlak</b-button>   
+          <b-button @click="changeSelectedData(Type.QUA, interval)" class="mx-1" variant="dark" size="sm">VOC Odpor</b-button>   
        
-          <b-button class="ml-auto mx-1" size="sm">1 Deň</b-button>   
-          <b-button class="mx-1" size="sm">3 Dni</b-button>   
-          <b-button class="mx-1 mr-5" size="sm">7 Dní</b-button>   
+          <b-button @click="changeSelectedData(graph,1)" class="ml-auto mx-1" variant="dark" size="sm">1 Deň</b-button>   
+          <b-button @click="changeSelectedData(graph,3)" class="mx-1" variant="dark" size="sm">3 Dni</b-button>   
+          <b-button @click="changeSelectedData(graph,7)" class="mx-1 mr-5" variant="dark" size="sm">7 Dní</b-button>   
         
       </b-row>
       
-      <h4 class="my-3"> {{currentGraph}} </h4>
-      <line-chart class="line-chart my-4" :data="currentViewedData" :colors="['#eb3349']"></line-chart>      
+      <h4 class="my-3 text-center"> {{graph}} {{graphMessage}} </h4>
+      <line-chart class="line-chart my-4" :data="viewedData" :colors="['#D95252']"></line-chart>      
   </b-card>
 
 </b-container>
-
 </div>  
 </template>
 
 
 <script>
 const Loading = httpVueLoader('components/Loading.vue');
+const Gauge = httpVueLoader('components/Gauge.vue');
+
+const Type = {
+    TEMP: "Teplota",
+    HUM: "Vlhosť vzduchu",
+    PRES: "Tlak",
+    QUA: "Kvalita vzduchu"
+};
 
 module.exports = {
   
   components: {
-    Loading
+    Loading,
+    Gauge
   },
 
   data: function() {
     return{
+      Type,
       loaded : false,
-      currentGraph : "Temperature",
-      currentGraphData : null,
-      currentViewedData : null,
+      graph : Type.TEMP,
+      interval : 1,
+      selectedData : null,
+      viewedData : null,
       client : 
         {
           id: "default",
@@ -97,7 +94,23 @@ module.exports = {
   },
 
   computed: {
-  
+    graphInterval1: function() {
+      return this.cropData(1);
+    },
+    graphInterval3: function() {
+      return this.cropData(3);
+    },
+    graphInterval7: function() {
+      if (this.selectedData) { return this.selectedData; }
+      else return null;
+    },
+    graphMessage: function() {
+      switch (this.interval) {
+        case 1 : return "za 1 deň"; 
+        case 3 : return "za 3 dni";             
+        case 7 : return "za 7 dní"; 
+      }
+    }
   },
 
   watch: {
@@ -107,30 +120,63 @@ module.exports = {
   },
 
   methods: {
-    changeGraphData: function(name) {
-      this.currentGraph = name;
+    changeSelectedData: function(name, interval) {
+      this.graph = name;
+      this.interval = interval;
       switch (name){
-          case 'Temperature' :
-            this.currentViewedData = this.client.temperature_arr;
+          case Type.TEMP :
+            this.selectedData = this.client.temperature_arr;
             break;
-          case 'Humidity' :
-            this.currentViewedData = this.client.humidity_arr;
+          case Type.HUM :
+            this.selectedData = this.client.humidity_arr;
             break;
-          case 'Pressure' :
-            this.currentViewedData = this.client.pressure_arr;
+          case Type.PRES :
+            this.selectedData = this.client.pressure_arr;
             break;
-          case 'Resistance' :
-            this.currentViewedData = this.client.resistance_arr;
+          case Type.QUA :
+            this.selectedData = this.client.resistance_arr;
             break;
-      }
+      };
+      switch (interval) {
+        case 1 :
+          this.viewedData = this.graphInterval1;
+          break;
+        case 3 :
+          this.viewedData = this.graphInterval3;
+          break;
+        case 7 :
+          this.viewedData = this.graphInterval7;
+          break;
+      };
+    },
+
+    changeSelectedInterval: function(interval) {
+      
     },
       
     loadData: function() {
       uibuilder.send( {
           "topic": "load client",
-          "payload": "SELECT id,name,time,temperature,humidity,pressure,resistance FROM selected_clients AS sc JOIN client_data AS cd ON sc.id=cd.client_id WHERE sc.id = " + this.$route.params.clientId + " ORDER BY time DESC;"
+          "payload": "SELECT id,name,time,temperature,humidity,pressure,resistance FROM selected_clients AS sc JOIN client_data AS cd ON sc.id=cd.client_id WHERE cd.time >= DATE(NOW()) - INTERVAL 7 DAY AND sc.id = " + this.$route.params.clientId + " ORDER BY time DESC;"
       } )
-    }, 
+    },
+    
+    cropData: function(days) {
+      if(this.selectedData) {
+        let array = [];
+        let d = new Date();       
+        d.setDate(d.getDate()-days);
+
+        this.selectedData.forEach(el => {
+          timestamp = Date.parse(el[0]);
+          if(timestamp >= d) {
+            array.push( [el[0], el[1]] );
+          }
+        });
+        
+        return array;
+      }
+    },
 
     doEvent: uibuilder.eventSend,
   },
@@ -140,15 +186,12 @@ module.exports = {
     let component = this;
 
     uibuilder.onChange('msg', function(msg){
-        // console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg);
-
         switch(msg.topic){
             case "client object" :                                                  
                 component.client = msg.payload; 
-                component.currentViewedData = msg.payload.temperature_arr;
-                           
+                component.selectedData = msg.payload.temperature_arr;
+                component.viewedData = component.graphInterval1;                           
         }
-
     })
   }
 };
