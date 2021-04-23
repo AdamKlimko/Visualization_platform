@@ -41,9 +41,36 @@
 
 <script>
 module.exports = {
-    props: [
-        'clients' 
-    ],
+    data: function() {
+        return {
+            clients: []
+        }
+    },
+
+    created: function() {
+        this.loadData();
+    },
+
+    methods: {
+        loadData: function() {
+            uibuilder.send( {
+                "topic": "selected clients",     
+                "payload": this.$sql['selected_clients']        
+            } )
+        }
+    },
+
+    mounted: function() {
+        let component = this;
+        uibuilder.onChange('msg', function(msg){
+            component.msgRecvd = msg;
+            switch(msg.topic){
+                case "selected clients":
+                    component.clients = msg.payload;
+                    break;
+            }
+        })
+    }
 }
 </script>
 

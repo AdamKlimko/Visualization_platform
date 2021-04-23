@@ -75,10 +75,12 @@ module.exports = {
     },
     loadData: function() {
       uibuilder.send( {
-          "topic": "all clients",          
+          "topic": "all clients",
+          "payload": this.$sql['all_clients']     
       } )
       uibuilder.send( {
           "topic": "selected clients",          
+          "payload": this.$sql['selected_clients']     
       } )
     },
     addClient: function(client) {

@@ -8,5 +8,6 @@
   "http-vue-loader",
   "chart.js",
   "vue-svg-gauge",
-  "vue-browser-geolocation"
+  "vue-browser-geolocation",
+  "jsonwebtoken"
 ]

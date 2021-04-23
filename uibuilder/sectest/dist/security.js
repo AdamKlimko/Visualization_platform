@@ -69,18 +69,18 @@ module.exports = {
          */
         if ( _auth.id === 'test' ) {
             console.log(`[uibuilder:security.js] User id ${_auth.id} has been validated`)
-	    console.log(_auth)
+
             // Example of simple boolean return
-            // return true
+            return true
 
             //Example of object return with additional data that gets passed back to the client
-             return {
-                 userValidated: true,
-                 authData: {
-                     name: 'Me',
-                     message: 'Hi you, don\'t forget to change your password :)'
-                 }
-             }
+            // return {
+            //     userValidated: true,
+            //     authData: {
+            //         name: 'Me',
+            //         message: 'Hi you, don\'t forget to change your password :)'
+            //     }
+            // }
         }
 
         // In all other cases, fail the validation - optionally, you can include more info here by returning an object.

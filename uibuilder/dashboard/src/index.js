@@ -34,6 +34,7 @@ Vue.use(VueGoogleMaps, {
 Vue.component('google-map', VueGoogleMaps.Map);
 Vue.component('google-marker', VueGoogleMaps.Marker);
 Vue.component('google-cluster', VueGoogleMaps.Cluster);
+Vue.component('google-info-window', VueGoogleMaps.InfoWindow);
 
 
 const app = new Vue({
@@ -43,10 +44,7 @@ const app = new Vue({
 
         feVersion   : '',
         socketConnectedState : false,
-        serverTimeOffset     : '[unknown]',
-
-        msgRecvd    : null,
-        msgCtrl     : null,
+        serverTimeOffset     : '',
 
         isLoggedOn  : false,
         userId      : null,
@@ -55,12 +53,6 @@ const app = new Vue({
 
         clients     : [],
     }}, 
-
-    computed: {
-    }, 
-
-    methods: {    
-    }, 
 
     created: function() {
         // Example of retrieving data from uibuilder
@@ -75,30 +67,11 @@ const app = new Vue({
          * @param {Object=} vueApp Optional. Reference to the VueJS instance. Used for Vue extensions.
          */
         uibuilder.start(this) // Single param passing vue app to allow Vue extensions to be used.
-
-        //console.log(this)
     }, 
 
-    mounted: function() {
-        let app = this;
-
-        uibuilder.onChange('msg', function(msg){
-            // console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg)
-            app.msgRecvd = msg;
-
-            switch(msg.topic){
-                case "selected clients":
-                    app.clients = msg.payload;
-                    break;
-            }
-        })
-
-        uibuilder.onChange('ctrlMsg', function(msg){
-            // console.info('[indexjs:uibuilder.onChange:ctrlMsg] CONTROL msg received from Node-RED server:', msg)
-            app.msgCtrl = msg;
-
-        })
-    }, 
+    // mounted: function() {
+    //     
+    // }, 
 
     router: new VueRouter(router),
 }) 

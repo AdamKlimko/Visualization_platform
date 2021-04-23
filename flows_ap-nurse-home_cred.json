@@ -4,7 +4,9 @@
         "password": "aIswpmgLoR9d"
     },
     "4780d20c.9e8d0c": {},
-    "5e57ad2.2743054": {},
+    "5e57ad2.2743054": {
+        "jwtSecret": "123"
+    },
     "c65fcf3a.e457e": {
         "user": "root",
         "password": "sqe9VG$#h7hkfX"
@@ -12,5 +14,9 @@
     "b405b45b.879578": {
         "user": "user",
         "password": "sqe9VG$#h7hkfX"
-    }
+    },
+    "7b172412.fe10ac": {
+        "jwtSecret": "abcd"
+    },
+    "7ac45976.188f08": {}
 }

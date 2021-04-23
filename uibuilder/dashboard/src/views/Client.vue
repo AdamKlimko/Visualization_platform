@@ -24,6 +24,7 @@
 
       <hr class="my-5"> 
 
+      <div class="mx-3">
       <b-row class="d-flex">
         
           <b-button @click="changeSelectedData(Type.TEMP, interval)" class="mx-1 ml-3" variant="dark" size="sm">Teplota</b-button>                    
@@ -38,7 +39,8 @@
       </b-row>
       
       <h4 class="my-3 text-center"> {{graph}} {{graphMessage}} </h4>
-      <line-chart class="line-chart my-4" :data="viewedData" :colors="['#D95252']"></line-chart>      
+      <line-chart class="line-chart my-4" :data="viewedData" :colors="['#D95252']"></line-chart>  
+      </div>    
   </b-card>
 
 </b-container>
