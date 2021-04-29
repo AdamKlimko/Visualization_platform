@@ -30,7 +30,7 @@
           <b-button @click="changeSelectedData(Type.TEMP, interval)" class="mx-1 ml-3" variant="dark" size="sm">Teplota</b-button>                    
           <b-button @click="changeSelectedData(Type.HUM, interval)" class="mx-1" variant="dark" size="sm">Vlhosť vzduchu</b-button>   
           <b-button @click="changeSelectedData(Type.PRES, interval)" class="mx-1" variant="dark" size="sm">Tlak</b-button>   
-          <b-button @click="changeSelectedData(Type.QUA, interval)" class="mx-1" variant="dark" size="sm">VOC Odpor</b-button>   
+          <b-button @click="changeSelectedData(Type.QUA, interval)" class="mx-1" variant="dark" size="sm">Kvalita vzduchu</b-button>   
        
           <b-button @click="changeSelectedData(graph,1)" class="ml-auto mx-1" variant="dark" size="sm">1 Deň</b-button>   
           <b-button @click="changeSelectedData(graph,3)" class="mx-1" variant="dark" size="sm">3 Dni</b-button>   
@@ -157,12 +157,9 @@ module.exports = {
     },
       
     loadData: function() {
-      uibuilder.send( {
-          "topic": "load client",
-          "payload": "SELECT id,name,time,temperature,humidity,pressure,resistance FROM selected_clients AS sc JOIN client_data AS cd ON sc.id=cd.client_id WHERE cd.time >= DATE(NOW()) - INTERVAL 7 DAY AND sc.id = " + this.$route.params.clientId + " ORDER BY time DESC;"
-      } )
+      this.$db.getClient(this.$route.params.clientId)
     },
-    
+
     cropData: function(days) {
       if(this.selectedData) {
         let array = [];

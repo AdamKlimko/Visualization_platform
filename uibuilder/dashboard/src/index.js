@@ -18,16 +18,19 @@
 */
 'use strict'
 
+// Helper files
 import router from './router.js';
 import sql from './sql.js';
-import type from './type.js';
+import db from './db.js'
 
+// Global scope - instance properties
 Vue.prototype.$sql = sql;
-Vue.prototype.$type = type;
+Vue.prototype.$db = db;
 
+// Import Google Maps Components
 Vue.use(VueGoogleMaps, {
     load: {
-      key: 'AIzaSyCEyhwu0PNrzwAqoSpxIpiq5L6eK-UZY9Y',
+      key: 'AIzaSyCEyhwu0PNrzwAqoSpxIpiq5L6eK-UZY9Y', //api key 
     },
     installComponents: false,
   });
@@ -36,42 +39,52 @@ Vue.component('google-marker', VueGoogleMaps.Marker);
 Vue.component('google-cluster', VueGoogleMaps.Cluster);
 Vue.component('google-info-window', VueGoogleMaps.InfoWindow);
 
-
+// The Vue instance
 const app = new Vue({
     el: '#app',
 
     data() { return {
-
-        feVersion   : '',
-        socketConnectedState : false,
-        serverTimeOffset     : '',
+        userdata: {          
+            id: '',
+            username: ''
+        },
 
         isLoggedOn  : false,
-        userId      : null,
-        userPw      : null,
         inputId     : '',
-
-        clients     : [],
+        inputPw     : '',        
     }}, 
 
-    created: function() {
-        // Example of retrieving data from uibuilder
-        this.feVersion = uibuilder.get('version')
-
-        /** **REQUIRED** Start uibuilder comms with Node-RED @since v2.0.0-dev3
-         * Pass the namespace and ioPath variables if hosting page is not in the instance root folder
-         * e.g. If you get continual `uibuilderfe:ioSetup: SOCKET CONNECT ERROR` error messages.
-         * e.g. uibuilder.start('/uib', '/uibuilder/vendor/socket.io') // change to use your paths/names
-         * @param {Object=|string=} namespace Optional. Object containing ref to vueApp, Object containing settings, or String IO Namespace override. changes self.ioNamespace from the default.
-         * @param {string=} ioPath Optional. changes self.ioPath from the default
-         * @param {Object=} vueApp Optional. Reference to the VueJS instance. Used for Vue extensions.
-         */
+    created: function() {        
         uibuilder.start(this) // Single param passing vue app to allow Vue extensions to be used.
+        this.$router.push('/'); // Redirect to homepage after login   
     }, 
 
-    // mounted: function() {
-    //     
-    // }, 
+    methods: {    
+      doLogon: function() {          
+          uibuilder.logon( {
+              'id': this.inputId,
+              'password': this.inputPw,
+          } )          
+      }      
+    },
 
+    mounted: function(){      
+      var app = this       
+      // If user is logged on/off 
+      uibuilder.onChange('isAuthorised', function(isAuthorised){
+          // console.info('[indexjs:uibuilder.onChange:isAuthorised] isAuthorised changed. User logged on?:', isAuthorised)
+          app.isLoggedOn = isAuthorised;                            
+      })
+      
+      // Fetch user data from "authorised" msg
+      uibuilder.onChange('msg', function(msg){
+        switch(msg.topic){
+            case "authorised" :                                                                
+              app.userdata = msg._auth.authData           
+              console.log(app.userdata) 
+              break;                       
+        }
+      })
+  },
     router: new VueRouter(router),
 }) 

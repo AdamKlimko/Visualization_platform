@@ -1,12 +1,12 @@
 <template>
     <google-map 
     :center="coordinates" 
-    :zoom="12"
+    :zoom="10"
     :maxZoom:="20"
     :options="options" 
     class="map">
 
-      <google-marker :position="coordinates"></google-marker>
+      <!-- <google-marker :position="coordinates"></google-marker> -->
 
       <google-cluster>
 
@@ -37,8 +37,8 @@ module.exports = {
   data: function() {
     return {
       coordinates: {
-        lat: 0,
-        lng: 0
+        lat: 48.15827061535361,
+        lng: 17.11974801858837
       },
       markers: null,
       options: {
@@ -57,8 +57,15 @@ module.exports = {
     };
   },
 
+  props: {
+    userdata: {
+        id: '',
+        username: ''
+    }
+  },
+
   created: function() {    
-    this.getMarkers();
+    this.loadData();
     this.$getLocation({})
         .then(coordinates => {
         this.coordinates = coordinates;
@@ -67,15 +74,12 @@ module.exports = {
   },
 
   methods: {
-    getMarkers: function() {
-        uibuilder.send( {
-            "topic": "markers", 
-            "payload": this.$sql['markers']   
-        } )
+    loadData: function() {
+        this.$db.getMarkers(this.userdata.id)
     },
 
     toggleInfoWindow: function(marker, idx) {
-        console.log(marker.name);
+        // console.log(marker.name);
         this.infoWindowPos = {lat: marker.lat, lng: marker.lon};
         this.infoContent = marker;    
 
@@ -86,7 +90,7 @@ module.exports = {
           this.infoWinOpen = true;
           this.currentMidx = idx;
         }
-    }        
+    },
   },
 
   mounted: function() {
@@ -123,5 +127,8 @@ a{
 a:hover{
   color: #ff8989;
 }
-</style>
 
+h5{
+  margin-bottom: 18px;
+}
+</style>

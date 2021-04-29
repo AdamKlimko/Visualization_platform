@@ -39,19 +39,23 @@
 
 /**
  * Standard msg._auth object exchanged in msg's between front-end and server
- * @typedef {import('../../index').MsgAuth} MsgAuth
+ * typedef {import('../../index').MsgAuth} MsgAuth
  */ 
 /**
  * Validated user object returned by the userValidate function
  * typedef {import('./security').userValidation} userValidation 
  */
 
-const TYPEDEFS = require('../../typedefs.js')
+// const TYPEDEFS = require('../../typedefs.js')
+
 /**
  * typedef {TYPEDEFS.MsgAuth} MsgAuth
- * @typedef {TYPEDEFS.userValidation} userValidation
- * @typedef {TYPEDEFS.userMetadata} userMetadata
+ * typedef {TYPEDEFS.userValidation} userValidation
+ * typedef {TYPEDEFS.userMetadata} userMetadata
  */
+
+const fs = require('fs');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     /** Validate user against your own user data.
@@ -62,39 +66,50 @@ module.exports = {
      * @return {boolean|userValidation} Either true/false or Object of type userValidation
      */
     userValidate: function(_auth) {
-        console.log(`[uibuilder:security.js] userValidate Security from ${__filename} used. Replace this template with your own code. _auth:`, _auth)
-
-        /** Manual "test" ID validates - this will be replaced with a suitable lookup in your code - maybe from a database or a file.
-         * You will also want to pass through some kind of password to validate the user.
-         */
-        if ( _auth.id === 'test' ) {
+        // fast login for testing reasons
+        if ( _auth.id === 'test') {
             console.log(`[uibuilder:security.js] User id ${_auth.id} has been validated`)
-	    console.log(_auth)
-            // Example of simple boolean return
-            // return true
-
-            //Example of object return with additional data that gets passed back to the client
-             return {
-                 userValidated: true,
-                 authData: {
-                     name: 'Me',
-                     message: 'Hi you, don\'t forget to change your password :)'
-                 }
-             }
+	        console.log(_auth)
+            return {
+                userValidated: true,
+                id: "test",
+           	    jwt: '',
+                username: "test",
+                authData: {
+                    id: 2,
+                    username: "test"
+                }
+            }        
         }
 
-        // In all other cases, fail the validation - optionally, you can include more info here by returning an object.
-        return false
-        // return {
-        //     userValidated: false,
-        //     authData: {
-        //         message: `Login failed, User id ${_auth.id} not recognised.`
-        //     }
-        // }
+        // core functionality
+
+        // console.log(`[uibuilder:security.js] userValidate Security from ${__filename} used. Replace this template with your own code. _auth:`, _auth)
+        const string = fs.readFileSync('/home/opc/.node-red/projects/Visualization_platform/uibuilder/.config/users.json');
+	    const json = JSON.parse(string);	    
+                
+        for(let i = 0; i < json.length; i++) {            
+            let el = json[i];
+
+            if( ( _auth.id == el.username ) && ( bcrypt.compareSync(_auth.password, el.password) ) ) {
+                // console.log(`[uibuilder:security.js] User id ${_auth.id} has been validated`)                
+                return {
+                    userValidated: true,
+                    id: el.username,
+                    jwt: '',
+                    authData: {
+                        id: el.id,
+                        username: el.username
+                    }
+                }                                 
+            }
+        }
         
-    } // ---- End of userValidate ---- //
-
-
+        return {
+            userValidated: false,
+            authData: {
+                message: `Login failed, User id ${_auth.id} not recognised.`
+            }
+        }        
+    }
 }
-
-//EOF

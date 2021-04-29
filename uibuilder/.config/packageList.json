@@ -9,5 +9,6 @@
   "chart.js",
   "vue-svg-gauge",
   "vue-browser-geolocation",
-  "jsonwebtoken"
+  "jsonwebtoken",
+  "bcrypt"
 ]

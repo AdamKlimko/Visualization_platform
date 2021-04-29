@@ -1,19 +1,22 @@
-<template>
-<div class="loading">
-    <div class="negative-margin">
-        <div class="loadingio-spinner-rolling-m4oez39cxoe">
-        <div class="ldio-jrd0cvl0mhm">
-            <div>
-            </div>
+<template><div class="loading">    
+    <div class="negative-margin">        
+        <div class="loadingio-spinner-rolling-m4oez39cxoe">        
+            <div class="ldio-jrd0cvl0mhm">            
+                <div>            
+                </div>        
+            </div>    
         </div>
-    </div>
     </div>
 </div>  
 </template>
 
 <script>
 module.exports = {
-
+  data() {
+    return {
+      greeting: "Hello"
+    };
+  }
 };
 </script>
 
@@ -26,7 +29,7 @@ module.exports = {
   position: absolute;
   width: 42px;
   height: 42px;
-  border: 6px solid #ff5555;
+  border: 6px solid #e15b64;
   border-top-color: transparent;
   border-radius: 50%;
 }
@@ -40,7 +43,7 @@ module.exports = {
   height: 200px;
   display: inline-block;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
 }
 .ldio-jrd0cvl0mhm {
   width: 100%;
@@ -62,5 +65,3 @@ module.exports = {
     margin-left: -100px;
 }
 </style>
-
-

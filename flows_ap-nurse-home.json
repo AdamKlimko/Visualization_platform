@@ -420,23 +420,6 @@
         ]
     },
     {
-        "id": "744497dd.ef5d48",
-        "type": "debug",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 160,
-        "wires": []
-    },
-    {
         "id": "1123ce96.d734d1",
         "type": "link out",
         "z": "8bc3036a.fdfb7",
@@ -444,8 +427,8 @@
         "links": [
             "de4a00e.4722b"
         ],
-        "x": 1175,
-        "y": 260,
+        "x": 1295,
+        "y": 320,
         "wires": []
     },
     {
@@ -456,8 +439,8 @@
         "links": [
             "1123ce96.d734d1"
         ],
-        "x": 135,
-        "y": 260,
+        "x": 75,
+        "y": 280,
         "wires": [
             [
                 "4358c50f.f21c1c"
@@ -476,16 +459,17 @@
         "allowStyles": false,
         "copyIndex": true,
         "showfolder": false,
-        "useSecurity": false,
+        "useSecurity": true,
         "sessionLength": 432000,
         "tokenAutoExtend": true,
-        "x": 1030,
-        "y": 260,
+        "x": 970,
+        "y": 320,
         "wires": [
+            [],
             [
-                "1123ce96.d734d1"
-            ],
-            []
+                "b530bb0b.34a958",
+                "12e32165.61d6ef"
+            ]
         ]
     },
     {
@@ -750,8 +734,8 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "Returns",
-        "x": 620,
-        "y": 160,
+        "x": 560,
+        "y": 120,
         "wires": [
             [
                 "7b84f0a0.c8ab4"
@@ -777,8 +761,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 160,
+        "x": 390,
+        "y": 120,
         "wires": [
             [
                 "8196f88f.47e868"
@@ -795,11 +779,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 790,
-        "y": 160,
+        "x": 730,
+        "y": 120,
         "wires": [
             [
-                "744497dd.ef5d48",
                 "5e57ad2.2743054"
             ]
         ]
@@ -841,22 +824,27 @@
                 "t": "eq",
                 "v": "remove client",
                 "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "authorised",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 6,
-        "x": 250,
-        "y": 260,
+        "outputs": 7,
+        "x": 190,
+        "y": 280,
         "wires": [
             [
                 "7a34998a.c4be58"
             ],
             [
-                "8c6e9c87.3981f"
+                "48a312d6.37c8fc"
             ],
             [
-                "520f5c7e.ea9594"
+                "48a312d6.37c8fc"
             ],
             [
                 "48a312d6.37c8fc"
@@ -866,140 +854,7 @@
             ],
             [
                 "4a77fa1a.b597a4"
-            ]
-        ]
-    },
-    {
-        "id": "8c6e9c87.3981f",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 220,
-        "wires": [
-            [
-                "72f9f9d7.b096e8"
-            ]
-        ]
-    },
-    {
-        "id": "72f9f9d7.b096e8",
-        "type": "mysql",
-        "z": "8bc3036a.fdfb7",
-        "mydb": "b405b45b.879578",
-        "name": "Returns",
-        "x": 620,
-        "y": 220,
-        "wires": [
-            [
-                "99c3eafa.23d788"
-            ]
-        ]
-    },
-    {
-        "id": "99c3eafa.23d788",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "all clients",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 790,
-        "y": 220,
-        "wires": [
-            [
-                "5e57ad2.2743054"
-            ]
-        ]
-    },
-    {
-        "id": "520f5c7e.ea9594",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 450,
-        "y": 280,
-        "wires": [
-            [
-                "3dcdb855.295708"
-            ]
-        ]
-    },
-    {
-        "id": "3dcdb855.295708",
-        "type": "mysql",
-        "z": "8bc3036a.fdfb7",
-        "mydb": "b405b45b.879578",
-        "name": "Returns",
-        "x": 620,
-        "y": 280,
-        "wires": [
-            [
-                "2122b833.d3ac28"
-            ]
-        ]
-    },
-    {
-        "id": "2122b833.d3ac28",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "selected clients",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 790,
-        "y": 280,
-        "wires": [
+            ],
             [
                 "5e57ad2.2743054"
             ]
@@ -1018,8 +873,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 420,
+        "x": 710,
+        "y": 280,
         "wires": []
     },
     {
@@ -1041,8 +896,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 420,
+        "x": 390,
+        "y": 280,
         "wires": [
             [
                 "42b5975a.313ff8"
@@ -1055,8 +910,8 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "No return",
-        "x": 620,
-        "y": 420,
+        "x": 560,
+        "y": 280,
         "wires": [
             [
                 "a47be09e.9fd0e"
@@ -1071,6 +926,13 @@
         "rules": [
             {
                 "t": "set",
+                "p": "temp",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
                 "p": "topic",
                 "pt": "msg",
                 "to": "payload",
@@ -1082,8 +944,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 450,
-        "y": 340,
+        "x": 400,
+        "y": 200,
         "wires": [
             [
                 "76e5ee2c.419f2"
@@ -1096,8 +958,8 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "Returns",
-        "x": 620,
-        "y": 340,
+        "x": 560,
+        "y": 200,
         "wires": [
             [
                 "d9573d89.18c76"
@@ -1114,8 +976,8 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "markers",
-                "tot": "str"
+                "to": "temp",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -1123,34 +985,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 790,
-        "y": 340,
+        "x": 730,
+        "y": 200,
         "wires": [
             [
                 "5e57ad2.2743054"
             ]
-        ]
-    },
-    {
-        "id": "7ac45976.188f08",
-        "type": "uibuilder",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "topic": "",
-        "url": "uibuilder",
-        "fwdInMessages": false,
-        "allowScripts": false,
-        "allowStyles": false,
-        "copyIndex": true,
-        "showfolder": false,
-        "useSecurity": false,
-        "sessionLength": 432000,
-        "tokenAutoExtend": false,
-        "x": 640,
-        "y": 220,
-        "wires": [
-            [],
-            []
         ]
     },
     {
@@ -1202,35 +1042,6 @@
         "wires": []
     },
     {
-        "id": "e60f71ab.a49d8",
-        "type": "inject",
-        "z": "40d2acc7.bdaf24",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 520,
-        "y": 400,
-        "wires": [
-            [
-                "7b172412.fe10ac"
-            ]
-        ]
-    },
-    {
         "id": "7b172412.fe10ac",
         "type": "uibuilder",
         "z": "40d2acc7.bdaf24",
@@ -1245,14 +1056,14 @@
         "useSecurity": true,
         "sessionLength": 432000,
         "tokenAutoExtend": true,
-        "x": 680,
-        "y": 400,
+        "x": 640,
+        "y": 320,
         "wires": [
             [
                 "e63ab0f6.5f1d"
             ],
             [
-                "c5a226b1.5a57c8"
+                "66a7f4f6.e54d5c"
             ]
         ]
     },
@@ -1261,7 +1072,7 @@
         "type": "debug",
         "z": "40d2acc7.bdaf24",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1269,8 +1080,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 835,
-        "y": 360,
+        "x": 975,
+        "y": 280,
         "wires": [],
         "l": false
     },
@@ -1279,7 +1090,7 @@
         "type": "debug",
         "z": "40d2acc7.bdaf24",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1287,8 +1098,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 835,
-        "y": 420,
+        "x": 595,
+        "y": 380,
         "wires": [],
         "l": false
     },
@@ -1307,8 +1118,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "SELECT * from all_clients",
-        "x": 280,
+        "topic": "SELECT * from user",
+        "x": 310,
         "y": 640,
         "wires": [
             [
@@ -1328,8 +1139,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
-        "y": 640,
+        "x": 770,
+        "y": 580,
         "wires": []
     },
     {
@@ -1342,7 +1153,8 @@
         "y": 640,
         "wires": [
             [
-                "4d110820.8a1388"
+                "4d110820.8a1388",
+                "184962b2.158edd"
             ]
         ]
     },
@@ -1351,15 +1163,135 @@
         "type": "file",
         "z": "40d2acc7.bdaf24",
         "name": "",
-        "filename": "",
+        "filename": "/home/opc/.node-red/projects/Visualization_platform/uibuilder/.config/users.json",
         "appendNewline": true,
         "createDir": false,
-        "overwriteFile": "false",
+        "overwriteFile": "true",
         "encoding": "none",
-        "x": 540,
-        "y": 740,
+        "x": 980,
+        "y": 640,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "a6a66616.7b3288",
+        "type": "link out",
+        "z": "40d2acc7.bdaf24",
+        "name": "",
+        "links": [
+            "d82e038a.5f739"
+        ],
+        "x": 1035,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d82e038a.5f739",
+        "type": "link in",
+        "z": "40d2acc7.bdaf24",
+        "name": "",
+        "links": [
+            "a6a66616.7b3288"
+        ],
+        "x": 435,
+        "y": 320,
+        "wires": [
+            [
+                "7b172412.fe10ac",
+                "c5a226b1.5a57c8"
+            ]
+        ]
+    },
+    {
+        "id": "b530bb0b.34a958",
+        "type": "debug",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "66a7f4f6.e54d5c",
+        "type": "change",
+        "z": "40d2acc7.bdaf24",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "uibuilderCtrl",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "_auth.userValidated",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 360,
+        "wires": [
+            [
+                "a6a66616.7b3288"
+            ]
+        ]
+    },
+    {
+        "id": "12e32165.61d6ef",
+        "type": "change",
+        "z": "8bc3036a.fdfb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "uibuilderCtrl",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "_auth.userValidated",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1160,
+        "y": 320,
+        "wires": [
+            [
+                "1123ce96.d734d1"
+            ]
+        ]
+    },
+    {
+        "id": "526ea364.2148dc",
+        "type": "comment",
+        "z": "40d2acc7.bdaf24",
+        "name": "Update users.json from database",
+        "info": "",
+        "x": 310,
+        "y": 580,
+        "wires": []
     }
 ]

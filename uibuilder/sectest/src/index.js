@@ -99,7 +99,7 @@ const app = new Vue({
             // Increment the count by one
             this.counterBtn = this.counterBtn + 1
             var topic = this.msgRecvd.topic || 'uibuilder/vue'
-            uibuilder.send( {
+            uibuilder.sendCtrl( {
                 'topic': topic,
                 'payload': {
                     'type': 'counterBtn',
@@ -169,7 +169,7 @@ const app = new Vue({
 
         // If msg changes - msg is updated when a standard msg is received from Node-RED over Socket.IO
         uibuilder.onChange('msg', function(msg){
-            //console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg)
+            console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg)
             app.msgRecvd = msg
             app.msgsReceived = uibuilder.get('msgsReceived')
         })
@@ -182,7 +182,7 @@ const app = new Vue({
 
         // If we receive a control message from Node-RED, we can get the new data here - we pass it to a Vue variable
         uibuilder.onChange('ctrlMsg', function(msg){
-            //console.info('[indexjs:uibuilder.onChange:ctrlMsg] CONTROL msg received from Node-RED server:', msg)
+            console.info('[indexjs:uibuilder.onChange:ctrlMsg] CONTROL msg received from Node-RED server:', msg)
             app.msgCtrl = msg
             app.msgsControl = uibuilder.get('msgsCtrl')
         })
@@ -216,9 +216,9 @@ const app = new Vue({
 
         /** If user is logged on/off */
         uibuilder.onChange('isAuthorised', function(isAuthorised){
-            //console.info('[indexjs:uibuilder.onChange:isAuthorised] isAuthorised changed. User logged on?:', isAuthorised)
-            //console.log('authData: ', uibuilder.get('authData'))
-            //console.log('authTokenExpiry: ', uibuilder.get('authTokenExpiry'))
+            console.info('[indexjs:uibuilder.onChange:isAuthorised] isAuthorised changed. User logged on?:', isAuthorised)
+            console.log('authData: ', uibuilder.get('authData'))
+            console.log('authTokenExpiry: ', uibuilder.get('authTokenExpiry'))
             app.isLoggedOn = isAuthorised
         })
 

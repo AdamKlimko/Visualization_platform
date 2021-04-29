@@ -1,6 +1,6 @@
 <template>
   <div class="h-100">
-    <Googlemap></Googlemap>
+    <Googlemap :userdata="userdata"></Googlemap>
   </div>  
 </template>
 
@@ -11,6 +11,13 @@ const Googlemap = httpVueLoader('components/GoogleMap.vue');
 module.exports = {
   components: {
     Googlemap
+  },
+
+  props: {
+    userdata: {
+        id: '',
+        username: ''
+    }
   },
 
   data: function() {

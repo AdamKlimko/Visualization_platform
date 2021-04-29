@@ -3,13 +3,15 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>AP-Nurse Platforma</title>
     <meta name="description" content=">AP-Nurse Platforma">
+
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- BOOTSTRAP -->
     <link type="text/css" rel="stylesheet" href="../uibuilder/vendor/bootstrap/dist/css/bootstrap.min.css" />
@@ -23,13 +25,26 @@
 <body>
 
     <div id="app" v-cloak>
-        <div id="navbar">
-            <router-view name="navbar" :clients="clients"></router-view>
+        
+        <div id="login" v-if="!isLoggedOn">                    
+            <div class="login-box shadow p-5">
+                <b-form-group label="Meno používateľa:" label-for="inputId"></b-form-group>
+                <b-form-input id="inputId" v-model="inputId" type="text" placeholder="Enter user id to logon"></b-form-input><br>
+                <b-form-group label="Heslo:" label-for="inputPw"></b-form-group>
+                <b-form-input id="inputPw" v-model="inputPw" type="password" placeholder="Enter user password to logon"></b-form-input><br>
+                <b-button id="btn_logon" class="w-100" variant="dark" v-on:click="doLogon">Prihlásiť</b-button>
+            </div>                                    
         </div>
-        <div id="main">
-            <router-view :key="$route.fullPath"></router-view>
+                
+        <div id="dashboard" v-if="isLoggedOn" v-cloak>            
+            <div id="navbar">
+                <router-view name="navbar" :userdata="userdata"></router-view>
+            </div>
+            <div id="main">
+                <router-view :key="$route.fullPath" :userdata="userdata"></router-view>
+            </div>
         </div>
-            
+                            
     </div>
 
     <!-- REQUIRED: Socket.IO is loaded only once for all instances. Without this, you don't get a websocket connection -->
@@ -60,13 +75,13 @@
     <script src="../uibuilder/vendor/vue-browser-geolocation/dist/vue-geolocation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.js"></script>
     <script src="./libs/vue-google-maps.js"></script>
-    
+        
     <!-- Custom Index.js file -->
     <!-- <script src="./index.js" type="module"></script> -->
     <script src="./index.js" type="module"></script>
 
     <!-- REQUIRED: Sets up Socket listeners and the msg object -->
-    <!-- <script src="./uibuilderfe.js"></script> -->
+    <script src="./uibuilderfe.js"></script>
 
 </body>
 

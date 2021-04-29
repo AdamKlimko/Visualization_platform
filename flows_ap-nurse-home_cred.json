@@ -5,7 +5,7 @@
     },
     "4780d20c.9e8d0c": {},
     "5e57ad2.2743054": {
-        "jwtSecret": "123"
+        "jwtSecret": "CEbUEpppFdlSFmbzuAc6tRf7b2waRgFhWt8ORkA2ChKOYDIScwcxDQCYiF2tnV9"
     },
     "c65fcf3a.e457e": {
         "user": "root",
@@ -17,6 +17,5 @@
     },
     "7b172412.fe10ac": {
         "jwtSecret": "abcd"
-    },
-    "7ac45976.188f08": {}
+    }
 }

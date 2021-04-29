@@ -3,7 +3,7 @@
 
     <b-container>
 
-    <b-card class="my-3">
+    <b-card class="my-3 shadow">
       <h2 slot="header">Nastavenia</h2>
 
       <b-row class="m-md-5">
@@ -15,7 +15,7 @@
                  {{client.name}} 
 
                   <b-button v-if="!selectedClients.some(selectedClient => selectedClient.id === client.id)" 
-                    @click="addClient(client)" class="float-right" variant="dark" size="sm"> + </b-button>                  
+                    @click="addClient(client)" class="float-right" variant="dark" size="sm"> <span class="material-icons">add</span> </b-button>                  
                 
               </b-list-group-item>
             </b-list-group>
@@ -27,7 +27,7 @@
             <b-list-group v-if="allClients.length">
               <b-list-group-item v-for="(client,index) in selectedClients" :key="index">
                  {{client.name}}
-                 <b-button @click="removeClient(client.id)" class="float-right" variant="dark" size="sm"> - </b-button>   
+                 <b-button @click="removeClient(client.id)" class="float-right" variant="dark" size="sm"> <span class="material-icons">remove</span> </b-button>   
                  </b-list-group-item>
             </b-list-group>
           </div>
@@ -41,27 +41,24 @@
 </template>
 
 <script>
-
 module.exports = {
   
   data: function() {
     return{
-        loaded: false,
         allClients: [],
         selectedClients: [],
       }
   },
 
-  created: function() {
-    this.loadData();
+  props: {
+    userdata: {
+        id: '',
+        username: ''
+    }
   },
 
-  watch: {
-    allClients: function() {
-      if(this.allClients.length > 0) {
-        this.loaded = true;
-      }
-    }
+  created: function() {
+    this.loadData();    
   },
 
   methods: {
@@ -73,31 +70,18 @@ module.exports = {
       });
       return false;
     },
-    loadData: function() {
-      uibuilder.send( {
-          "topic": "all clients",
-          "payload": this.$sql['all_clients']     
-      } )
-      uibuilder.send( {
-          "topic": "selected clients",          
-          "payload": this.$sql['selected_clients']     
-      } )
+    loadData: function() {      
+      this.$db.getAllClients();                       //TODO zmenit vsetky sql prikazy na funkcie
+      this.$db.getSelectedClients(this.userdata.id)
     },
     addClient: function(client) {
-      uibuilder.send( {
-          "topic": "add client",
-          "payload": `INSERT INTO selected_clients (id, name, lat, lon) VALUES ('${client.id}', '${client.name}', '${client.lat}', '${client.lon}');`           
-      } )
+      this.$db.insertClientToUser(client,this.userdata.id)
       this.loadData();
     },
     removeClient: function(id) {
-      uibuilder.send( {
-          "topic": "remove client",
-          "payload": "DELETE FROM selected_clients WHERE id = " + id + ";"          
-      } )
+      this.$db.removeClientFromUser(id,this.userdata.id)
       this.loadData();
     }  
-
   },
 
   mounted: function() {
