@@ -80,7 +80,7 @@ module.exports = {
     },
 
     created: function() {
-        this.loadData();                
+        // this.loadData();         // TODO ak bude picovat zrazu tak toto dat naspat          
     },
 
     methods: {
