@@ -1,8 +1,8 @@
 <template>
 <div>     
-    <b-navbar class="shadow-sm" toggleable="lg" type="dark" variant="dark">
+    <b-navbar class="shadow-sm py-0" toggleable="lg" type="dark" variant="dark">
 
-        <b-navbar-brand class="white"><b>Smartcare</b></b-navbar-brand>
+        <b-navbar-brand class="white py-0"><b>Smartcare</b></b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -22,10 +22,10 @@
                     <template #button-content>
                         <span class="material-icons">more_horiz</span>
                     </template>
-                    <b-dropdown-item class="px-2 py-1"> <a href="#">Prihlásený: {{userdata.username}}</a> </b-dropdown-item>
+                    <b-dropdown-item> <a href="#">Prihlásený: {{userdata.username}}</a> </b-dropdown-item>
                     <div class="dropdown-divider"></div>
-                    <b-dropdown-item class="px-2 py-1"> <router-link to="/settings"><span class="material-icons">settings</span> Nastavenia</router-link> </b-dropdown-item>            
-                    <b-dropdown-item class="px-2 py-1" @click="doLogoff"> <a href="#"><span class="material-icons">logout</span> Odhlásiť</a> </b-dropdown-item>
+                    <b-dropdown-item> <router-link to="/settings"><span class="material-icons">settings</span> Nastavenia</router-link> </b-dropdown-item>            
+                    <b-dropdown-item @click="doLogoff"> <a href="#"><span class="material-icons">logout</span> Odhlásiť</a> </b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-collapse>
@@ -108,12 +108,19 @@ module.exports = {
 
 
 <style scoped>
-a{    
+.nav-item{    
     color: #ddd;
+    line-height: 2rem;
 }
 
-a:hover{
+.nav-item:hover{
     color: #fff;
+    background: #2d3236;
+}
+
+a{    
+    color: #ddd;
+    line-height: 2rem;
 }
 
 a::after{
@@ -133,11 +140,26 @@ a::after{
     background: #eee;
 }
 
+.sidebar-item:active{
+    background: rgba(255, 122, 122, 0.562);
+}
+
 .dropdown-item a{
     color: rgb(27, 27, 27);
+    padding: 1rem;
 }
 
 .dropdown-item a:hover{
     color: #000;
+}
+
+.dropdown-item:active{
+    background: rgba(255, 122, 122, 0.562);
+}
+
+@media (max-width: 768px) {
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
 }
 </style>

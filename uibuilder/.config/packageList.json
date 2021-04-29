@@ -10,5 +10,6 @@
   "vue-svg-gauge",
   "vue-browser-geolocation",
   "jsonwebtoken",
-  "bcrypt"
+  "bcrypt",
+  "@material/switch"
 ]

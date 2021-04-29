@@ -5,10 +5,27 @@
 
     <b-card class="my-3 shadow">
       <h2 slot="header">Nastavenia</h2>
-
-      <b-row class="m-md-5">
+      <b-row>
         <b-col>
-          <h4>Všetci klienti:</h4>
+          <h4>Nastavenie notifikácií</h4>
+          
+        </b-col>
+      </b-row>
+      <hr>
+      <b-row>
+        <b-col>
+          <h4>Nastavenie kritérií</h4>
+        </b-col>
+      </b-row>
+      <hr>  
+      <b-row>
+        <b-col>
+          <h4>Nastavenia klientov</h4>
+        </b-col>
+      </b-row>    
+      <b-row class="m-md-4">        
+        <b-col>          
+          <h5>Všetci klienti:</h5>
           <div class="client-picker overflow-auto">            
             <b-list-group v-if="allClients.length">
               <b-list-group-item v-for="(client,index) in allClients" :key="index">
@@ -22,7 +39,7 @@
           </div>
         </b-col>
         <b-col>
-          <h4>Monitorovaní klienti:</h4>
+          <h5>Monitorovaní klienti:</h5>
           <div class="client-picker overflow-auto">
             <b-list-group v-if="allClients.length">
               <b-list-group-item v-for="(client,index) in selectedClients" :key="index">

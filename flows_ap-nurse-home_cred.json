@@ -3,7 +3,6 @@
         "user": "dnwvdmyg",
         "password": "aIswpmgLoR9d"
     },
-    "4780d20c.9e8d0c": {},
     "5e57ad2.2743054": {
         "jwtSecret": "CEbUEpppFdlSFmbzuAc6tRf7b2waRgFhWt8ORkA2ChKOYDIScwcxDQCYiF2tnV9"
     },
@@ -17,5 +16,8 @@
     },
     "7b172412.fe10ac": {
         "jwtSecret": "abcd"
+    },
+    "fbc38b7a.95acf8": {
+        "token": "1722380423:AAGAmScqPYYj5InxRcOalzIaqtPMpzVs6e4"
     }
 }
