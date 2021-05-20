@@ -29,9 +29,9 @@
         <div id="login" v-if="!isLoggedOn">                    
             <div class="login-box shadow p-5">
                 <b-form-group label="Meno používateľa:" label-for="inputId"></b-form-group>
-                <b-form-input id="inputId" v-model="inputId" type="text" placeholder="Enter user id to logon"></b-form-input><br>
+                <b-form-input id="inputId" v-model="inputId" type="text" placeholder="Zadajte použ. meno"></b-form-input><br>
                 <b-form-group label="Heslo:" label-for="inputPw"></b-form-group>
-                <b-form-input id="inputPw" v-model="inputPw" type="password" placeholder="Enter user password to logon"></b-form-input><br>
+                <b-form-input id="inputPw" v-model="inputPw" type="password" placeholder="Zadajte heslo"></b-form-input><br>
                 <b-button id="btn_logon" class="w-100" variant="dark" v-on:click="doLogon">Prihlásiť</b-button>
             </div>                                    
         </div>
@@ -75,13 +75,8 @@
     <script src="../uibuilder/vendor/vue-browser-geolocation/dist/vue-geolocation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.js"></script>
     <script src="./libs/vue-google-maps.js"></script>
-        
-    <!-- Material design -->
-    <script src="../uibuilder/vendor/@material/switch/dist/mdc.switch.js"></script>
-    
 
     <!-- Custom Index.js file -->
-    <!-- <script src="./index.js" type="module"></script> -->
     <script src="./index.js" type="module"></script>
 
     <!-- REQUIRED: Sets up Socket listeners and the msg object -->

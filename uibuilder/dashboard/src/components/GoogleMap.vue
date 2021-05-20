@@ -1,12 +1,9 @@
 <template>
-    <google-map 
+    <google-map     
     :center="coordinates" 
-    :zoom="10"
-    :maxZoom:="20"
-    :options="options" 
+    :zoom="10"  
+    
     class="map">
-
-      <!-- <google-marker :position="coordinates"></google-marker> -->
 
       <google-cluster>
 
@@ -21,11 +18,12 @@
       </div>
       </google-info-window>
 
-        <google-marker  v-for="(m, i) in markers" :key="i"        
-        :position="{lat: m.lat, lng: m.lon}"
-        :clickable="true"                
-        @click="toggleInfoWindow(m,i)">
-        </google-marker>
+      <google-marker  v-for="(m, i) in markers" :key="i"        
+      :icon="hasNotifications(m.id) ? iconBad : iconGood"
+      :position="{lat: m.lat, lng: m.lon}"
+      :clickable="true"                
+      @click="toggleInfoWindow(m,i)">
+      </google-marker>
 
       </google-cluster>
 
@@ -42,7 +40,8 @@ module.exports = {
       },
       markers: null,
       options: {
-        mapTypeControl: false,        
+        mapTypeControl: false,      
+        maxZoom: 10  
       },
       infoContent: '',
       infoWindowPos: null,
@@ -53,7 +52,10 @@ module.exports = {
               width: 0,
               height: -35
             }
-      }
+      },
+      notifications: [],
+      iconGood: {url : 'resources/marker_good.svg'},
+      iconBad: {url : 'resources/marker_bad.svg'},
     };
   },
 
@@ -62,7 +64,7 @@ module.exports = {
         id: '',
         username: ''
     }
-  },
+  }, 
 
   created: function() {    
     this.loadData();
@@ -91,18 +93,34 @@ module.exports = {
           this.currentMidx = idx;
         }
     },
+
+    hasNotifications: function(client_id) {
+      notifs = this.notifications
+      for (let i = 0; i < notifs.length; i++) {
+        let id = notifs[i].client_id
+        if(id == client_id) {
+          
+          return true
+        }        
+      }
+      return false;
+    }
   },
 
   mounted: function() {
     let component = this;
 
     uibuilder.onChange('msg', function(msg){
-        switch(msg.topic){
+        switch(msg.topic){                                               
+            case "notifications":
+                component.notifications = msg.payload;                    
+                break;
             case "markers" :                                                  
-                component.markers = msg.payload;                                     
+                component.markers = msg.payload;  
+                break;
         }
     })
-  }
+  },
 };
 </script>
 

@@ -11,5 +11,5 @@
   "vue-browser-geolocation",
   "jsonwebtoken",
   "bcrypt",
-  "@material/switch"
+  "sync-mysql"
 ]

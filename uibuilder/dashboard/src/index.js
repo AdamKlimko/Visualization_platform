@@ -20,11 +20,9 @@
 
 // Helper files
 import router from './router.js';
-import sql from './sql.js';
 import db from './db.js'
 
 // Global scope - instance properties
-Vue.prototype.$sql = sql;
 Vue.prototype.$db = db;
 
 // Import Google Maps Components

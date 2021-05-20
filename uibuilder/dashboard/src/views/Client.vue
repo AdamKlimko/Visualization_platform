@@ -5,8 +5,10 @@
   <Loading v-if="!loaded"></Loading>
 
   <b-card v-if="loaded" class="my-3 shadow">
-      <h2 slot="header">{{ client.name }}</h2>
-
+      <h2 slot="header"><b-button pill v-b-toggle.collapse variant="light" ><span class="material-icons">account_circle</span> </b-button> {{ client.name }} </h2>      
+      <b-collapse id="collapse" class="mt-2">   
+        <Info :clientinfo="clientInfo"></Info>
+      </b-collapse>
       <b-row> 
           <b-col class="m-5">
             <Gauge :value="client.temperature" :type="Type.TEMP"></Gauge>
@@ -27,19 +29,23 @@
       <div class="mx-3">
       <b-row class="d-flex">
         
-          <b-button @click="changeSelectedData(Type.TEMP, interval)" class="mx-1 ml-3" variant="dark" size="sm">Teplota</b-button>                    
-          <b-button @click="changeSelectedData(Type.HUM, interval)" class="mx-1" variant="dark" size="sm">Vlhosť vzduchu</b-button>   
-          <b-button @click="changeSelectedData(Type.PRES, interval)" class="mx-1" variant="dark" size="sm">Tlak</b-button>   
-          <b-button @click="changeSelectedData(Type.QUA, interval)" class="mx-1" variant="dark" size="sm">Kvalita vzduchu</b-button>   
-       
-          <b-button @click="changeSelectedData(graph,1)" class="ml-auto mx-1" variant="dark" size="sm">1 Deň</b-button>   
-          <b-button @click="changeSelectedData(graph,3)" class="mx-1" variant="dark" size="sm">3 Dni</b-button>   
-          <b-button @click="changeSelectedData(graph,7)" class="mx-1 mr-5" variant="dark" size="sm">7 Dní</b-button>   
-        
+        <b-button-group size="sm">
+          <b-button @click="changeSelectedData(Type.TEMP); changeSelectedInterval(interval)"  variant="light" size="sm">Teplota</b-button>                    
+          <b-button @click="changeSelectedData(Type.HUM); changeSelectedInterval(interval)" variant="light" size="sm">Vlhosť vzduchu</b-button>   
+          <b-button @click="changeSelectedData(Type.PRES); changeSelectedInterval(interval)" variant="light" size="sm">Tlak</b-button>   
+          <b-button @click="changeSelectedData(Type.QUA); changeSelectedInterval(interval)" variant="light" size="sm">Kvalita vzduchu</b-button>   
+          <b-button @click="changeSelectedData(Type.BED); changeSelectedInterval(interval)" variant="light" size="sm">Posteľ</b-button>
+        </b-button-group>
+
+        <b-button-group class="ml-auto mx-1" size="sm">
+            <b-button @click="changeSelectedData(graph); changeSelectedInterval(1)" variant="light" size="sm">1 Deň</b-button>   
+            <b-button @click="changeSelectedData(graph); changeSelectedInterval(3)" variant="light" size="sm">3 Dni</b-button>   
+            <b-button @click="changeSelectedData(graph); changeSelectedInterval(7)" variant="light" size="sm">7 Dní</b-button>                   
+        </b-button-group>
       </b-row>
       
-      <h4 class="my-3 text-center"> {{graph}} {{graphMessage}} </h4>
-      <line-chart class="line-chart my-4" :data="viewedData" :colors="['#D95252']"></line-chart>  
+      <h4 class="my-3 text-center"> {{graph}} {{graphMessage}} <small>({{graphUnit}})</small> </h4>
+      <line-chart class="line-chart my-4" :data="viewedData" :colors="['#D95252']" :min="minMax.min" :max="minMax.max"></line-chart>  
       </div>    
   </b-card>
 
@@ -51,19 +57,22 @@
 <script>
 const Loading = httpVueLoader('components/Loading.vue');
 const Gauge = httpVueLoader('components/Gauge.vue');
+const Info = httpVueLoader('components/Info.vue');
 
 const Type = {
     TEMP: "Teplota",
     HUM: "Vlhosť vzduchu",
     PRES: "Tlak",
-    QUA: "Kvalita vzduchu"
+    QUA: "Kvalita vzduchu",
+    BED: "Posteľ"
 };
 
 module.exports = {
   
   components: {
     Loading,
-    Gauge
+    Gauge,
+    Info
   },
 
   data: function() {
@@ -74,6 +83,8 @@ module.exports = {
       interval : 1,
       selectedData : null,
       viewedData : null,
+      minMax : {min:0, max:50},
+      clientInfo: null,
       client : 
         {
           id: "default",
@@ -86,6 +97,7 @@ module.exports = {
           humidity_arr: [],
           pressure_arr: [],    
           resistance_arr: [],
+          bed_arr: [],
           alerts: [],
         },
       }
@@ -112,6 +124,15 @@ module.exports = {
         case 3 : return "za 3 dni";             
         case 7 : return "za 7 dní"; 
       }
+    },
+    graphUnit: function() {
+      switch (this.graph) {
+        case Type.TEMP : return "°C"; 
+        case Type.HUM : return "%"; 
+        case Type.PRES : return "hPa"; 
+        case Type.QUA : return "AQI"; 
+        case Type.BED : return "on/off"; 
+      }
     }
   },
 
@@ -122,23 +143,35 @@ module.exports = {
   },
 
   methods: {
-    changeSelectedData: function(name, interval) {
+    changeSelectedData: function(name) {
       this.graph = name;
-      this.interval = interval;
       switch (name){
           case Type.TEMP :
             this.selectedData = this.client.temperature_arr;
+            this.minMax = {min:0, max:50}
             break;
           case Type.HUM :
             this.selectedData = this.client.humidity_arr;
+            this.minMax = {min:0, max:100}
             break;
           case Type.PRES :
             this.selectedData = this.client.pressure_arr;
+            this.minMax = {min:950, max:1050}
             break;
           case Type.QUA :
             this.selectedData = this.client.resistance_arr;
+            this.minMax = {min:0, max:500}
+            break;
+          case Type.BED :
+            this.selectedData = this.client.bed_arr;
+            this.minMax = {min:0, max:1}
             break;
       };
+      
+    },
+
+    changeSelectedInterval: function(interval) {
+      this.interval = interval;
       switch (interval) {
         case 1 :
           this.viewedData = this.graphInterval1;
@@ -151,13 +184,10 @@ module.exports = {
           break;
       };
     },
-
-    changeSelectedInterval: function(interval) {
-      
-    },
       
     loadData: function() {
       this.$db.getClient(this.$route.params.clientId)
+      this.$db.getClientInfo(this.$route.params.clientId)
     },
 
     cropData: function(days) {
@@ -189,7 +219,9 @@ module.exports = {
             case "client object" :                                                  
                 component.client = msg.payload; 
                 component.selectedData = msg.payload.temperature_arr;
-                component.viewedData = component.graphInterval1;                           
+                component.viewedData = component.graphInterval1;       
+            case "client info" :                                                  
+                component.clientInfo = msg.payload[0];              
         }
     })
   }
