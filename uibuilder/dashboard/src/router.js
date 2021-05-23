@@ -1,4 +1,5 @@
 const Settings = httpVueLoader('./views/Settings.vue');
+const About = httpVueLoader('./views/About.vue');
 const Map = httpVueLoader('./views/Map.vue');
 const Client = httpVueLoader('./views/Client.vue');
 const Navbar = httpVueLoader('./components/Navbar.vue');
@@ -34,6 +35,18 @@ export default {
             name: 'Client',
             components: {
                 default: Client,
+                navbar: Navbar
+            },
+            props: {
+                defalut: true,
+                navbar: true
+            }
+        },
+        {
+            path: '/about',
+            name: 'About',
+            components: {
+                default: About,
                 navbar: Navbar
             },
             props: {

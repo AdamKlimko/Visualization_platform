@@ -3,7 +3,7 @@
     <h5 class="text-center">{{type}}</h5>
     <div class="gauge-container">
         <vue-svg-gauge class="my-3"
-        :min="min" :max="max" :value="value" 
+        :min="min" :max="max" :value="type == Type.PRES ? value - 950 : value" 
         :separator-step="0"
         :gauge-color="[{ offset: 0, color: '#ffe659'}, { offset: 100, color: '#eb3349'}]">
         </vue-svg-gauge>
@@ -37,7 +37,7 @@ module.exports = {
             switch(this.type) {
                 case Type.TEMP: return 45;
                 case Type.HUM: return 100;
-                case Type.PRES: return 1050;
+                case Type.PRES: return 100;
                 case Type.QUA: return 500;
             }
         },
@@ -45,7 +45,7 @@ module.exports = {
             switch(this.type) {
                 case Type.TEMP: return 0;
                 case Type.HUM: return 0;
-                case Type.PRES: return 950;
+                case Type.PRES: return 0;
                 case Type.QUA: return 0;
             }
         },

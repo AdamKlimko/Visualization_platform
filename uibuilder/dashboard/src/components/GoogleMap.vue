@@ -96,12 +96,14 @@ module.exports = {
 
     hasNotifications: function(client_id) {
       notifs = this.notifications
-      for (let i = 0; i < notifs.length; i++) {
+      if (notifs.length > 0) {
+        for (let i = 0; i < notifs.length; i++) {
         let id = notifs[i].client_id
         if(id == client_id) {
           
           return true
         }        
+      }
       }
       return false;
     }

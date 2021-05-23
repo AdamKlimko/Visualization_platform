@@ -5,7 +5,13 @@
   <Loading v-if="!loaded"></Loading>
 
   <b-card v-if="loaded" class="my-3 shadow">
-      <h2 slot="header"><b-button pill v-b-toggle.collapse variant="light" ><span class="material-icons">account_circle</span> </b-button> {{ client.name }} </h2>      
+      <h2 slot="header">
+        <b-button pill v-b-toggle.collapse variant="light" ><span class="material-icons">account_circle</span> 
+        </b-button> 
+        {{ client.name }}
+        <b-button class="float-right" pill @click="refresh()" variant="dark" ><span class="material-icons">refresh</span> 
+        </b-button> 
+      </h2>      
       <b-collapse id="collapse" class="mt-2">   
         <Info :clientinfo="clientInfo"></Info>
       </b-collapse>
@@ -205,6 +211,10 @@ module.exports = {
         
         return array;
       }
+    },
+
+    refresh: function() {
+      this.loadData();
     },
 
     doEvent: uibuilder.eventSend,

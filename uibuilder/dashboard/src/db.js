@@ -62,7 +62,7 @@ export default {
     updateClientInfo: function(client_id, info) {
         uibuilder.sendCtrl( {
             "topic": "update client info",
-            "payload": `UPDATE client_info SET diagnosis = '${info.diagnosis}', description = '${info.description}', address = '${info.address}'  WHERE client_id = ${client_id}`
+            "payload": `UPDATE client_info SET diagnosis = '${info.diagnosis}', description = '${info.description}', address = '${info.address}', max_temp = ${info.max_temp != '' ? info.max_temp : null}, min_temp = ${info.min_temp != '' ? info.min_temp : null}, max_hum = ${info.max_hum != '' ? info.max_hum : null}, min_hum = ${info.min_hum != '' ? info.min_hum : null}, max_pres = ${info.max_pres != '' ? info.max_pres : null}, min_pres = ${info.min_pres != '' ? info.min_pres : null}, max_qua = ${info.max_qua != '' ? info.max_qua : null} WHERE client_id = ${client_id}`
         } )
     },
 
