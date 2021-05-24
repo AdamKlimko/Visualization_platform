@@ -4,7 +4,7 @@ export default {
     insertClientToUser: function (client,user_id) {
         uibuilder.sendCtrl( {
             "topic": "add client",
-            "payload": `INSERT INTO selected_clients (client_id, user_id, name, lat, lon) VALUES ('${client.id}','${user_id}', '${client.name}', '${client.lat}', '${client.lon}');`           
+            "payload": `INSERT INTO selected_clients (client_id, user_id) VALUES ('${client.id}','${user_id}');`           
         } )             
     },
     removeClientFromUser: function(client_id,user_id) {
@@ -44,7 +44,7 @@ export default {
     getSelectedClients: function (user_id) {
         uibuilder.sendCtrl( {
             "topic": "selected clients",          
-            "payload": `SELECT client_id as id,name,lat,lon FROM selected_clients where user_id = ${user_id};`
+            "payload": `SELECT client_id as id, ac.name, ac.lat, ac.lon FROM selected_clients as sc left join all_clients as ac on sc.client_id = ac.id where user_id = ${user_id};`
         } )
     },
     getClient: function(client_id){
@@ -90,7 +90,9 @@ export default {
     getMarkers: function(user_id) {
         uibuilder.sendCtrl( {
             "topic": "markers", 
-            "payload": `SELECT sc.client_id as id, name, lat, lon, temperature, humidity, pressure, resistance from selected_clients as sc join (select cd.client_id, temperature, humidity, pressure, resistance, cd.time from client_data as cd join (select client_id, MAX(time) as time from client_data group by client_id) as cdt on cd.time = cdt.time AND cd.client_id = cdt.client_id) as sct on sc.client_id = sct.client_id where sc.user_id = ${user_id};`   
+            "payload": `SELECT sc.client_id as id, name, lat, lon, temperature, humidity, pressure, resistance from (SELECT client_id,user_id,ac.name,ac.lat,ac.lon from selected_clients as sct left join all_clients as ac on sct.client_id = ac.id) as sc 
+            join (select cd.client_id, temperature, humidity, pressure, resistance, cd.time from client_data as cd 
+            join (select client_id, MAX(time) as time from client_data group by client_id) as cdt on cd.time = cdt.time AND cd.client_id = cdt.client_id) as sct on sc.client_id = sct.client_id where sc.user_id = ${user_id};`   
         } )
     },                    
 }
