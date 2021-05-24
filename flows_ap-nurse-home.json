@@ -313,7 +313,7 @@
         "links": [
             "de4a00e.4722b"
         ],
-        "x": 1435,
+        "x": 1475,
         "y": 440,
         "wires": []
     },
@@ -325,7 +325,7 @@
         "links": [
             "1123ce96.d734d1"
         ],
-        "x": 275,
+        "x": 255,
         "y": 440,
         "wires": [
             [
@@ -1014,7 +1014,8 @@
         "wires": [
             [
                 "2823dce9.868714",
-                "2f95bb0.31c8546"
+                "2f95bb0.31c8546",
+                "3bc82ef2.91c452"
             ]
         ]
     },
@@ -1175,7 +1176,8 @@
         "wires": [
             [
                 "dc2dab92.eae258",
-                "a2ced278.34ee1"
+                "a2ced278.34ee1",
+                "b1263223.73776"
             ]
         ]
     },
@@ -1334,7 +1336,7 @@
         "type": "debug",
         "z": "558e4608.692488",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1361,7 +1363,8 @@
         "wires": [
             [
                 "d327b400.6a0848",
-                "c2de64a2.0a4928"
+                "c2de64a2.0a4928",
+                "fd1a6a63.cf0fd8"
             ]
         ]
     },
@@ -2473,7 +2476,8 @@
         "z": "8bc3036a.fdfb7",
         "name": "",
         "links": [
-            "6f898dde.8628e4"
+            "6f898dde.8628e4",
+            "b72f0567.5fcb68"
         ],
         "x": 1135,
         "y": 220,
@@ -2843,7 +2847,7 @@
         "type": "debug",
         "z": "8bc3036a.fdfb7",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4188,7 +4192,8 @@
         "z": "617b446b.a0195c",
         "name": "",
         "links": [
-            "34662da4.e9bbd2"
+            "34662da4.e9bbd2",
+            "ce78b060.f6361"
         ],
         "x": 215,
         "y": 440,
@@ -4274,7 +4279,8 @@
         "name": "",
         "links": [
             "322cceb1.e21082",
-            "de4ad803.f4cc88"
+            "de4ad803.f4cc88",
+            "964a2014.7e6cd"
         ],
         "x": 1175,
         "y": 440,
@@ -4287,7 +4293,8 @@
         "name": "",
         "links": [
             "dff9062a.5eb3b8",
-            "57a15321.c2656c"
+            "57a15321.c2656c",
+            "6cf90a5e.dda904"
         ],
         "x": 1165,
         "y": 760,
@@ -4604,8 +4611,8 @@
         "links": [
             "73d1e866.1c9dd8"
         ],
-        "x": 555,
-        "y": 1160,
+        "x": 595,
+        "y": 1120,
         "wires": []
     },
     {
@@ -4614,7 +4621,8 @@
         "z": "8bc3036a.fdfb7",
         "name": "",
         "links": [
-            "c451e95b.91be68"
+            "c451e95b.91be68",
+            "bcdec977.ff2e08"
         ],
         "x": 295,
         "y": 240,
@@ -4636,8 +4644,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 500,
+        "x": 570,
+        "y": 540,
         "wires": []
     },
     {
@@ -4652,8 +4660,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 480,
+        "x": 770,
+        "y": 540,
         "wires": []
     },
     {
@@ -4668,8 +4676,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
-        "y": 740,
+        "x": 790,
+        "y": 660,
         "wires": []
     },
     {
@@ -4687,5 +4695,1296 @@
         "x": 1270,
         "y": 480,
         "wires": []
+    },
+    {
+        "id": "f071a7e0.856888",
+        "type": "comment",
+        "z": "617b446b.a0195c",
+        "name": "UI unit test",
+        "info": "",
+        "x": 220,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c71e523d.a6c1",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT1 - user objects",
+        "func": "msg.topic = \"UT1\"\nmsg.payload = {\n    users: [{\"id\":1},{\"id\":2}],\n    notifications: [{\"id\":97,\"time\":\"2021-05-23T13:31:39.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"TEMP\",\"value\":19,\"message\":\"Teplota u Benjamin Grimm je nezvyčajne nízka! (19)\",\"importance\":2},],\n    user_client: [{\"user_id\":2,\"client_id\":1},{\"user_id\":2,\"client_id\":2},{\"user_id\":2,\"client_id\":3},{\"user_id\":2,\"client_id\":4},{\"user_id\":1,\"client_id\":1},{\"user_id\":1,\"client_id\":2}]        \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 150,
+        "y": 860,
+        "wires": [
+            [
+                "b3f58f7d.a1824",
+                "7b7452af.537e6c"
+            ]
+        ]
+    },
+    {
+        "id": "59c77b97.460954",
+        "type": "inject",
+        "z": "558e4608.692488",
+        "name": "RUN UNIT TESTS",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 800,
+        "wires": [
+            [
+                "c71e523d.a6c1"
+            ]
+        ]
+    },
+    {
+        "id": "5ce955a4.2a0aac",
+        "type": "switch",
+        "z": "558e4608.692488",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "UT1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT7",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT8",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT9",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "UT10",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 10,
+        "x": 630,
+        "y": 1080,
+        "wires": [
+            [
+                "643c7da0.a21234"
+            ],
+            [
+                "50d7d576.8a86cc"
+            ],
+            [
+                "22ebe340.0efcdc"
+            ],
+            [
+                "747e6fee.07414"
+            ],
+            [
+                "ac23d018.c3e5b"
+            ],
+            [
+                "1cc86c93.7a0033"
+            ],
+            [
+                "bf0b76c7.ecee08"
+            ],
+            [
+                "fe112f91.662bd"
+            ],
+            [
+                "e98239f2.576678"
+            ],
+            [
+                "e57f2f5f.93245"
+            ]
+        ]
+    },
+    {
+        "id": "643c7da0.a21234",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[0].selected_clients.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "2",
+                "valueType": "num",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[1].selected_clients.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "4",
+                "valueType": "num",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[0].notifications.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[1].notifications.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "1",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 800,
+        "wires": [
+            [
+                "765cfa9d.9d40d4"
+            ]
+        ]
+    },
+    {
+        "id": "765cfa9d.9d40d4",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT1 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 800,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "72eefcc1.a9f6a4",
+        "type": "join",
+        "z": "558e4608.692488",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "1",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1350,
+        "y": 1080,
+        "wires": [
+            [
+                "4f9823ce.220a2c"
+            ]
+        ]
+    },
+    {
+        "id": "4f9823ce.220a2c",
+        "type": "debug",
+        "z": "558e4608.692488",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "b3f58f7d.a1824",
+        "type": "link out",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "4712ec89.8da2c4",
+            "1341a3d0.3a331c"
+        ],
+        "x": 375,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "1341a3d0.3a331c",
+        "type": "link in",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "b3f58f7d.a1824"
+        ],
+        "x": 895,
+        "y": 200,
+        "wires": [
+            [
+                "3c0d52aa.a13c7e"
+            ]
+        ]
+    },
+    {
+        "id": "b1263223.73776",
+        "type": "link out",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "d481ceed.f79a6",
+            "f27f7d2f.bee68"
+        ],
+        "x": 1155,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f27f7d2f.bee68",
+        "type": "link in",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "b1263223.73776"
+        ],
+        "x": 495,
+        "y": 1040,
+        "wires": [
+            [
+                "5ce955a4.2a0aac"
+            ]
+        ]
+    },
+    {
+        "id": "7b7452af.537e6c",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT2 - user objects",
+        "func": "msg.topic = \"UT2\"\nmsg.payload = {\n    users: [],\n    notifications: [{\"id\":97,\"time\":\"2021-05-23T13:31:39.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"TEMP\",\"value\":19,\"message\":\"Teplota u Benjamin Grimm je nezvyčajne nízka! (19)\",\"importance\":2},],\n    user_client: [{\"user_id\":2,\"client_id\":1},{\"user_id\":2,\"client_id\":2},{\"user_id\":2,\"client_id\":3},{\"user_id\":2,\"client_id\":4},{\"user_id\":1,\"client_id\":1},{\"user_id\":1,\"client_id\":2}]        \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 150,
+        "y": 900,
+        "wires": [
+            [
+                "b3f58f7d.a1824",
+                "6d50c8bf.070348"
+            ]
+        ]
+    },
+    {
+        "id": "50d7d576.8a86cc",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 860,
+        "wires": [
+            [
+                "be5dbd91.15558"
+            ]
+        ]
+    },
+    {
+        "id": "be5dbd91.15558",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT2 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT2",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 860,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "6d50c8bf.070348",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT3 - user objects",
+        "func": "msg.topic = \"UT3\"\nmsg.payload = {\n    users: [{\"id\":1},{\"id\":2}],\n    notifications: [],\n    user_client: []        \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 150,
+        "y": 940,
+        "wires": [
+            [
+                "b3f58f7d.a1824",
+                "638a63cd.3aa4fc"
+            ]
+        ]
+    },
+    {
+        "id": "16c425cb.0db78a",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT3 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT3",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 920,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "22ebe340.0efcdc",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[0].selected_clients.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[1].selected_clients.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[0].notifications.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            },
+            {
+                "property": "payload[1].notifications.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 920,
+        "wires": [
+            [
+                "16c425cb.0db78a"
+            ]
+        ]
+    },
+    {
+        "id": "638a63cd.3aa4fc",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT4 - generate notifications",
+        "func": "msg.topic = \"UT4\"\nmsg.payload = {\n    bounds: {\"1\":{\"max_temp\":25,\"min_temp\":20,\"max_hum\":40,\"min_hum\":35,\"max_pres\":1001,\"min_pres\":998,\"max_qua\":100},\"2\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null},\"3\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null},\"4\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null}},\n    data: [{\"time\":\"2021-05-24T17:56:43.000Z\",\"client_id\":1,\"name\":\"Benjamin Grimm\",\"temperature\":25,\"humidity\":45,\"pressure\":1030,\"resistance\":166},{\"time\":\"2021-05-24T17:56:43.000Z\",\"client_id\":4,\"name\":\"Bruce Wayne\",\"temperature\":25,\"humidity\":42,\"pressure\":1006,\"resistance\":175},{\"time\":\"2021-05-24T17:56:42.000Z\",\"client_id\":2,\"name\":\"Jim Gordon\",\"temperature\":19,\"humidity\":46,\"pressure\":1022,\"resistance\":151},{\"time\":\"2021-05-24T17:56:03.000Z\",\"client_id\":3,\"name\":\"Jack Napier\",\"temperature\":24.31,\"humidity\":39.4,\"pressure\":1017,\"resistance\":356}]    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 180,
+        "y": 1000,
+        "wires": [
+            [
+                "76c01765.a2ad38",
+                "69dafb.fbba1504"
+            ]
+        ]
+    },
+    {
+        "id": "76c01765.a2ad38",
+        "type": "link out",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "afd50317.9fbf3",
+            "bbecd0c6.37635"
+        ],
+        "x": 375,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "bbecd0c6.37635",
+        "type": "link in",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "76c01765.a2ad38"
+        ],
+        "x": 895,
+        "y": 420,
+        "wires": [
+            [
+                "2463c415.e485bc"
+            ]
+        ]
+    },
+    {
+        "id": "f8c219d9.febe58",
+        "type": "link in",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "3bc82ef2.91c452"
+        ],
+        "x": 495,
+        "y": 1080,
+        "wires": [
+            [
+                "5ce955a4.2a0aac"
+            ]
+        ]
+    },
+    {
+        "id": "3bc82ef2.91c452",
+        "type": "link out",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "f8c219d9.febe58"
+        ],
+        "x": 1215,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5cece7b.0abab18",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT4 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT4",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 980,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "747e6fee.07414",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "4",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 980,
+        "wires": [
+            [
+                "5cece7b.0abab18"
+            ]
+        ]
+    },
+    {
+        "id": "69dafb.fbba1504",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT5 - generate notifications",
+        "func": "msg.topic = \"UT5\"\nmsg.payload = {\n    bounds: {\n        \"1\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null},\n        \"2\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null}\n    },\n    data: [\n        {\"time\":\"2021-05-24T17:56:43.000Z\",\"client_id\":1,\"name\":\"Benjamin Grimm\",\"temperature\":25,\"humidity\":45,\"pressure\":1030,\"resistance\":166},\n        {\"time\":\"2021-05-24T17:56:43.000Z\",\"client_id\":2,\"name\":\"Bruce Wayne\",\"temperature\":25,\"humidity\":42,\"pressure\":1006,\"resistance\":175}\n    ]    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 180,
+        "y": 1040,
+        "wires": [
+            [
+                "76c01765.a2ad38",
+                "8d2cfc30.78041"
+            ]
+        ]
+    },
+    {
+        "id": "e3de0392.83996",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT5 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT5",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1040,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "ac23d018.c3e5b",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 1040,
+        "wires": [
+            [
+                "e3de0392.83996"
+            ]
+        ]
+    },
+    {
+        "id": "8d2cfc30.78041",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT6 - generate notifications",
+        "func": "msg.topic = \"UT6\"\nmsg.payload = {\n    bounds: {\"1\":{\"max_temp\":25,\"min_temp\":20,\"max_hum\":40,\"min_hum\":35,\"max_pres\":1001,\"min_pres\":998,\"max_qua\":100},\"2\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null},\"3\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null},\"4\":{\"max_temp\":null,\"min_temp\":null,\"max_hum\":null,\"min_hum\":null,\"max_pres\":null,\"min_pres\":null,\"max_qua\":null}},\n    data: []    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            [
+                "76c01765.a2ad38",
+                "857583ab.8ec6b"
+            ]
+        ]
+    },
+    {
+        "id": "39bae768.d71838",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT6 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT6",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1100,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "1cc86c93.7a0033",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 1100,
+        "wires": [
+            [
+                "39bae768.d71838"
+            ]
+        ]
+    },
+    {
+        "id": "857583ab.8ec6b",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT7 - generate notifications",
+        "func": "msg.topic = \"UT7\"\nmsg.payload = {\n    bounds: {\n        \"1\":{\"max_temp\":1,\"min_temp\":0,\"max_hum\":1,\"min_hum\":0,\"max_pres\":1,\"min_pres\":0,\"max_qua\":100},\n        \"2\":{\"max_temp\":3,\"min_temp\":2,\"max_hum\":3,\"min_hum\":2,\"max_pres\":3,\"min_pres\":2,\"max_qua\":2}\n    },\n    data: [\n        {\"time\":\"2021-05-24T17:56:43.000Z\",\"client_id\":1,\"name\":\"Benjamin Grimm\",\"temperature\":25,\"humidity\":45,\"pressure\":1030,\"resistance\":166},\n        {\"time\":\"2021-05-24T17:56:43.000Z\",\"client_id\":2,\"name\":\"Bruce Wayne\",\"temperature\":25,\"humidity\":42,\"pressure\":1006,\"resistance\":175}\n    ]    \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "76c01765.a2ad38",
+                "a54acd06.8b79"
+            ]
+        ]
+    },
+    {
+        "id": "43f19402.70037c",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT7 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT7",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1160,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "bf0b76c7.ecee08",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "8",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 1160,
+        "wires": [
+            [
+                "43f19402.70037c"
+            ]
+        ]
+    },
+    {
+        "id": "a54acd06.8b79",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT8 - notification filter",
+        "func": "msg.topic = \"UT8\"\nmsg.payload = {\n    users: [\n        {\n            \"id\":1,\n            \"selected_clients\":[1,2],\n            \"notifications\":[\n                {\"id\":593,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"TEMP\",\"value\":18,\"message\":\"Teplota u Benjamin Grimm je nezvyčajne nízka! (18)\",\"importance\":2},\n                {\"id\":595,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"HUM\",\"value\":47,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne vysoká! (47)\",\"importance\":2},\n                {\"id\":597,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"PRES\",\"value\":1015,\"message\":\"Tlak u Benjamin Grimm je nebezpečne vysoký! (1015)\",\"importance\":1},\n                {\"id\":599,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"RES\",\"value\":106,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nezvyčajne nízka! (106)\",\"importance\":2}\n            ]\n        },\n        {\n            \"id\":2,\n            \"selected_clients\":[1,2,3,4],\n            \"notifications\":[\n                {\"id\":592,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":3,\"type\":\"RES\",\"value\":362,\"message\":\"Kvalita vzduchu u Jack Napier je nebezpečne nízka! (362)\",\"importance\":1},\n                {\"id\":594,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"TEMP\",\"value\":18,\"message\":\"Teplota u Benjamin Grimm je nezvyčajne nízka! (18)\",\"importance\":2},\n                {\"id\":596,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"HUM\",\"value\":47,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne vysoká! (47)\",\"importance\":2},\n                {\"id\":598,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"PRES\",\"value\":1015,\"message\":\"Tlak u Benjamin Grimm je nebezpečne vysoký! (1015)\",\"importance\":1},\n                {\"id\":600,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"RES\",\"value\":106,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nezvyčajne nízka! (106)\",\"importance\":2}\n            ]\n            \n        }\n    ],\n    notifications: [\n        {\"client_id\":3,\"type\":\"RES\",\"value\":362,\"message\":\"Kvalita vzduchu u Jack Napier je nebezpečne nízka! (362)\",\"importance\":1},\n        {\"client_id\":1,\"type\":\"HUM\",\"value\":32,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne nízka! (32)\",\"importance\":2},\n        {\"client_id\":1,\"type\":\"PRES\",\"value\":971,\"message\":\"Tlak u Benjamin Grimm je nebezpečne nízky! (971)\",\"importance\":1},\n        {\"client_id\":1,\"type\":\"RES\",\"value\":192,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nebezpečne nízka! (192)\",\"importance\":1}\n    ]\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 160,
+        "y": 1180,
+        "wires": [
+            [
+                "2ec9d76a.685ed8",
+                "5b79cedd.de8b1"
+            ]
+        ]
+    },
+    {
+        "id": "ae8916bc.7f3148",
+        "type": "link in",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "348b1881.954168",
+            "fd1a6a63.cf0fd8"
+        ],
+        "x": 495,
+        "y": 1120,
+        "wires": [
+            [
+                "5ce955a4.2a0aac"
+            ]
+        ]
+    },
+    {
+        "id": "2ec9d76a.685ed8",
+        "type": "link out",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "731afad3.3d5524",
+            "bfe6e3c4.abda3"
+        ],
+        "x": 375,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "bfe6e3c4.abda3",
+        "type": "link in",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "2ec9d76a.685ed8"
+        ],
+        "x": 275,
+        "y": 600,
+        "wires": [
+            [
+                "22739a5c.761b36"
+            ]
+        ]
+    },
+    {
+        "id": "fd1a6a63.cf0fd8",
+        "type": "link out",
+        "z": "558e4608.692488",
+        "name": "",
+        "links": [
+            "ae8916bc.7f3148"
+        ],
+        "x": 455,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "71cf4653.bd96a8",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT8 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT8",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1220,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "fe112f91.662bd",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "2",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 1220,
+        "wires": [
+            [
+                "71cf4653.bd96a8"
+            ]
+        ]
+    },
+    {
+        "id": "5b79cedd.de8b1",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT9 - notification filter",
+        "func": "msg.topic = \"UT9\"\nmsg.payload = {\n    users: [\n        {\n            \"id\":1,\n            \"selected_clients\":[1,2],\n            \"notifications\":[\n                {\"id\":593,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"TEMP\",\"value\":18,\"message\":\"Teplota u Benjamin Grimm je nezvyčajne nízka! (18)\",\"importance\":2},\n                {\"id\":595,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"HUM\",\"value\":47,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne vysoká! (47)\",\"importance\":2},\n                {\"id\":597,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"PRES\",\"value\":1015,\"message\":\"Tlak u Benjamin Grimm je nebezpečne vysoký! (1015)\",\"importance\":1},\n                {\"id\":599,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":1,\"client_id\":1,\"type\":\"RES\",\"value\":106,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nezvyčajne nízka! (106)\",\"importance\":1}\n            ]\n        },\n        {\n            \"id\":2,\n            \"selected_clients\":[1,2,3,4],\n            \"notifications\":[\n                {\"id\":592,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":3,\"type\":\"RES\",\"value\":362,\"message\":\"Kvalita vzduchu u Jack Napier je nebezpečne nízka! (362)\",\"importance\":1},\n                {\"id\":594,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"TEMP\",\"value\":18,\"message\":\"Teplota u Benjamin Grimm je nezvyčajne nízka! (18)\",\"importance\":2},\n                {\"id\":596,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"HUM\",\"value\":47,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne vysoká! (47)\",\"importance\":2},\n                {\"id\":598,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"PRES\",\"value\":1015,\"message\":\"Tlak u Benjamin Grimm je nebezpečne vysoký! (1015)\",\"importance\":1},\n                {\"id\":600,\"time\":\"2021-05-24T18:28:25.000Z\",\"user_id\":2,\"client_id\":1,\"type\":\"RES\",\"value\":106,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nezvyčajne nízka! (106)\",\"importance\":1}\n            ]\n            \n        }\n    ],\n    notifications: [\n        {\"client_id\":3,\"type\":\"RES\",\"value\":362,\"message\":\"Kvalita vzduchu u Jack Napier je nebezpečne nízka! (362)\",\"importance\":1},\n        {\"client_id\":1,\"type\":\"HUM\",\"value\":32,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne nízka! (32)\",\"importance\":2},\n        {\"client_id\":1,\"type\":\"PRES\",\"value\":971,\"message\":\"Tlak u Benjamin Grimm je nebezpečne nízky! (971)\",\"importance\":1},\n        {\"client_id\":1,\"type\":\"RES\",\"value\":192,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nebezpečne nízka! (192)\",\"importance\":1}\n    ]\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 160,
+        "y": 1220,
+        "wires": [
+            [
+                "2ec9d76a.685ed8",
+                "630a0550.982d7c"
+            ]
+        ]
+    },
+    {
+        "id": "6684af93.ef5de",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT9 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT9",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1280,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "e98239f2.576678",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "0",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 1280,
+        "wires": [
+            [
+                "6684af93.ef5de"
+            ]
+        ]
+    },
+    {
+        "id": "630a0550.982d7c",
+        "type": "function",
+        "z": "558e4608.692488",
+        "name": "UT10 - notification filter",
+        "func": "msg.topic = \"UT10\"\nmsg.payload = {\n    users: [\n        {\n            \"id\":1,\n            \"selected_clients\":[1,2,3],\n            \"notifications\":[\n                \n            ]\n        },\n        {\n            \"id\":2,\n            \"selected_clients\":[1,2,3,4],\n            \"notifications\":[\n                \n            ]\n            \n        }\n    ],\n    notifications: [\n        {\"client_id\":3,\"type\":\"RES\",\"value\":362,\"message\":\"Kvalita vzduchu u Jack Napier je nebezpečne nízka! (362)\",\"importance\":1},\n        {\"client_id\":1,\"type\":\"HUM\",\"value\":32,\"message\":\"Vlkhosť vzduchu u Benjamin Grimm je nezvyčajne nízka! (32)\",\"importance\":2},\n        {\"client_id\":1,\"type\":\"PRES\",\"value\":971,\"message\":\"Tlak u Benjamin Grimm je nebezpečne nízky! (971)\",\"importance\":1},\n        {\"client_id\":1,\"type\":\"RES\",\"value\":192,\"message\":\"Kvalita vzduchu u Benjamin Grimm je nebezpečne nízka! (192)\",\"importance\":1}\n    ]\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 170,
+        "y": 1260,
+        "wires": [
+            [
+                "2ec9d76a.685ed8"
+            ]
+        ]
+    },
+    {
+        "id": "f4ed027b.53417",
+        "type": "change",
+        "z": "558e4608.692488",
+        "name": "UT10 - success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "UT10",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SUCCESS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 1340,
+        "wires": [
+            [
+                "72eefcc1.a9f6a4"
+            ]
+        ]
+    },
+    {
+        "id": "e57f2f5f.93245",
+        "type": "assert",
+        "z": "558e4608.692488",
+        "name": "",
+        "rules": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "nnull",
+                "failMsg": ""
+            },
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "type": "type",
+                "value": "array",
+                "failMsg": ""
+            },
+            {
+                "property": "payload.length",
+                "propertyType": "msg",
+                "type": "eq",
+                "value": "8",
+                "valueType": "num",
+                "failMsg": ""
+            }
+        ],
+        "x": 890,
+        "y": 1340,
+        "wires": [
+            [
+                "f4ed027b.53417"
+            ]
+        ]
     }
 ]
