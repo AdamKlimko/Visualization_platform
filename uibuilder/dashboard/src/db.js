@@ -13,6 +13,12 @@ export default {
             "payload": `DELETE FROM selected_clients WHERE client_id = ${client_id} AND user_id = ${user_id};`
         } )
     },
+    getNotificationSettings: function(user_id) {
+        uibuilder.sendCtrl( {
+            "topic": "notification settings", 
+            "payload": `SELECT * FROM notification_settings where user_id = ${user_id};`   
+        } )
+    },
     updateUserEmail: function(user_id,email) {
         if(email === 0) {
             uibuilder.sendCtrl( {
@@ -30,9 +36,9 @@ export default {
     setNullTelegram: function(user_id) {
         uibuilder.sendCtrl( {
             "topic": "remove telegram",
-            "payload": `UPDATE notification_settings SET telegram = NULL WHERE user_id = ${user_id}`
+            "payload": `UPDATE notification_settings SET telegram_id = NULL WHERE user_id = ${user_id}`
         } )
-    },
+    },    
 
     // CLIENTS ------------------------------------------------------------------------------------------------------------
     getAllClients: function () {
@@ -78,13 +84,7 @@ export default {
             "topic": "remove notification",
             "payload": `DELETE FROM notification WHERE id = ${id};`
         } )
-    },
-    getNotificationSettings: function(user_id) {
-        uibuilder.sendCtrl( {
-            "topic": "notification settings", 
-            "payload": `SELECT * FROM notification_settings where user_id = ${user_id};`   
-        } )
-    },
+    },    
 
     // MARKERS ------------------------------------------------------------------------------------------------------------
     getMarkers: function(user_id) {

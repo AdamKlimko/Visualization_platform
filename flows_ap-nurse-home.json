@@ -1703,30 +1703,13 @@
         "wires": []
     },
     {
-        "id": "bf070b64.214628",
-        "type": "debug",
-        "z": "617b446b.a0195c",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "1467d1e9.6e52ee",
         "type": "comment",
         "z": "617b446b.a0195c",
         "name": "ulozit chatId do databazy",
         "info": "",
-        "x": 390,
-        "y": 520,
+        "x": 190,
+        "y": 560,
         "wires": []
     },
     {
@@ -1737,11 +1720,12 @@
         "bot": "fbc38b7a.95acf8",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 390,
-        "y": 560,
+        "x": 190,
+        "y": 600,
         "wires": [
             [
-                "f1faa94a.08da38"
+                "f1faa94a.08da38",
+                "82a4a3ad.5891c"
             ],
             []
         ]
@@ -1765,7 +1749,7 @@
         "type": "function",
         "z": "617b446b.a0195c",
         "name": "Prepare Telegram",
-        "func": "const credentials = msg.credentials\nconst notification = msg.notification\n\nif(!credentials.telegram) {\n    return null\n}\n\nlet telegramObject = {}\n\ntelegramObject.chatId = credentials.telegram\ntelegramObject.type = \"message\"\ntelegramObject.content = notification.message\n\nmsg.payload = telegramObject\n\nreturn msg;",
+        "func": "const credentials = msg.credentials\nconst notification = msg.notification\n\nif(!credentials.telegram_id) {\n    return null\n}\n\nlet telegramObject = {}\n\ntelegramObject.chatId = credentials.telegram_id\ntelegramObject.type = \"message\"\ntelegramObject.content = notification.message\n\nmsg.payload = telegramObject\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1887,12 +1871,12 @@
         "type": "mysql",
         "z": "617b446b.a0195c",
         "mydb": "b405b45b.879578",
-        "name": "UPDATE Telegram",
-        "x": 790,
-        "y": 560,
+        "name": "GET Telegram",
+        "x": 420,
+        "y": 660,
         "wires": [
             [
-                "bf070b64.214628"
+                "708f85e8.fb31fc"
             ]
         ]
     },
@@ -1900,14 +1884,14 @@
         "id": "f1faa94a.08da38",
         "type": "function",
         "z": "617b446b.a0195c",
-        "name": "",
-        "func": "temp = msg.payload\n\nmsg.topic = `UPDATE notification_settings SET telegram = ${temp.chatId} WHERE user_id = ${temp.content}`\n\nreturn msg;",
+        "name": "Prepare Query",
+        "func": "msg.topic = `SELECT * FROM notification_settings WHERE telegram_key = ${msg.payload.content}`\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 600,
-        "y": 560,
+        "x": 420,
+        "y": 620,
         "wires": [
             [
                 "6ae60beb.81c024"
@@ -3917,6 +3901,275 @@
         "y": 1660,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "470448a9.a57d58",
+        "type": "function",
+        "z": "617b446b.a0195c",
+        "name": "Prepare Query",
+        "func": "const telegram = msg.payload.telegram\nconst user_id = msg.payload.notifSettings.user_id\n\nmsg.topic = `UPDATE notification_settings SET telegram_id = ${telegram.chatId} WHERE user_id = ${user_id}`\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1120,
+        "y": 540,
+        "wires": [
+            [
+                "fbb9019d.ddc43"
+            ]
+        ]
+    },
+    {
+        "id": "fbb9019d.ddc43",
+        "type": "mysql",
+        "z": "617b446b.a0195c",
+        "mydb": "b405b45b.879578",
+        "name": "UPDATE Telegram",
+        "x": 1350,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe87482.b7aa9b8",
+        "type": "join",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 610,
+        "y": 600,
+        "wires": [
+            [
+                "b378643c.ab3468"
+            ]
+        ]
+    },
+    {
+        "id": "708f85e8.fb31fc",
+        "type": "change",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "notifSettings",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 700,
+        "wires": [
+            [
+                "fe87482.b7aa9b8"
+            ]
+        ]
+    },
+    {
+        "id": "82a4a3ad.5891c",
+        "type": "change",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "telegram",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 560,
+        "wires": [
+            [
+                "fe87482.b7aa9b8"
+            ]
+        ]
+    },
+    {
+        "id": "8f120e62.d5c0b",
+        "type": "function",
+        "z": "617b446b.a0195c",
+        "name": "Prepare Telegram",
+        "func": "const telegram = msg.payload.telegram\n\nlet telegramObject = {}\n\ntelegramObject.chatId = telegram.chatId\ntelegramObject.type = \"message\"\ntelegramObject.content = \"Telegram úspešne aktivovaný!\"\n\nmsg.payload = telegramObject\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1130,
+        "y": 580,
+        "wires": [
+            [
+                "b8431fe4.656ec"
+            ]
+        ]
+    },
+    {
+        "id": "b8431fe4.656ec",
+        "type": "telegram sender",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "bot": "fbc38b7a.95acf8",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1350,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd6a99e0.6be4d8",
+        "type": "catch",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "scope": [
+            "b378643c.ab3468"
+        ],
+        "uncaught": false,
+        "x": 1090,
+        "y": 680,
+        "wires": [
+            [
+                "bed9e448.552d78"
+            ]
+        ]
+    },
+    {
+        "id": "b378643c.ab3468",
+        "type": "function",
+        "z": "617b446b.a0195c",
+        "name": "Check message",
+        "func": "const telegram = msg.payload.telegram\nconst notifSettings = msg.payload.notifSettings\n\nif(telegram.content == notifSettings.telegram_key) {\n    msg.topic = 1\n}\nelse {\n    msg. topic = 0\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 600,
+        "wires": [
+            [
+                "be9b005a.fba0b"
+            ]
+        ]
+    },
+    {
+        "id": "29abcea3.9e7ac2",
+        "type": "telegram sender",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "bot": "fbc38b7a.95acf8",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1350,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bed9e448.552d78",
+        "type": "function",
+        "z": "617b446b.a0195c",
+        "name": "Prepare Telegram",
+        "func": "const telegram = msg.payload.telegram\n\nlet telegramObject = {}\n\ntelegramObject.chatId = telegram.chatId\ntelegramObject.type = \"message\"\ntelegramObject.content = \"Zadali ste nesprávny telegram kód!\"\n\nmsg.payload = telegramObject\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1130,
+        "y": 640,
+        "wires": [
+            [
+                "29abcea3.9e7ac2"
+            ]
+        ]
+    },
+    {
+        "id": "be9b005a.fba0b",
+        "type": "switch",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 910,
+        "y": 600,
+        "wires": [
+            [
+                "470448a9.a57d58",
+                "8f120e62.d5c0b"
+            ],
+            [
+                "bed9e448.552d78"
+            ]
+        ]
+    },
+    {
+        "id": "86dc742d.528fd8",
+        "type": "catch",
+        "z": "617b446b.a0195c",
+        "name": "",
+        "scope": [
+            "6ae60beb.81c024"
+        ],
+        "uncaught": false,
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "708f85e8.fb31fc"
+            ]
         ]
     }
 ]

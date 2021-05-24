@@ -14,7 +14,7 @@
               <b-collapse id="collapse-1" class="mt-2">                           
                 <div class="p-5 mx-5">      
                   <b-row>
-                    <div class="my-3 mx-3" v-if="email">
+                    <div class="my-3 mx-3" v-if="notifSettings.email">
                       <h5>Email je aktivovaný <span class="material-icons">done</span></h5>
                       <b-button @click="updateEmail(0)" size="sm" variant="danger">Deaktivovať</b-button>                                
                     </div>
@@ -22,7 +22,7 @@
                       <h5>Email nie je aktivovaný</h5>
                     </div>
                   </b-row>
-                  <b-form-group v-if="email" label="Zmeniť e-mail" label-for="inputPw"></b-form-group>
+                  <b-form-group v-if="notifSettings.email" label="Zmeniť e-mail" label-for="inputPw"></b-form-group>
                   <b-form-group v-else label="Pridať e-mail" label-for="inputPw"></b-form-group>
                   <b-form-input id="email" v-model="inputEmail" type="email" placeholder="email" required></b-form-input><br>
                   <b-button @click="updateEmail(inputEmail)" class="w-100" variant="light">Uložiť</b-button>                                
@@ -36,7 +36,7 @@
               <b-collapse id="collapse-2" class="mt-2">    
                 <div class="p-5 mx-5">
                   <b-row>
-                    <div class="my-3 mx-3" v-if="telegram">
+                    <div class="my-3 mx-3" v-if="notifSettings.telegram_id">
                       <h5>Telegram je aktivovaný <span class="material-icons">done</span></h5>
                       <b-button @click="removeTelegram()" size="sm" variant="danger">Deaktivovať</b-button>                                
                     </div>
@@ -46,7 +46,9 @@
                     </div>
                   </b-row>
                   <h6>Telegram aktivujete nasledovne</h6>
-                  <p>Otvorte si aplikáciu Telegram na vašom smartfóne alebo na webe a vyhľadajte používateľa "smartcare_sk_bot". Odoslaním správy, obsahujúcej vaše id = <b>{{this.userdata.id}}</b> na tohto Telegram používateľa aktivujete notifikácie cez aplikáciu Telegram</p>                                                 
+                  <p>Otvorte si aplikáciu Telegram na vašom smartfóne alebo na webe a vyhľadajte používateľa 
+                    <b>"smartcare_sk_bot"</b>. Odoslaním správy, obsahujúcej váš telegram kód = <b>{{notifSettings.telegram_key}}</b> 
+                    na tohto Telegram používateľa aktivujete notifikácie cez aplikáciu Telegram.</p>                                                 
                   <p>Link na Telegram web nájdete <a href="https://web.telegram.org/">tu</a></p>
                 </div>                            
               </b-collapse>
@@ -99,8 +101,7 @@ module.exports = {
     return{
         allClients: [],
         selectedClients: [],
-        email: null,
-        telegram: null,
+        notifSettings: {},
         inputEmail: null,
       }
   },
@@ -156,19 +157,17 @@ module.exports = {
         // console.info('[indexjs:uibuilder.onChange] msg received from Node-RED server:', msg);
 
         switch(msg.topic){
-                case "all clients":
-                    component.allClients = msg.payload;          
-                    break;
-                case "selected clients":
-                    component.selectedClients = msg.payload;                    
-                    break;
-                case "notification settings":
-                  console.log(msg.payload)
-                    component.telegram = msg.payload[0].telegram;
-                    component.email = msg.payload[0].email;
-                    component.inputEmail = component.email;
-                    break;
-            }   
+            case "all clients":
+                component.allClients = msg.payload;          
+                break;
+            case "selected clients":
+                component.selectedClients = msg.payload;                    
+                break;
+            case "notification settings":
+                component.notifSettings = msg.payload[0]; 
+                component.inputEmail = component.notifSettings.email                   
+                break;
+        }   
     })
   }
 };
