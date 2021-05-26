@@ -9,7 +9,7 @@
         <b-button pill v-b-toggle.collapse variant="light" ><span class="material-icons">account_circle</span> 
         </b-button> 
         {{ client.name }}
-        <b-button class="float-right" pill @click="refresh()" variant="dark" ><span class="material-icons">refresh</span> 
+        <b-button class="float-right" pill @click="loadData()" variant="dark" ><span class="material-icons">refresh</span> 
         </b-button> 
       </h2>      
       <b-collapse id="collapse" class="mt-2">   
@@ -213,10 +213,6 @@ module.exports = {
       }
     },
 
-    refresh: function() {
-      this.loadData();
-    },
-
     doEvent: uibuilder.eventSend,
   },
 
@@ -226,12 +222,16 @@ module.exports = {
 
     uibuilder.onChange('msg', function(msg){
         switch(msg.topic){
-            case "client object" :                                                  
-                component.client = msg.payload; 
+            case "client object" :
+              if(!component.viewedData) {
                 component.selectedData = msg.payload.temperature_arr;
-                component.viewedData = component.graphInterval1;       
+                component.viewedData = component.graphInterval1;
+              }              
+              component.client = msg.payload; 
+              break;         
             case "client info" :                                                  
-                component.clientInfo = msg.payload[0];              
+              component.clientInfo = msg.payload[0];              
+              break;
         }
     })
   }

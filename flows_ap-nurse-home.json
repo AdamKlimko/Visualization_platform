@@ -218,8 +218,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 370,
-        "y": 100,
+        "x": 330,
+        "y": 40,
         "wires": [
             [
                 "4fecd245.672b4c"
@@ -235,8 +235,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 370,
-        "y": 160,
+        "x": 330,
+        "y": 100,
         "wires": [
             [
                 "4fecd245.672b4c"
@@ -252,8 +252,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 360,
-        "y": 220,
+        "x": 320,
+        "y": 160,
         "wires": [
             [
                 "4fecd245.672b4c"
@@ -269,8 +269,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 360,
-        "y": 280,
+        "x": 320,
+        "y": 220,
         "wires": [
             [
                 "4fecd245.672b4c"
@@ -297,8 +297,8 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 590,
-        "y": 200,
+        "x": 550,
+        "y": 140,
         "wires": [
             [
                 "dc6f6af4.a034f8"
@@ -313,8 +313,8 @@
         "links": [
             "de4a00e.4722b"
         ],
-        "x": 1435,
-        "y": 440,
+        "x": 1215,
+        "y": 360,
         "wires": []
     },
     {
@@ -325,8 +325,8 @@
         "links": [
             "1123ce96.d734d1"
         ],
-        "x": 175,
-        "y": 440,
+        "x": 235,
+        "y": 360,
         "wires": [
             [
                 "4358c50f.f21c1c"
@@ -348,7 +348,7 @@
         "useSecurity": true,
         "sessionLength": 432000,
         "tokenAutoExtend": true,
-        "x": 1170,
+        "x": 1030,
         "y": 320,
         "wires": [
             [],
@@ -366,8 +366,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 370,
-        "y": 380,
+        "x": 330,
+        "y": 320,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -383,8 +383,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 370,
-        "y": 500,
+        "x": 330,
+        "y": 440,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -400,8 +400,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 370,
-        "y": 560,
+        "x": 330,
+        "y": 500,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -417,8 +417,8 @@
         "qos": "2",
         "datatype": "auto",
         "broker": "94c9239b.5c666",
-        "x": 360,
-        "y": 440,
+        "x": 320,
+        "y": 380,
         "wires": [
             [
                 "d96dc0d2.843eb"
@@ -445,8 +445,8 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 590,
-        "y": 460,
+        "x": 550,
+        "y": 400,
         "wires": [
             [
                 "d01c80fa.7f387"
@@ -460,11 +460,9 @@
         "mydb": "c65fcf3a.e457e",
         "name": "INSERT",
         "x": 960,
-        "y": 420,
+        "y": 400,
         "wires": [
-            [
-                "2ccc7528.46581a"
-            ]
+            []
         ]
     },
     {
@@ -478,11 +476,10 @@
         "initialize": "",
         "finalize": "",
         "x": 770,
-        "y": 460,
+        "y": 400,
         "wires": [
             [
-                "83dc4452.4fc608",
-                "2ccc7528.46581a"
+                "83dc4452.4fc608"
             ]
         ]
     },
@@ -492,7 +489,7 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "Client",
-        "x": 770,
+        "x": 630,
         "y": 160,
         "wires": [
             [
@@ -519,7 +516,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
+        "x": 470,
         "y": 160,
         "wires": [
             [
@@ -537,12 +534,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 950,
+        "x": 810,
         "y": 160,
         "wires": [
             [
-                "5e57ad2.2743054",
-                "265a7e8d.102922"
+                "5e57ad2.2743054"
             ]
         ]
     },
@@ -628,7 +624,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 14,
-        "x": 410,
+        "x": 270,
         "y": 240,
         "wires": [
             [
@@ -701,7 +697,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
+        "x": 470,
         "y": 280,
         "wires": [
             [
@@ -715,12 +711,10 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "No return",
-        "x": 780,
+        "x": 640,
         "y": 280,
         "wires": [
-            [
-                "93a6a171.216f1"
-            ]
+            []
         ]
     },
     {
@@ -749,7 +743,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
+        "x": 470,
         "y": 220,
         "wires": [
             [
@@ -763,7 +757,7 @@
         "z": "8bc3036a.fdfb7",
         "mydb": "b405b45b.879578",
         "name": "Returns",
-        "x": 780,
+        "x": 640,
         "y": 220,
         "wires": [
             [
@@ -790,12 +784,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
+        "x": 810,
         "y": 220,
         "wires": [
             [
-                "5e57ad2.2743054",
-                "265a7e8d.102922"
+                "5e57ad2.2743054"
             ]
         ]
     },
@@ -805,12 +798,10 @@
         "z": "4fd2e6c4.650f68",
         "mydb": "c65fcf3a.e457e",
         "name": "INSERT",
-        "x": 960,
-        "y": 160,
+        "x": 920,
+        "y": 100,
         "wires": [
-            [
-                "78a733b3.58a37c"
-            ]
+            []
         ]
     },
     {
@@ -823,12 +814,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 770,
-        "y": 200,
+        "x": 730,
+        "y": 140,
         "wires": [
-            [
-                "78a733b3.58a37c"
-            ]
+            []
         ]
     },
     {
@@ -855,7 +844,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1330,
+        "x": 1190,
         "y": 320,
         "wires": [
             [
@@ -1009,11 +998,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1060,
+        "x": 1040,
         "y": 380,
         "wires": [
             [
-                "2823dce9.868714",
                 "2f95bb0.31c8546"
             ]
         ]
@@ -1087,22 +1075,6 @@
         ]
     },
     {
-        "id": "2823dce9.868714",
-        "type": "debug",
-        "z": "558e4608.692488",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "a522c57a.a0b428",
         "type": "comment",
         "z": "558e4608.692488",
@@ -1170,11 +1142,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1030,
+        "x": 1010,
         "y": 160,
         "wires": [
             [
-                "dc2dab92.eae258",
                 "a2ced278.34ee1"
             ]
         ]
@@ -1258,22 +1229,6 @@
         "wires": []
     },
     {
-        "id": "dc2dab92.eae258",
-        "type": "debug",
-        "z": "558e4608.692488",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "21228483.b51c6c",
         "type": "join",
         "z": "558e4608.692488",
@@ -1293,7 +1248,7 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1230,
+        "x": 1190,
         "y": 260,
         "wires": [
             [
@@ -1309,7 +1264,7 @@
         "links": [
             "639581a8.2ff3c"
         ],
-        "x": 1335,
+        "x": 1295,
         "y": 260,
         "wires": []
     },
@@ -1384,7 +1339,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1270,
+        "x": 1230,
         "y": 160,
         "wires": [
             [
@@ -1411,7 +1366,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1270,
+        "x": 1230,
         "y": 380,
         "wires": [
             [
@@ -1435,8 +1390,7 @@
         "wires": [
             [
                 "6f6495ac.83804c",
-                "e179c806.9293f8",
-                "4d0cac7f.5e1184"
+                "e179c806.9293f8"
             ]
         ]
     },
@@ -1449,9 +1403,7 @@
         "x": 980,
         "y": 520,
         "wires": [
-            [
-                "d786552c.48bb48"
-            ]
+            []
         ]
     },
     {
@@ -1493,29 +1445,13 @@
         "wires": []
     },
     {
-        "id": "d786552c.48bb48",
-        "type": "debug",
-        "z": "558e4608.692488",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1170,
-        "y": 520,
-        "wires": []
-    },
-    {
         "id": "d801863f.0e8a48",
         "type": "comment",
         "z": "558e4608.692488",
         "name": "users with their notifications",
         "info": "",
-        "x": 1080,
-        "y": 80,
+        "x": 1040,
+        "y": 120,
         "wires": []
     },
     {
@@ -1524,7 +1460,7 @@
         "z": "617b446b.a0195c",
         "name": "email",
         "info": "",
-        "x": 750,
+        "x": 730,
         "y": 360,
         "wires": []
     },
@@ -1538,25 +1474,8 @@
         "tls": true,
         "name": "",
         "dname": "",
-        "x": 970,
+        "x": 950,
         "y": 320,
-        "wires": []
-    },
-    {
-        "id": "184cabd1.f3ee44",
-        "type": "debug",
-        "z": "617b446b.a0195c",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 970,
-        "y": 80,
         "wires": []
     },
     {
@@ -1580,7 +1499,7 @@
         "links": [
             "e179c806.9293f8"
         ],
-        "x": 375,
+        "x": 355,
         "y": 140,
         "wires": [
             [
@@ -1589,29 +1508,12 @@
         ]
     },
     {
-        "id": "b2340688.e38978",
-        "type": "debug",
-        "z": "617b446b.a0195c",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 970,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "d12d7ec0.7853a",
         "type": "mysql",
         "z": "617b446b.a0195c",
         "mydb": "b405b45b.879578",
         "name": "SELECT notification_settings",
-        "x": 440,
+        "x": 420,
         "y": 180,
         "wires": [
             [
@@ -1645,7 +1547,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
+        "x": 480,
         "y": 140,
         "wires": [
             [
@@ -1682,7 +1584,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
+        "x": 460,
         "y": 220,
         "wires": [
             [
@@ -1698,7 +1600,7 @@
         "z": "617b446b.a0195c",
         "name": "telegram",
         "info": "",
-        "x": 760,
+        "x": 740,
         "y": 80,
         "wires": []
     },
@@ -1708,8 +1610,8 @@
         "z": "617b446b.a0195c",
         "name": "ulozit chatId do databazy",
         "info": "",
-        "x": 190,
-        "y": 560,
+        "x": 130,
+        "y": 520,
         "wires": []
     },
     {
@@ -1720,8 +1622,8 @@
         "bot": "fbc38b7a.95acf8",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 190,
-        "y": 600,
+        "x": 130,
+        "y": 560,
         "wires": [
             [
                 "f1faa94a.08da38",
@@ -1738,7 +1640,7 @@
         "bot": "fbc38b7a.95acf8",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1010,
+        "x": 990,
         "y": 120,
         "wires": [
             []
@@ -1754,11 +1656,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 790,
+        "x": 770,
         "y": 120,
         "wires": [
             [
-                "184cabd1.f3ee44",
                 "4c83b28f.ffba1c"
             ]
         ]
@@ -1773,30 +1674,13 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 780,
+        "x": 760,
         "y": 320,
         "wires": [
             [
-                "b2340688.e38978",
                 "8a88dc50.081df"
             ]
         ]
-    },
-    {
-        "id": "4d0cac7f.5e1184",
-        "type": "debug",
-        "z": "558e4608.692488",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "1e786cce.838aa3",
@@ -1872,8 +1756,8 @@
         "z": "617b446b.a0195c",
         "mydb": "b405b45b.879578",
         "name": "GET Telegram",
-        "x": 420,
-        "y": 660,
+        "x": 360,
+        "y": 620,
         "wires": [
             [
                 "708f85e8.fb31fc"
@@ -1890,8 +1774,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 420,
-        "y": 620,
+        "x": 360,
+        "y": 580,
         "wires": [
             [
                 "6ae60beb.81c024"
@@ -1904,7 +1788,7 @@
         "z": "617b446b.a0195c",
         "name": "dashboard",
         "info": "",
-        "x": 760,
+        "x": 740,
         "y": 200,
         "wires": []
     },
@@ -1918,7 +1802,7 @@
             "958aa8b8.ca5928",
             "13e1073d.4a3289"
         ],
-        "x": 935,
+        "x": 915,
         "y": 240,
         "wires": []
     },
@@ -1928,7 +1812,7 @@
         "z": "8bc3036a.fdfb7",
         "name": "Frontend messages",
         "info": "",
-        "x": 410,
+        "x": 270,
         "y": 100,
         "wires": []
     },
@@ -1951,7 +1835,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 770,
+        "x": 750,
         "y": 240,
         "wires": [
             [
@@ -1967,8 +1851,8 @@
         "links": [
             "f83eebc1.4b8ef8"
         ],
-        "x": 1015,
-        "y": 400,
+        "x": 855,
+        "y": 360,
         "wires": [
             [
                 "5e57ad2.2743054"
@@ -1981,228 +1865,8 @@
         "z": "8bc3036a.fdfb7",
         "name": "New notification",
         "info": "",
-        "x": 900,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "78a733b3.58a37c",
-        "type": "debug",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "2ccc7528.46581a",
-        "type": "debug",
-        "z": "4fd2e6c4.650f68",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "eb6904ec.4050b8",
-        "type": "function",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance,\nbed\n)\nVALUES\n(\n${msg.payload},\n${Math.round(Math.random() * 10 + 15).toFixed(2)},\n${Math.round(Math.random() * 20 + 30).toFixed(2)},\n${Math.floor(Math.random() * 100 + 950)},\n${Math.floor(Math.random() * 100 + 100)},\n0\n);\n`\nmsg.topic = query;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 760,
-        "y": 260,
-        "wires": [
-            [
-                "95d7088c.0c0898"
-            ]
-        ]
-    },
-    {
-        "id": "8ec7affa.be975",
-        "type": "inject",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "120",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 310,
-        "y": 260,
-        "wires": [
-            [
-                "7f5b22a7.f764bc",
-                "31295d44.f32a92",
-                "407fc4f9.41eafc"
-            ]
-        ]
-    },
-    {
-        "id": "407fc4f9.41eafc",
-        "type": "change",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "1",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 200,
-        "wires": [
-            [
-                "eb6904ec.4050b8"
-            ]
-        ]
-    },
-    {
-        "id": "7f5b22a7.f764bc",
-        "type": "change",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "2",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 240,
-        "wires": [
-            [
-                "eb6904ec.4050b8"
-            ]
-        ]
-    },
-    {
-        "id": "ec601fba.bad62",
-        "type": "change",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "3",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 280,
-        "wires": [
-            [
-                "eb6904ec.4050b8"
-            ]
-        ]
-    },
-    {
-        "id": "31295d44.f32a92",
-        "type": "change",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "4",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 320,
-        "wires": [
-            [
-                "eb6904ec.4050b8"
-            ]
-        ]
-    },
-    {
-        "id": "95d7088c.0c0898",
-        "type": "mysql",
-        "z": "f25502.d39c1b",
-        "mydb": "c65fcf3a.e457e",
-        "name": "INSERT",
-        "x": 940,
-        "y": 260,
-        "wires": [
-            [
-                "a9d866a2.f4c1e8"
-            ]
-        ]
-    },
-    {
-        "id": "a9d866a2.f4c1e8",
-        "type": "debug",
-        "z": "f25502.d39c1b",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 260,
+        "x": 740,
+        "y": 360,
         "wires": []
     },
     {
@@ -2330,1580 +1994,6 @@
         ]
     },
     {
-        "id": "81b9cb23.7b4988",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT1 - load client",
-        "func": "msg =\n{   \n    \"topic\": \"load client\",\n    \"payload\": \"SELECT id,name,time,temperature,humidity,pressure,resistance,bed FROM all_clients AS ac JOIN client_data AS cd ON ac.id=cd.client_id WHERE cd.time >= DATE(NOW()) - INTERVAL 7 DAY AND ac.id = 1 ORDER BY time DESC;\"\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
-        "y": 640,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "1af17bdc.36ba64"
-            ]
-        ]
-    },
-    {
-        "id": "852dde45.86788",
-        "type": "inject",
-        "z": "8bc3036a.fdfb7",
-        "name": "RUN UNIT TESTS",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 580,
-        "wires": [
-            [
-                "81b9cb23.7b4988"
-            ]
-        ]
-    },
-    {
-        "id": "1af17bdc.36ba64",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT2 - load client",
-        "func": "// wrong id\nmsg =\n{   \n    \"topic\": \"load client\",\n    \"payload\": \"SELECT id,name,time,temperature,humidity,pressure,resistance,bed FROM all_clients AS ac JOIN client_data AS cd ON ac.id=cd.client_id WHERE cd.time >= DATE(NOW()) - INTERVAL 7 DAY AND ac.id = 99 ORDER BY time DESC;\"\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
-        "y": 680,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "7cb804f3.524f5c"
-            ]
-        ]
-    },
-    {
-        "id": "7cb804f3.524f5c",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT3 - client info",
-        "func": "msg =\n{\n    \"topic\": \"client info\",\n    \"payload\": \"SELECT * FROM client_info WHERE client_id = 1;\"\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
-        "y": 740,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "aa7bab5e.b8bfb8"
-            ]
-        ]
-    },
-    {
-        "id": "28b440bf.344e9",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "array",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "cont",
-                "value": "",
-                "valueType": "str",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 600,
-        "wires": [
-            [
-                "2e90802b.d297"
-            ]
-        ]
-    },
-    {
-        "id": "6f898dde.8628e4",
-        "type": "link in",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "links": [
-            "265a7e8d.102922"
-        ],
-        "x": 395,
-        "y": 1020,
-        "wires": [
-            [
-                "e283a7d2.3840e8"
-            ]
-        ]
-    },
-    {
-        "id": "265a7e8d.102922",
-        "type": "link out",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "links": [
-            "6f898dde.8628e4"
-        ],
-        "x": 1135,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "aa7bab5e.b8bfb8",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT4 - client info",
-        "func": "msg =\n{\n    \"topic\": \"client info\",\n    \"payload\": \"SELECT * FROM client_info WHERE client_id = 99;\"\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
-        "y": 780,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "9d557e67.4fd76"
-            ]
-        ]
-    },
-    {
-        "id": "9d557e67.4fd76",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT5 - all clients",
-        "func": "msg =\n{\n    \"topic\": \"all clients\",\n    \"payload\": \"SELECT * FROM all_clients;\"   \n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
-        "y": 840,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "39f834cc.e1a33c"
-            ]
-        ]
-    },
-    {
-        "id": "a21dc7bc.1e7f88",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "array",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.length",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "9",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 660,
-        "wires": [
-            [
-                "925e18bc.572228"
-            ]
-        ]
-    },
-    {
-        "id": "e283a7d2.3840e8",
-        "type": "switch",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "client object",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "client info",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "all clients",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "selected clients",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "markers",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "notifications",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "notification settings",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "update client info",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "update user email",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "add client",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "remove client",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "remove notification",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "remove telegram",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "authorised",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 14,
-        "x": 490,
-        "y": 1020,
-        "wires": [
-            [
-                "f8d0d8e3.ee59e8"
-            ],
-            [
-                "28b440bf.344e9"
-            ],
-            [
-                "a21dc7bc.1e7f88"
-            ],
-            [
-                "2c595b74.03f414"
-            ],
-            [
-                "70c0d02b.2d742"
-            ],
-            [
-                "db4a4488.5db0b8"
-            ],
-            [
-                "fee19ad5.a71638"
-            ],
-            [
-                "e7dccca3.1926e"
-            ],
-            [
-                "67dc6554.2e6b9c"
-            ],
-            [
-                "ff20083a.8c6a38"
-            ],
-            [
-                "3c62c5c4.459b1a"
-            ],
-            [
-                "b10d2d5e.5cd62"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f8d0d8e3.ee59e8",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "object",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 540,
-        "wires": [
-            [
-                "19dc313f.069aef"
-            ]
-        ]
-    },
-    {
-        "id": "19dc313f.069aef",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "load client",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT1,UT2 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 540,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "73a59022.5e6",
-        "type": "join",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "1",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 1230,
-        "y": 1000,
-        "wires": [
-            [
-                "5b0e61ec.16b05"
-            ]
-        ]
-    },
-    {
-        "id": "2e90802b.d297",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "client info",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT3,UT4 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 600,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "925e18bc.572228",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "all clients",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT5 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 660,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "5b0e61ec.16b05",
-        "type": "debug",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1420,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "39f834cc.e1a33c",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT6 - selected clients",
-        "func": "msg =\n{\n    \"topic\": \"selected clients\",          \n    \"payload\": `SELECT client_id as id, ac.name, ac.lat, ac.lon FROM selected_clients as sc left join all_clients as ac on sc.client_id = ac.id where user_id = 2;`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 160,
-        "y": 900,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "b8d50301.8afba"
-            ]
-        ]
-    },
-    {
-        "id": "2c595b74.03f414",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "array",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.length",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "4",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 720,
-        "wires": [
-            [
-                "cffc1713.08ac98"
-            ]
-        ]
-    },
-    {
-        "id": "cffc1713.08ac98",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "selected clients",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT6 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 720,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "b8d50301.8afba",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT7 - markers",
-        "func": "msg =\n{\n    \"topic\": \"markers\", \n    \"payload\": `SELECT sc.client_id as id, name, lat, lon, temperature, humidity, pressure, resistance from (SELECT client_id,user_id,ac.name,ac.lat,ac.lon from selected_clients as sct left join all_clients as ac on sct.client_id = ac.id) as sc \n            join (select cd.client_id, temperature, humidity, pressure, resistance, cd.time from client_data as cd \n            join (select client_id, MAX(time) as time from client_data group by client_id) as cdt on cd.time = cdt.time AND cd.client_id = cdt.client_id) as sct on sc.client_id = sct.client_id where sc.user_id = 2;`   \n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
-        "y": 960,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "f8ac1d45.99a5"
-            ]
-        ]
-    },
-    {
-        "id": "70c0d02b.2d742",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "array",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.length",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "4",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 780,
-        "wires": [
-            [
-                "b541e35f.45b57"
-            ]
-        ]
-    },
-    {
-        "id": "b541e35f.45b57",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "markers",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT7 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 780,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "f8ac1d45.99a5",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT8 - notifications",
-        "func": "msg =\n{\n    \"topic\": \"notifications\", \n    \"payload\": `SELECT * FROM notification where user_id = 2;`   \n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 150,
-        "y": 1020,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "266d547.a84aaac"
-            ]
-        ]
-    },
-    {
-        "id": "db4a4488.5db0b8",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "array",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 840,
-        "wires": [
-            [
-                "a7f628be.7b5bb8"
-            ]
-        ]
-    },
-    {
-        "id": "a7f628be.7b5bb8",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "notifications",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT8 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 840,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "266d547.a84aaac",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT9 - notification settings",
-        "func": "msg =\n{\n    \"topic\": \"notification settings\", \n    \"payload\": `SELECT * FROM notification_settings where user_id = 2;`   \n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1080,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "9a0a5e53.15a6"
-            ]
-        ]
-    },
-    {
-        "id": "fee19ad5.a71638",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "type",
-                "value": "array",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.length",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 900,
-        "wires": [
-            [
-                "f9a83df5.01a08"
-            ]
-        ]
-    },
-    {
-        "id": "f9a83df5.01a08",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "notification settings",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT9 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 900,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "9a0a5e53.15a6",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT10 - update client info",
-        "func": "msg =\n{\n    \"topic\": \"update client info\",\n    \"payload\": `UPDATE client_info SET diagnosis = 'string', description = 'string', address = 'string', max_temp = 50, min_temp = 10, max_hum = 60, min_hum = 20, max_pres = 1050, min_pres = 950, max_qua = 400 WHERE client_id = 4`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1140,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "b01555bc.cee5f8"
-            ]
-        ]
-    },
-    {
-        "id": "e7dccca3.1926e",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.warningCount",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "0",
-                "valueType": "num",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.changedRows",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 960,
-        "wires": [
-            [
-                "e49ff3ce.a5d2"
-            ]
-        ]
-    },
-    {
-        "id": "e49ff3ce.a5d2",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "update client info",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT10,UT11 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 960,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "b01555bc.cee5f8",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT11 - update client info",
-        "func": "msg =\n{\n    \"topic\": \"update client info\",\n    \"payload\": `UPDATE client_info SET diagnosis = '', description = '', address = '', max_temp = null, min_temp = null, max_hum = null, min_hum = null, max_pres = null, min_pres = null, max_qua = null WHERE client_id = 4`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1180,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "af4105fe.f59548"
-            ]
-        ]
-    },
-    {
-        "id": "93a6a171.216f1",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "temp",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 950,
-        "y": 280,
-        "wires": [
-            [
-                "265a7e8d.102922"
-            ]
-        ]
-    },
-    {
-        "id": "af4105fe.f59548",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT12 - update user email",
-        "func": "msg =\n{\n    \"topic\": \"update user email\",\n    \"payload\": `UPDATE notification_settings SET email = null WHERE user_id = 2`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1240,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "32aac358.b028cc"
-            ]
-        ]
-    },
-    {
-        "id": "67dc6554.2e6b9c",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.warningCount",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "0",
-                "valueType": "num",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.changedRows",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 1020,
-        "wires": [
-            [
-                "40825e7f.be126"
-            ]
-        ]
-    },
-    {
-        "id": "40825e7f.be126",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "update user email",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT12,UT13 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 1020,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "32aac358.b028cc",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT13 - update user email",
-        "func": "msg =\n{\n    \"topic\": \"update user email\",\n    \"payload\": `UPDATE notification_settings SET email = 'email@stuba.sk' WHERE user_id = 2`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1280,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "2883c96b.cd5d46"
-            ]
-        ]
-    },
-    {
-        "id": "2883c96b.cd5d46",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT14 - add client",
-        "func": "msg =\n{\n    \"topic\": \"add client\",\n    \"payload\": `INSERT INTO selected_clients (client_id, user_id) VALUES (8,2);`           \n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 150,
-        "y": 1340,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "ceaba4db.489268"
-            ]
-        ]
-    },
-    {
-        "id": "660e2706.c957a8",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "add client",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT14 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 1080,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "ff20083a.8c6a38",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.warningCount",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "0",
-                "valueType": "num",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.affectedRows",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 1080,
-        "wires": [
-            [
-                "660e2706.c957a8"
-            ]
-        ]
-    },
-    {
-        "id": "ceaba4db.489268",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT15 - remove client",
-        "func": "msg =\n{\n    \"topic\": \"remove client\",\n    \"payload\": `DELETE FROM selected_clients WHERE client_id = 8 AND user_id = 2;`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 160,
-        "y": 1380,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "35474c9b.cd8774"
-            ]
-        ]
-    },
-    {
-        "id": "fa0de361.6052c",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "remove client",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT15 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 1140,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "3c62c5c4.459b1a",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.warningCount",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "0",
-                "valueType": "num",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.affectedRows",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 1140,
-        "wires": [
-            [
-                "fa0de361.6052c"
-            ]
-        ]
-    },
-    {
-        "id": "42fd8b10.b10c54",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT17 - remove notification",
-        "func": "msg =\n{\n    \"topic\": \"remove notification\",\n    \"payload\": `DELETE FROM notification WHERE id = ${this.context.global.get('notificationId')};`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 180,
-        "y": 1520,
-        "wires": [
-            [
-                "4358c50f.f21c1c",
-                "3b32211b.0b759e"
-            ]
-        ]
-    },
-    {
-        "id": "52506a2a.23eb64",
-        "type": "mysql",
-        "z": "8bc3036a.fdfb7",
-        "mydb": "b405b45b.879578",
-        "name": "INSERT",
-        "x": 340,
-        "y": 1440,
-        "wires": [
-            [
-                "cca2795d.cb4fd8",
-                "70d2df37.ff516"
-            ]
-        ]
-    },
-    {
-        "id": "35474c9b.cd8774",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT16 - insert notification",
-        "func": "const SQL = `INSERT INTO notification (time, user_id, client_id, type, value, message, importance) VALUES (time(now()), 2, 8, 'TEMP', 15, 'test', 2);`\n\nmsg.topic = SQL\n\nreturn msg",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1440,
-        "wires": [
-            [
-                "52506a2a.23eb64"
-            ]
-        ]
-    },
-    {
-        "id": "76f7146d.25dd4c",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "remove notification",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT17 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 1260,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "b10d2d5e.5cd62",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.warningCount",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "0",
-                "valueType": "num",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.affectedRows",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 1260,
-        "wires": [
-            [
-                "76f7146d.25dd4c"
-            ]
-        ]
-    },
-    {
-        "id": "d3649c29.6a28f",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "insert notification",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "UT16 - success",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 1200,
-        "wires": [
-            [
-                "73a59022.5e6"
-            ]
-        ]
-    },
-    {
-        "id": "cca2795d.cb4fd8",
-        "type": "assert",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "property": "payload",
-                "propertyType": "msg",
-                "type": "nnull",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.warningCount",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "0",
-                "valueType": "num",
-                "failMsg": ""
-            },
-            {
-                "property": "payload.affectedRows",
-                "propertyType": "msg",
-                "type": "eq",
-                "value": "1",
-                "valueType": "num",
-                "failMsg": ""
-            }
-        ],
-        "x": 790,
-        "y": 1200,
-        "wires": [
-            [
-                "d3649c29.6a28f"
-            ]
-        ]
-    },
-    {
-        "id": "70d2df37.ff516",
-        "type": "change",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "notificationId",
-                "pt": "global",
-                "to": "payload.insertId",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 1440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a14b383a.780898",
-        "type": "complete",
-        "z": "8bc3036a.fdfb7",
-        "name": "",
-        "scope": [
-            "70d2df37.ff516"
-        ],
-        "uncaught": false,
-        "x": 130,
-        "y": 1480,
-        "wires": [
-            [
-                "42fd8b10.b10c54"
-            ]
-        ]
-    },
-    {
-        "id": "3b32211b.0b759e",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT17 - set telegram",
-        "func": "msg =\n{\n    \"topic\": \"set telegram\",\n    \"payload\": ``\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 160,
-        "y": 1600,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "22b880ed.742a7",
-        "type": "comment",
-        "z": "8bc3036a.fdfb7",
-        "name": "Frontend unit tests",
-        "info": "",
-        "x": 490,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "fa1f075c.1769e8",
-        "type": "function",
-        "z": "8bc3036a.fdfb7",
-        "name": "UT18 - remove telegram",
-        "func": "msg =\n{\n    \"topic\": \"remove telegram\",\n    \"payload\": `UPDATE notification_settings SET telegram = NULL WHERE user_id = 2`\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 170,
-        "y": 1660,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "470448a9.a57d58",
         "type": "function",
         "z": "617b446b.a0195c",
@@ -3913,8 +2003,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1120,
-        "y": 540,
+        "x": 1060,
+        "y": 520,
         "wires": [
             [
                 "fbb9019d.ddc43"
@@ -3927,8 +2017,8 @@
         "z": "617b446b.a0195c",
         "mydb": "b405b45b.879578",
         "name": "UPDATE Telegram",
-        "x": 1350,
-        "y": 540,
+        "x": 1290,
+        "y": 520,
         "wires": [
             []
         ]
@@ -3953,8 +2043,8 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 610,
-        "y": 600,
+        "x": 570,
+        "y": 580,
         "wires": [
             [
                 "b378643c.ab3468"
@@ -3987,8 +2077,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 700,
+        "x": 360,
+        "y": 660,
         "wires": [
             [
                 "fe87482.b7aa9b8"
@@ -4014,8 +2104,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 560,
+        "x": 350,
+        "y": 520,
         "wires": [
             [
                 "fe87482.b7aa9b8"
@@ -4032,8 +2122,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1130,
-        "y": 580,
+        "x": 1070,
+        "y": 560,
         "wires": [
             [
                 "b8431fe4.656ec"
@@ -4048,8 +2138,8 @@
         "bot": "fbc38b7a.95acf8",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1350,
-        "y": 580,
+        "x": 1290,
+        "y": 560,
         "wires": [
             []
         ]
@@ -4063,8 +2153,8 @@
             "b378643c.ab3468"
         ],
         "uncaught": false,
-        "x": 1090,
-        "y": 680,
+        "x": 1030,
+        "y": 660,
         "wires": [
             [
                 "bed9e448.552d78"
@@ -4081,8 +2171,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 760,
-        "y": 600,
+        "x": 720,
+        "y": 580,
         "wires": [
             [
                 "be9b005a.fba0b"
@@ -4097,8 +2187,8 @@
         "bot": "fbc38b7a.95acf8",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1350,
-        "y": 640,
+        "x": 1290,
+        "y": 620,
         "wires": [
             []
         ]
@@ -4113,8 +2203,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1130,
-        "y": 640,
+        "x": 1070,
+        "y": 620,
         "wires": [
             [
                 "29abcea3.9e7ac2"
@@ -4143,8 +2233,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 910,
-        "y": 600,
+        "x": 870,
+        "y": 580,
         "wires": [
             [
                 "470448a9.a57d58",
@@ -4164,12 +2254,211 @@
             "6ae60beb.81c024"
         ],
         "uncaught": false,
-        "x": 390,
-        "y": 740,
+        "x": 330,
+        "y": 700,
         "wires": [
             [
                 "708f85e8.fb31fc"
             ]
         ]
+    },
+    {
+        "id": "9a37cc71.abb2e",
+        "type": "function",
+        "z": "4fd2e6c4.650f68",
+        "name": "Generate data",
+        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance,\nbed\n)\nVALUES\n(\n${msg.payload},\n${Math.round(Math.random() * 10 + 15).toFixed(2)},\n${Math.round(Math.random() * 20 + 30).toFixed(2)},\n${Math.floor(Math.random() * 100 + 950)},\n${Math.floor(Math.random() * 100 + 100)},\n0\n);\n`\nmsg.topic = query;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 780,
+        "y": 660,
+        "wires": [
+            [
+                "5bec0466.59b74c"
+            ]
+        ]
+    },
+    {
+        "id": "9c999518.b7a198",
+        "type": "inject",
+        "z": "4fd2e6c4.650f68",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 660,
+        "wires": [
+            [
+                "3963dd80.2c4372",
+                "a419eca1.06723",
+                "1a48d8a3.667747"
+            ]
+        ]
+    },
+    {
+        "id": "1a48d8a3.667747",
+        "type": "change",
+        "z": "4fd2e6c4.650f68",
+        "name": "Set client id = 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 600,
+        "wires": [
+            [
+                "9a37cc71.abb2e"
+            ]
+        ]
+    },
+    {
+        "id": "3963dd80.2c4372",
+        "type": "change",
+        "z": "4fd2e6c4.650f68",
+        "name": "Set client id = 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 640,
+        "wires": [
+            [
+                "9a37cc71.abb2e"
+            ]
+        ]
+    },
+    {
+        "id": "cd2f0ddc.3b042",
+        "type": "change",
+        "z": "4fd2e6c4.650f68",
+        "name": "Set client id = 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "3",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 680,
+        "wires": [
+            [
+                "9a37cc71.abb2e"
+            ]
+        ]
+    },
+    {
+        "id": "a419eca1.06723",
+        "type": "change",
+        "z": "4fd2e6c4.650f68",
+        "name": "Set client id = 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "4",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "9a37cc71.abb2e"
+            ]
+        ]
+    },
+    {
+        "id": "5bec0466.59b74c",
+        "type": "mysql",
+        "z": "4fd2e6c4.650f68",
+        "mydb": "c65fcf3a.e457e",
+        "name": "INSERT",
+        "x": 960,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92057aa5.e48528",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "GaSens3",
+        "info": "",
+        "x": 540,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6669185e.2b8cb8",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "Data generator",
+        "info": "",
+        "x": 320,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d8963e15.dadc8",
+        "type": "comment",
+        "z": "558e4608.692488",
+        "name": "generate notifications from new data",
+        "info": "",
+        "x": 1040,
+        "y": 340,
+        "wires": []
     }
 ]
