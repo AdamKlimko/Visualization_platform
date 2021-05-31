@@ -10,10 +10,12 @@
       <google-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
       <div class="p-1 mb-1">
         <h5>{{infoContent.name}}</h5>      
-        <p>Teplota: {{infoContent.temperature}} °C</p>
-        <p>Vlhosť vzduchu: {{infoContent.humidity}} %</p>
-        <p>Tlak: {{infoContent.pressure}} hPa</p>
-        <p>Kvalita vzduchu: {{infoContent.resistance}} AQI</p>
+        <p>Teplota:<b> {{infoContent.temperature}} °C</b></p>
+        <p>Vlhosť vzduchu:<b> {{infoContent.humidity}} %</b></p>
+        <p>Tlak vzduchu:<b> {{infoContent.pressure}} hPa</b></p>
+        <p>Kvalita vzduchu:<b> {{infoContent.resistance}} AQI</b></p>
+        <p>Obsadenosť postele:<b> {{infoContent.bed == 0 ? "neleží" : "leží"}}</b> </p>
+        <p>Krvný tlak:<b> {{infoContent.blood}} mm Hg</b></p>        
         <router-link :to="'/client/' + infoContent.id">Prejsť na</router-link>        
       </div>
       </google-info-window>

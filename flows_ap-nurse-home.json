@@ -28,13 +28,6 @@
         "info": ""
     },
     {
-        "id": "f25502.d39c1b",
-        "type": "tab",
-        "label": "Data generator",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "94c9239b.5c666",
         "type": "mqtt-broker",
         "name": "",
@@ -470,7 +463,7 @@
         "type": "function",
         "z": "4fd2e6c4.650f68",
         "name": "Prepare SQL",
-        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance\n)\nVALUES\n(\n3,\n${msg.payload.gasens_id03_temp},\n${msg.payload.gasens_id03_hum},\n${msg.payload.gasens_id03_pres},\n${msg.payload.gasens_id03_voc}\n);\n`\nmsg.topic = query;\n\nreturn msg;",
+        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance,\nbed,\nblood,\nfall\n)\nVALUES\n(\n3,\n${msg.payload.gasens_id03_temp},\n${msg.payload.gasens_id03_hum},\n${msg.payload.gasens_id03_pres},\n${msg.payload.gasens_id03_voc},\n0,\n${Math.floor(Math.random() * 40 + 80)},\n0\n);\n`\nmsg.topic = query;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -529,7 +522,7 @@
         "type": "function",
         "z": "8bc3036a.fdfb7",
         "name": "Client object",
-        "func": "if (msg.payload.length == 0) {\n    return null\n}\n\nlet currentState = msg.payload[0];\n\nlet temperature = [];\nlet humidity = [];\nlet pressure = [];\nlet resistance = [];\nlet bed = [];\n\nmsg.payload.forEach((object) => {\n    \n    //create 4 arrays\n    temperature.push([object.time, object.temperature]);\n    humidity.push([object.time, object.humidity]);\n    pressure.push([object.time, object.pressure]);\n    resistance.push([object.time, object.resistance]);\n    bed.push([object.time, object.bed]);\n    \n});\n\nlet client = \n{\n    id: currentState.id,\n    name: currentState.name,\n    temperature: currentState.temperature,\n    humidity: currentState.humidity,\n    pressure: currentState.pressure,    \n    resistance: currentState.resistance,\n    bed: currentState.bed,\n    temperature_arr: temperature,\n    humidity_arr: humidity,\n    pressure_arr: pressure,    \n    resistance_arr: resistance,\n    bed_arr: bed,\n    alerts: []\n};\n\nmsg.payload = client;\n\nmsg.topic = \"client object\";\n\nreturn msg;",
+        "func": "if (msg.payload.length == 0) {\n    return null\n}\n\nlet currentState = msg.payload[0];\n\nlet temperature = [];\nlet humidity = [];\nlet pressure = [];\nlet resistance = [];\nlet bed = [];\nlet blood = [];\n\nmsg.payload.forEach((object) => {\n    \n    //create 4 arrays\n    temperature.push([object.time, object.temperature]);\n    humidity.push([object.time, object.humidity]);\n    pressure.push([object.time, object.pressure]);\n    resistance.push([object.time, object.resistance]);\n    bed.push([object.time, object.bed]);\n    blood.push([object.time, object.blood]);\n    \n});\n\nlet client = \n{\n    id: currentState.id,\n    name: currentState.name,\n    temperature: currentState.temperature,\n    humidity: currentState.humidity,\n    pressure: currentState.pressure,    \n    resistance: currentState.resistance,\n    bed: currentState.bed,\n    blood: currentState.blood,\n    temperature_arr: temperature,\n    humidity_arr: humidity,\n    pressure_arr: pressure,    \n    resistance_arr: resistance,\n    bed_arr: bed,\n    blood_arr: blood,\n    alerts: []\n};\n\nmsg.payload = client;\n\nmsg.topic = \"client object\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -798,8 +791,8 @@
         "z": "4fd2e6c4.650f68",
         "mydb": "c65fcf3a.e457e",
         "name": "INSERT",
-        "x": 920,
-        "y": 100,
+        "x": 960,
+        "y": 140,
         "wires": [
             []
         ]
@@ -814,7 +807,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 730,
+        "x": 770,
         "y": 140,
         "wires": [
             []
@@ -944,7 +937,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "SELECT client_id, max_temp, min_temp, max_hum, min_hum, max_pres, min_pres, max_qua FROM visualisation_p.client_info;",
+                "to": "SELECT client_id, max_temp, min_temp, max_hum, min_hum, max_pres, min_pres, max_qua, max_blood, min_blood FROM client_info;",
                 "tot": "str"
             }
         ],
@@ -993,7 +986,7 @@
         "type": "function",
         "z": "558e4608.692488",
         "name": "Generate notifications",
-        "func": "// newest data from sensors by client\nconst client_data = msg.payload.data\nconst bounds = msg.payload.bounds\n\nnew_notifications = []\nlet max\nlet min\n\nclient_data.forEach(client => {\n    \n    // TEMP\n    if(bounds[client.client_id].min_temp) {\n        min = bounds[client.client_id].min_temp \n    }\n    else {\n        min = 15\n    }                \n    if (client.temperature < min) {\n        if (client.temperature < min - 5) {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nebezpečne nízka!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nezvyčajne nízka!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_temp) {\n        max = bounds[client.client_id].max_temp \n    }\n    else {\n        max = 40\n    }   \n    if (client.temperature > max) {\n        if (client.temperature > max + 5) {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nebezpečne vysoká!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nezvyčajne vysoká!\", 2)\n        }\n    }\n\n    // HUM\n    if(bounds[client.client_id].min_hum) {\n        min = bounds[client.client_id].min_hum \n    }\n    else {\n        min = 30\n    } \n    if (client.humidity < min) {\n        if (client.humidity < min - 10) {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nebezpečne nízka!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nezvyčajne nízka!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_hum) {\n        max = bounds[client.client_id].max_hum \n    }\n    else {\n        max = 50\n    }  \n    if (client.humidity > max) {\n        if (client.humidity > max + 10) {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nebezpečne vysoká!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nezvyčajne vysoká!\", 2)\n        }\n    }\n    \n    // PRES\n    if(bounds[client.client_id].min_pres) {\n        min = bounds[client.client_id].min_pres \n    }\n    else {\n        min = 950\n    } \n    if (client.pressure < min) {\n        if (client.pressure < min - 5) {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak u \"+client.name+\" je nebezpečne nízky!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak u \"+client.name+\" je nezvyčajne nízky!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_pres) {\n        max = bounds[client.client_id].max_pres \n    }\n    else {\n        max = 1050\n    }  \n    if (client.pressure > max) {\n        if (client.pressure > max + 5) {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak u \"+client.name+\" je nebezpečne vysoký!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak u \"+client.name+\" je nezvyčajne vysoký!\", 2)\n        }\n    }\n    \n    // QUA/RES\n    if(bounds[client.client_id].max_qua) {\n        max = bounds[client.client_id].max_qua \n    }\n    else {\n        max = 250\n    }  \n    if (client.resistance > max) {\n        if (client.resistance > max + 20) {\n            addNotification(client.client_id, \"RES\", client.resistance, \"Kvalita vzduchu u \"+client.name+\" je nebezpečne nízka!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"RES\", client.resistance, \"Kvalita vzduchu u \"+client.name+\" je nezvyčajne nízka!\", 2)\n        }\n    }      \n});\nmsg.payload = new_notifications\nreturn msg;\n\nfunction addNotification(client_id, type, value, message, importance) {\n    let notification = {\n        client_id: client_id,\n        type: type,\n        value: value,\n        message: message + \" (\" + value + \")\",\n        importance: importance,\n    }\n    new_notifications.push(notification)\n}",
+        "func": "// newest data from sensors by client\nconst client_data = msg.payload.data\nconst bounds = msg.payload.bounds\n\nnew_notifications = []\nlet max\nlet min\n\nclient_data.forEach(client => {\n    \n    // TEMP\n    if(bounds[client.client_id].min_temp) {\n        min = bounds[client.client_id].min_temp \n    }\n    else {\n        min = 15\n    }                \n    if (client.temperature < min) {\n        if (client.temperature < min - 5) {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nebezpečne nízka!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nezvyčajne nízka!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_temp) {\n        max = bounds[client.client_id].max_temp \n    }\n    else {\n        max = 40\n    }   \n    if (client.temperature > max) {\n        if (client.temperature > max + 5) {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nebezpečne vysoká!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"TEMP\", client.temperature, \"Teplota u \"+client.name+\" je nezvyčajne vysoká!\", 2)\n        }\n    }\n\n    // HUM\n    if(bounds[client.client_id].min_hum) {\n        min = bounds[client.client_id].min_hum \n    }\n    else {\n        min = 30\n    } \n    if (client.humidity < min) {\n        if (client.humidity < min - 10) {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nebezpečne nízka!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nezvyčajne nízka!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_hum) {\n        max = bounds[client.client_id].max_hum \n    }\n    else {\n        max = 50\n    }  \n    if (client.humidity > max) {\n        if (client.humidity > max + 10) {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nebezpečne vysoká!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"HUM\", client.humidity, \"Vlkhosť vzduchu u \"+client.name+\" je nezvyčajne vysoká!\", 2)\n        }\n    }\n    \n    // PRES\n    if(bounds[client.client_id].min_pres) {\n        min = bounds[client.client_id].min_pres \n    }\n    else {\n        min = 950\n    } \n    if (client.pressure < min) {\n        if (client.pressure < min - 5) {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak vzduchu u \"+client.name+\" je nebezpečne nízky!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak vzduchu u \"+client.name+\" je nezvyčajne nízky!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_pres) {\n        max = bounds[client.client_id].max_pres \n    }\n    else {\n        max = 1050\n    }  \n    if (client.pressure > max) {\n        if (client.pressure > max + 5) {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak vzduchu u \"+client.name+\" je nebezpečne vysoký!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"PRES\", client.pressure, \"Tlak vzduchu u \"+client.name+\" je nezvyčajne vysoký!\", 2)\n        }\n    }\n    \n    // QUA/RES\n    if(bounds[client.client_id].max_qua) {\n        max = bounds[client.client_id].max_qua \n    }\n    else {\n        max = 250\n    }  \n    if (client.resistance > max) {\n        if (client.resistance > max + 20) {\n            addNotification(client.client_id, \"RES\", client.resistance, \"Kvalita vzduchu u \"+client.name+\" je nebezpečne nízka!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"RES\", client.resistance, \"Kvalita vzduchu u \"+client.name+\" je nezvyčajne nízka!\", 2)\n        }\n    }\n    \n    // BLOOD PRESSURE\n    if(bounds[client.client_id].min_blood) {\n        min = bounds[client.client_id].min_blood \n    }\n    else {\n        min = 80\n    } \n    if (client.blood < min) {\n        if (client.blood < min - 10) {\n            addNotification(client.client_id, \"BLOOD\", client.blood, \"Krvý tlak u \"+client.name+\" je nebezpečne nízky!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"BLOOD\", client.blood, \"Krvý tlak u \"+client.name+\" je nezvyčajne nízky!\", 2)\n        }\n    }  \n    if(bounds[client.client_id].max_blood) {\n        max = bounds[client.client_id].max_blood \n    }\n    else {\n        max = 130\n    }  \n    if (client.blood > max) {\n        if (client.blood > max + 10) {\n            addNotification(client.client_id, \"BLOOD\", client.blood, \"Krvý tlak u \"+client.name+\" je nebezpečne vysoký!\", 1)\n        }\n        else {\n            addNotification(client.client_id, \"BLOOD\", client.blood, \"Krvý tlak u \"+client.name+\" je nezvyčajne vysoký!\", 2)\n        }\n    }\n    \n    // FALL DETECTION\n    if (client.fall > 0) {\n        addNotification(client.client_id, \"FALL\", 1, \"U klienta \"+client.name+\" bol zaznamenaný potenciálny pád!\", 1)\n    }\n});\nmsg.payload = new_notifications\nreturn msg;\n\nfunction addNotification(client_id, type, value, message, importance) {\n    let notification = {\n        client_id: client_id,\n        type: type,\n        value: value,\n        message: message + \" (\" + value + \")\",\n        importance: importance,\n    }\n    new_notifications.push(notification)\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1002,7 +995,8 @@
         "y": 380,
         "wires": [
             [
-                "2f95bb0.31c8546"
+                "2f95bb0.31c8546",
+                "e76fb9bc.7ed5f8"
             ]
         ]
     },
@@ -1920,7 +1914,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "SELECT t1.time, t1.client_id, t2.name, t1.temperature, t1.humidity, t1.pressure, t1.resistance FROM client_data t1 INNER JOIN (SELECT Max(time) time, client_id, name FROM  client_data join (select id,name from all_clients) as ac on client_id = ac.id GROUP BY client_id ) AS t2 ON t1.client_id = t2.client_id AND t1.time = t2.time ORDER BY time DESC;",
+                "to": "SELECT t1.time, t1.client_id, t2.name, t1.temperature, t1.humidity, t1.pressure, t1.resistance, t1.blood, t1.fall FROM client_data t1 INNER JOIN (SELECT Max(time) time, client_id, name FROM  client_data join (select id,name from all_clients) as ac on client_id = ac.id GROUP BY client_id ) AS t2 ON t1.client_id = t2.client_id AND t1.time = t2.time ORDER BY time DESC;",
                 "tot": "str"
             }
         ],
@@ -1980,7 +1974,7 @@
         "type": "function",
         "z": "558e4608.692488",
         "name": "",
-        "func": "let arr = msg.payload\nlet newBounds = {}\narr.forEach(el => {\n    bounds = {}\n    bounds.max_temp = el.max_temp\n    bounds.min_temp = el.min_temp\n    bounds.max_hum = el.max_hum\n    bounds.min_hum = el.min_hum\n    bounds.max_pres = el.max_pres\n    bounds.min_pres = el.min_pres\n    bounds.max_qua = el.max_qua\n    bounds.min_qua = el.min_qua\n    newBounds[el.client_id] = bounds\n});\n\nmsg.payload = newBounds\nreturn msg;",
+        "func": "let arr = msg.payload\nlet newBounds = {}\narr.forEach(el => {\n    bounds = {}\n    bounds.max_temp = el.max_temp\n    bounds.min_temp = el.min_temp\n    bounds.max_hum = el.max_hum\n    bounds.min_hum = el.min_hum\n    bounds.max_pres = el.max_pres\n    bounds.min_pres = el.min_pres\n    bounds.min_qua = el.min_qua\n    bounds.max_blood = el.max_blood\n    bounds.min_blood = el.min_blood\n    newBounds[el.client_id] = bounds\n});\n\nmsg.payload = newBounds\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2267,7 +2261,7 @@
         "type": "function",
         "z": "4fd2e6c4.650f68",
         "name": "Generate data",
-        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance,\nbed\n)\nVALUES\n(\n${msg.payload},\n${Math.round(Math.random() * 10 + 15).toFixed(2)},\n${Math.round(Math.random() * 20 + 30).toFixed(2)},\n${Math.floor(Math.random() * 100 + 950)},\n${Math.floor(Math.random() * 100 + 100)},\n0\n);\n`\nmsg.topic = query;\n\nreturn msg;",
+        "func": "const query = \n`\nINSERT INTO client_data\n(\nclient_id,\ntemperature,\nhumidity,\npressure,\nresistance,\nbed,\nblood,\nfall\n)\nVALUES\n(\n${msg.payload},\n${Math.round(Math.random() * 10 + 15).toFixed(2)},\n${Math.round(Math.random() * 20 + 30).toFixed(2)},\n${Math.floor(Math.random() * 100 + 950)},\n${Math.floor(Math.random() * 100 + 100)},\n0,\n${Math.floor(Math.random() * 40 + 80)},\n0\n);\n`\nmsg.topic = query;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2437,8 +2431,8 @@
         "z": "4fd2e6c4.650f68",
         "name": "GaSens3",
         "info": "",
-        "x": 540,
-        "y": 320,
+        "x": 560,
+        "y": 340,
         "wires": []
     },
     {
@@ -2459,6 +2453,32 @@
         "info": "",
         "x": 1040,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e76fb9bc.7ed5f8",
+        "type": "debug",
+        "z": "558e4608.692488",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6bb5b1db.4482a",
+        "type": "comment",
+        "z": "4fd2e6c4.650f68",
+        "name": "GaSens1",
+        "info": "",
+        "x": 560,
+        "y": 80,
         "wires": []
     }
 ]

@@ -56,7 +56,7 @@ export default {
     getClient: function(client_id){
         uibuilder.sendCtrl( {
             "topic": "load client",
-            "payload": "SELECT id,name,time,temperature,humidity,pressure,resistance,bed FROM all_clients AS ac JOIN client_data AS cd ON ac.id=cd.client_id WHERE cd.time >= DATE(NOW()) - INTERVAL 7 DAY AND ac.id = " + client_id + " ORDER BY time DESC;"
+            "payload": "SELECT id,name,time,temperature,humidity,pressure,resistance,bed,blood,fall FROM all_clients AS ac JOIN client_data AS cd ON ac.id=cd.client_id WHERE cd.time >= DATE(NOW()) - INTERVAL 7 DAY AND ac.id = " + client_id + " ORDER BY time DESC;"
         } )
     },
     getClientInfo: function(client_id){
@@ -68,7 +68,13 @@ export default {
     updateClientInfo: function(client_id, info) {
         uibuilder.sendCtrl( {
             "topic": "update client info",
-            "payload": `UPDATE client_info SET diagnosis = '${info.diagnosis}', description = '${info.description}', address = '${info.address}', max_temp = ${info.max_temp != '' ? info.max_temp : null}, min_temp = ${info.min_temp != '' ? info.min_temp : null}, max_hum = ${info.max_hum != '' ? info.max_hum : null}, min_hum = ${info.min_hum != '' ? info.min_hum : null}, max_pres = ${info.max_pres != '' ? info.max_pres : null}, min_pres = ${info.min_pres != '' ? info.min_pres : null}, max_qua = ${info.max_qua != '' ? info.max_qua : null} WHERE client_id = ${client_id}`
+            "payload": `UPDATE client_info SET diagnosis = '${info.diagnosis}', 
+            description = '${info.description}', address = '${info.address}', 
+            max_temp = ${info.max_temp != '' ? info.max_temp : null}, min_temp = ${info.min_temp != '' ? info.min_temp : null}, 
+            max_hum = ${info.max_hum != '' ? info.max_hum : null}, min_hum = ${info.min_hum != '' ? info.min_hum : null}, 
+            max_pres = ${info.max_pres != '' ? info.max_pres : null}, min_pres = ${info.min_pres != '' ? info.min_pres : null}, 
+            max_blood = ${info.max_blood != '' ? info.max_blood : null}, min_blood = ${info.min_blood != '' ? info.min_blood : null},
+            max_qua = ${info.max_qua != '' ? info.max_qua : null} WHERE client_id = ${client_id}`
         } )
     },
 
@@ -90,8 +96,8 @@ export default {
     getMarkers: function(user_id) {
         uibuilder.sendCtrl( {
             "topic": "markers", 
-            "payload": `SELECT sc.client_id as id, name, lat, lon, temperature, humidity, pressure, resistance from (SELECT client_id,user_id,ac.name,ac.lat,ac.lon from selected_clients as sct left join all_clients as ac on sct.client_id = ac.id) as sc 
-            join (select cd.client_id, temperature, humidity, pressure, resistance, cd.time from client_data as cd 
+            "payload": `SELECT sc.client_id as id, name, lat, lon, temperature, humidity, pressure, resistance, bed, blood from (SELECT client_id,user_id,ac.name,ac.lat,ac.lon from selected_clients as sct left join all_clients as ac on sct.client_id = ac.id) as sc 
+            join (select cd.client_id, temperature, humidity, pressure, resistance, bed, blood, cd.time from client_data as cd 
             join (select client_id, MAX(time) as time from client_data group by client_id) as cdt on cd.time = cdt.time AND cd.client_id = cdt.client_id) as sct on sc.client_id = sct.client_id where sc.user_id = ${user_id};`   
         } )
     },                    

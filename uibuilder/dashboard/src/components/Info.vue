@@ -52,14 +52,26 @@
     </b-row> 
     <b-row class="px-5">
         <div class="col-md-6">
-            <h6>Maximálny tlak: </h6>
+            <h6>Maximálny tlak vzduchu: </h6>
             <b-form-input v-if="edit" id="max_pres" v-model="clientinfo.max_pres" type="number" required></b-form-input>
             <p v-else>{{clientinfo.max_pres ? clientinfo.max_pres + " hPa" : "Nebolo zadané"}}</p>            
         </div>
         <div class="col-md-6">
-            <h6>Minimálny tlak: </h6>
+            <h6>Minimálny tlak vzduchu: </h6>
             <b-form-input v-if="edit" id="min_pres" v-model="clientinfo.min_pres" type="number" required></b-form-input>
             <p v-else>{{clientinfo.max_pres ? clientinfo.min_pres + " hPa" : "Nebolo zadané"}}</p>
+        </div>
+    </b-row> 
+    <b-row class="px-5">
+        <div class="col-md-6">
+            <h6>Maximálny krvný tlak: </h6>
+            <b-form-input v-if="edit" id="max_blood" v-model="clientinfo.max_blood" type="number" required></b-form-input>
+            <p v-else>{{clientinfo.max_blood ? clientinfo.max_blood + " mm Hg" : "Nebolo zadané"}}</p>            
+        </div>
+        <div class="col-md-6">
+            <h6>Minimálny krvný tlak: </h6>
+            <b-form-input v-if="edit" id="min_blood" v-model="clientinfo.min_blood" type="number" required></b-form-input>
+            <p v-else>{{clientinfo.max_blood ? clientinfo.min_blood + " mm Hg" : "Nebolo zadané"}}</p>
         </div>
     </b-row>     
     <b-row class="px-5">        

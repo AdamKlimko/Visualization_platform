@@ -23,11 +23,11 @@
             <Gauge :value="client.humidity" :type="Type.HUM"></Gauge>
           </b-col>
           <b-col class="m-5">
-            <Gauge :value="client.pressure" :type="Type.PRES"></Gauge>
-          </b-col>
-          <b-col class="m-5">
             <Gauge :value="client.resistance" :type="Type.QUA"></Gauge>
           </b-col>
+          <b-col class="m-5">
+            <Gauge :value="client.blood" :type="Type.BLOOD"></Gauge>
+          </b-col>          
       </b-row>
 
       <hr class="my-5"> 
@@ -38,9 +38,13 @@
         <b-button-group size="sm">
           <b-button @click="changeSelectedData(Type.TEMP); changeSelectedInterval(interval)"  variant="light" size="sm">Teplota</b-button>                    
           <b-button @click="changeSelectedData(Type.HUM); changeSelectedInterval(interval)" variant="light" size="sm">Vlhosť vzduchu</b-button>   
-          <b-button @click="changeSelectedData(Type.PRES); changeSelectedInterval(interval)" variant="light" size="sm">Tlak</b-button>   
-          <b-button @click="changeSelectedData(Type.QUA); changeSelectedInterval(interval)" variant="light" size="sm">Kvalita vzduchu</b-button>   
+          <b-button @click="changeSelectedData(Type.PRES); changeSelectedInterval(interval)" variant="light" size="sm">Tlak vzduchu</b-button>   
+          <b-button @click="changeSelectedData(Type.QUA); changeSelectedInterval(interval)" variant="light" size="sm">Kvalita vzduchu</b-button>             
+        </b-button-group>
+
+        <b-button-group size="sm" class="ml-3">
           <b-button @click="changeSelectedData(Type.BED); changeSelectedInterval(interval)" variant="light" size="sm">Posteľ</b-button>
+          <b-button @click="changeSelectedData(Type.BLOOD); changeSelectedInterval(interval)"  variant="light" size="sm">Krvný tlak</b-button>                              
         </b-button-group>
 
         <b-button-group class="ml-auto mx-1" size="sm">
@@ -68,9 +72,10 @@ const Info = httpVueLoader('components/Info.vue');
 const Type = {
     TEMP: "Teplota",
     HUM: "Vlhosť vzduchu",
-    PRES: "Tlak",
+    PRES: "Tlak vzduchu",
     QUA: "Kvalita vzduchu",
-    BED: "Posteľ"
+    BED: "Obsadenosť postele",
+    BLOOD: "Krvný tlak",
 };
 
 module.exports = {
@@ -104,6 +109,7 @@ module.exports = {
           pressure_arr: [],    
           resistance_arr: [],
           bed_arr: [],
+          blood_arr: [],
           alerts: [],
         },
       }
@@ -137,7 +143,8 @@ module.exports = {
         case Type.HUM : return "%"; 
         case Type.PRES : return "hPa"; 
         case Type.QUA : return "AQI"; 
-        case Type.BED : return "on/off"; 
+        case Type.BED : return "leží/neleží"; 
+        case Type.BLOOD : return "mm Hg";
       }
     }
   },
@@ -172,8 +179,11 @@ module.exports = {
             this.selectedData = this.client.bed_arr;
             this.minMax = {min:0, max:1}
             break;
-      };
-      
+          case Type.BLOOD :
+            this.selectedData = this.client.blood_arr;
+            this.minMax = {min:80, max:130}
+            break;
+      };      
     },
 
     changeSelectedInterval: function(interval) {
