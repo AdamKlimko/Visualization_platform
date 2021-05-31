@@ -12,7 +12,7 @@
             <b-col>              
               <b-button v-b-toggle.collapse-1 variant="light" >E-mail <span class="material-icons">arrow_drop_down</span> </b-button>
               <b-collapse id="collapse-1" class="mt-2">                           
-                <div class="p-5 mx-5">      
+                <div class="p-md-5 mx-md-5">      
                   <b-row>
                     <div class="my-3 mx-3" v-if="notifSettings.email">
                       <h5>Email je aktivovaný <span class="material-icons">done</span></h5>
@@ -34,7 +34,7 @@
             <b-col>
               <b-button v-b-toggle.collapse-2 variant="light">Telegram <span class="material-icons">arrow_drop_down</span> </b-button>
               <b-collapse id="collapse-2" class="mt-2">    
-                <div class="p-5 mx-5">
+                <div class="p-md-5 mx-md-5">
                   <b-row>
                     <div class="my-3 mx-3" v-if="notifSettings.telegram_id">
                       <h5>Telegram je aktivovaný <span class="material-icons">done</span></h5>

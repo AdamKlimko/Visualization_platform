@@ -8,7 +8,7 @@
       <google-cluster>
 
       <google-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
-      <div class="p-1 mb-1">
+      <div class="marker-info p-1 mb-1">
         <h5>{{infoContent.name}}</h5>      
         <p>Teplota:<b> {{infoContent.temperature}} °C</b></p>
         <p>Vlhosť vzduchu:<b> {{infoContent.humidity}} %</b></p>
@@ -152,5 +152,9 @@ a:hover{
 
 h5{
   margin-bottom: 18px;
+}
+
+.marker-info{
+  width: 184px;
 }
 </style>

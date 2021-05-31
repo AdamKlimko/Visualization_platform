@@ -32,7 +32,7 @@
 
       <hr class="my-5"> 
 
-      <div class="mx-3">
+      <div class="mx-md-3">
       <b-row class="d-flex">
         
         <b-button-group size="sm">

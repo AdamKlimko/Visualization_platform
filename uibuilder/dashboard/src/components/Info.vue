@@ -2,7 +2,7 @@
 <div class="my-3">
     <b-button class="m-4" v-if="edit" @click="save()" size="sm" variant="light"><span class="material-icons">save</span> Uložiť</b-button>
     <b-button class="m-4" v-else @click="toggleEdit()" size="sm" variant="light"><span class="material-icons">edit</span> Upraviť</b-button>
-    <b-row class="px-5">        
+    <b-row class="px-md-5">        
         <div class="col-md-6">
             <b-row>
                 <div class="col-md-6">
@@ -26,7 +26,7 @@
             </div>            
     </b-row>  
     <hr>
-    <b-row class="px-5">
+    <b-row class="px-md-5">
         <div class="col-md-6">
             <h6>Maximálna teplota: </h6>
             <b-form-input v-if="edit" id="max_temp" v-model="clientinfo.max_temp" type="number" required></b-form-input>
@@ -38,7 +38,7 @@
             <p v-else>{{clientinfo.min_temp ? clientinfo.min_temp + " °C" : "Nebolo zadané"}}</p>
         </div>
     </b-row>
-    <b-row class="px-5">
+    <b-row class="px-md-5">
         <div class="col-md-6">
             <h6>Maximálna vlhkosť vzduchu: </h6>
             <b-form-input v-if="edit" id="max_hum" v-model="clientinfo.max_hum" type="number" required></b-form-input>
@@ -50,7 +50,7 @@
             <p v-else>{{clientinfo.min_hum ? clientinfo.min_hum + " %" : "Nebolo zadané"}}</p>
         </div>
     </b-row> 
-    <b-row class="px-5">
+    <b-row class="px-md-5">
         <div class="col-md-6">
             <h6>Maximálny tlak vzduchu: </h6>
             <b-form-input v-if="edit" id="max_pres" v-model="clientinfo.max_pres" type="number" required></b-form-input>
@@ -62,7 +62,7 @@
             <p v-else>{{clientinfo.max_pres ? clientinfo.min_pres + " hPa" : "Nebolo zadané"}}</p>
         </div>
     </b-row> 
-    <b-row class="px-5">
+    <b-row class="px-md-5">
         <div class="col-md-6">
             <h6>Maximálny krvný tlak: </h6>
             <b-form-input v-if="edit" id="max_blood" v-model="clientinfo.max_blood" type="number" required></b-form-input>
@@ -74,7 +74,7 @@
             <p v-else>{{clientinfo.max_blood ? clientinfo.min_blood + " mm Hg" : "Nebolo zadané"}}</p>
         </div>
     </b-row>     
-    <b-row class="px-5">        
+    <b-row class="px-md-5">        
         <div class="col-md-6">
             <h6>Minimálna kvalita vzduchu: </h6>
             <b-form-input v-if="edit" id="max_qua" v-model="clientinfo.max_qua" type="number" required></b-form-input>
