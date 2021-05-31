@@ -40,7 +40,7 @@ module.exports = {
                 case Type.HUM: return 100;
                 case Type.PRES: return 100;
                 case Type.QUA: return 500;
-                case Type.BLOOD: return 50;
+                case Type.BLOOD: return 60;
             }
         },
         min: function() {
