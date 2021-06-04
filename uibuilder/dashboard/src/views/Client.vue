@@ -44,7 +44,7 @@
 
         <b-button-group size="sm" class="ml-3">
           <b-button @click="changeSelectedData(Type.BED); changeSelectedInterval(interval)" variant="light" size="sm">Posteľ</b-button>
-          <b-button @click="changeSelectedData(Type.BLOOD); changeSelectedInterval(interval)"  variant="light" size="sm">Krvný tlak</b-button>                              
+          <b-button @click="changeSelectedData(Type.BLOOD); changeSelectedInterval(interval)"  variant="light" size="sm">Krvný tep</b-button>                              
         </b-button-group>
 
         <b-button-group class="ml-auto mx-1" size="sm">
@@ -75,7 +75,7 @@ const Type = {
     PRES: "Tlak vzduchu",
     QUA: "Kvalita vzduchu",
     BED: "Obsadenosť postele",
-    BLOOD: "Krvný tlak",
+    BLOOD: "Krvný tep",
 };
 
 module.exports = {
@@ -144,7 +144,7 @@ module.exports = {
         case Type.PRES : return "hPa"; 
         case Type.QUA : return "AQI"; 
         case Type.BED : return "leží/neleží"; 
-        case Type.BLOOD : return "mm Hg";
+        case Type.BLOOD : return "bpm";
       }
     }
   },
@@ -181,7 +181,7 @@ module.exports = {
             break;
           case Type.BLOOD :
             this.selectedData = this.client.blood_arr;
-            this.minMax = {min:80, max:130}
+            this.minMax = {min:50, max:150}
             break;
       };      
     },

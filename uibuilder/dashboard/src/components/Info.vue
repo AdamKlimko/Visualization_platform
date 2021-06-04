@@ -64,14 +64,14 @@
     </b-row> 
     <b-row class="px-md-5">
         <div class="col-md-6">
-            <h6>Maximálny krvný tlak: </h6>
+            <h6>Maximálny krvný tep: </h6>
             <b-form-input v-if="edit" id="max_blood" v-model="clientinfo.max_blood" type="number" required></b-form-input>
-            <p v-else>{{clientinfo.max_blood ? clientinfo.max_blood + " mm Hg" : "Nebolo zadané"}}</p>            
+            <p v-else>{{clientinfo.max_blood ? clientinfo.max_blood + " bpm" : "Nebolo zadané"}}</p>            
         </div>
         <div class="col-md-6">
-            <h6>Minimálny krvný tlak: </h6>
+            <h6>Minimálny krvný tep: </h6>
             <b-form-input v-if="edit" id="min_blood" v-model="clientinfo.min_blood" type="number" required></b-form-input>
-            <p v-else>{{clientinfo.max_blood ? clientinfo.min_blood + " mm Hg" : "Nebolo zadané"}}</p>
+            <p v-else>{{clientinfo.max_blood ? clientinfo.min_blood + " bpm" : "Nebolo zadané"}}</p>
         </div>
     </b-row>     
     <b-row class="px-md-5">        

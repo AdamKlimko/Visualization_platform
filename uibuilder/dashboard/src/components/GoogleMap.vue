@@ -15,7 +15,7 @@
         <p>Tlak vzduchu:<b> {{infoContent.pressure}} hPa</b></p>
         <p>Kvalita vzduchu:<b> {{infoContent.resistance}} AQI</b></p>
         <p>Obsadenosť postele:<b> {{infoContent.bed == 0 ? "neleží" : "leží"}}</b> </p>
-        <p>Krvný tlak:<b> {{infoContent.blood}} mm Hg</b></p>        
+        <p>Krvný tep:<b> {{infoContent.blood}} bpm</b></p>        
         <router-link :to="'/client/' + infoContent.id">Prejsť na</router-link>        
       </div>
       </google-info-window>

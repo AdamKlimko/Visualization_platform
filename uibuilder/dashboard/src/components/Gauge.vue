@@ -3,7 +3,7 @@
     <h5 class="text-center">{{type}}</h5>
     <div class="gauge-container">
         <vue-svg-gauge class="my-3"
-        :min="min" :max="max" :value="type == Type.BLOOD ? value - 70 : value" 
+        :min="min" :max="max" :value="type == Type.BLOOD ? value - 50 : value" 
         :separator-step="0"
         :gauge-color="[{ offset: 0, color: '#ffe659'}, { offset: 100, color: '#eb3349'}]">
         </vue-svg-gauge>
@@ -18,7 +18,7 @@ const Type = {
     HUM: "Vlhosť vzduchu",
     PRES: "Tlak",
     QUA: "Kvalita vzduchu",
-    BLOOD: "Krvný tlak",
+    BLOOD: "Krvný tep",
 };
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
                 case Type.HUM: return 100;
                 case Type.PRES: return 100;
                 case Type.QUA: return 500;
-                case Type.BLOOD: return 60;
+                case Type.BLOOD: return 100;
             }
         },
         min: function() {
@@ -58,7 +58,7 @@ module.exports = {
                 case Type.HUM: return " %";
                 case Type.PRES: return " hPa";
                 case Type.QUA: return " AQI";
-                case Type.BLOOD: return " mm Hg";
+                case Type.BLOOD: return " bpm";
             }
         },
     }
